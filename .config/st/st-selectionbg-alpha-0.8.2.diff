@@ -1,0 +1,20 @@
+--- x.c	2020-05-07 16:51:55.080437829 +0200
++++ x.c	2020-05-07 16:51:23.850218201 +0200
+@@ -812,6 +812,17 @@
+ 		((unsigned short)(dc.col[defaultbg].color.blue * alpha)) & 0xff00;
+ 	dc.col[defaultbg].pixel &= 0x00FFFFFF;
+ 	dc.col[defaultbg].pixel |= (unsigned char)(0xff * alpha) << 24;
++
++	/* set alpha value of selbg color */
++	dc.col[selectionbg].color.alpha = (unsigned short)(0xffff * alpha);
++	dc.col[selectionbg].color.red =
++		((unsigned short)(dc.col[selectionbg].color.red * alpha)) & 0xff00;
++	dc.col[selectionbg].color.green =
++		((unsigned short)(dc.col[selectionbg].color.green * alpha)) & 0xff00;
++	dc.col[selectionbg].color.blue =
++		((unsigned short)(dc.col[selectionbg].color.blue * alpha)) & 0xff00;
++	dc.col[selectionbg].pixel &= 0x00FFFFFF;
++	dc.col[selectionbg].pixel |= (unsigned char)(0xff * alpha) << 24;
+ 	loaded = 1;
+ }
+ 

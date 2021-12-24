@@ -1,0 +1,60 @@
+diff --git a/config.def.h b/config.def.h
+index ac895db..ef72871 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -9,6 +9,7 @@ static const char selbordercolor[]  = "#005577";
+ static const char selbgcolor[]      = "#005577";
+ static const char selfgcolor[]      = "#eeeeee";
+ static const unsigned int borderpx  = 1;        /* border pixel of windows */
++static const unsigned int gappx     = 1;        /* gap pixel between windows */
+ static const unsigned int snap      = 32;       /* snap pixel */
+ static const Bool showbar           = True;     /* False means no bar */
+ static const Bool topbar            = True;     /* False means bottom bar */
+diff --git a/dwm.c b/dwm.c
+index 5dd2673..2c3268e 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -1763,7 +1763,7 @@ void
+ tile(Monitor *m) {
+ 	Client *c;
+ 	Area *ga = m->pertag->areas[m->pertag->curtag], *ma = ga + 1, *sa = ga + 2, *a;
+-	unsigned int n, i, w, h, ms, ss;
++	unsigned int n, i, w, h, g, ms, ss;
+ 	float f;
+ 
+ 	/* print layout symbols */
+@@ -1778,23 +1778,24 @@ tile(Monitor *m) {
+ 	ma->n = MIN(n, m->nmaster), sa->n = n - ma->n;
+ 	/* calculate area rectangles */
+ 	f = ma->n == 0 ? 0 : (sa->n == 0 ? 1 : ga->fact / 2);
++	g = ma->n == 0 || sa->n == 0 ? 0 : gappx;
+ 	if(ga->dir == DirHor || ga->dir == DirRotHor)
+-		ms = f * m->ww, ss = m->ww - ms,
+-		ma->x = ga->dir == DirHor ? 0 : ss, ma->y = 0, ma->fx = ma->x + ms, ma->fy = m->wh,
+-		sa->x = ga->dir == DirHor ? ms : 0, sa->y = 0, sa->fx = sa->x + ss, sa->fy = m->wh;
++		ms = f * (m->ww - g), ss = m->ww - ms - g,
++		ma->x = ga->dir == DirHor ? 0 : ss + g, ma->y = 0, ma->fx = ma->x + ms, ma->fy = m->wh,
++		sa->x = ga->dir == DirHor ? ms + g: 0, sa->y = 0, sa->fx = sa->x + ss, sa->fy = m->wh;
+ 	else
+-		ms = f * m->wh, ss = m->wh - ms,
+-		ma->x = 0, ma->y = ga->dir == DirVer ? 0 : ss, ma->fx = m->ww, ma->fy = ma->y + ms,
+-		sa->x = 0, sa->y = ga->dir == DirVer ? ms : 0, sa->fx = m->ww, sa->fy = sa->y + ss;
++		ms = f * (m->wh - g), ss = m->wh - ms - g,
++		ma->x = 0, ma->y = ga->dir == DirVer ? 0 : ss + g, ma->fx = m->ww, ma->fy = ma->y + ms,
++		sa->x = 0, sa->y = ga->dir == DirVer ? ms + g : 0, sa->fx = m->ww, sa->fy = sa->y + ss;
+ 	/* tile clients */
+ 	for(c = nexttiled(m->clients), i = 0; i < n; c = nexttiled(c->next), i++) {
+ 		a = ma->n > 0 ? ma : sa;
+ 		f = i == 0 || ma->n == 0 ? a->fact : 1, f /= --a->n + f;
+-		w = (a->dir == DirVer ? 1 : f) * (a->fx - a->x);
+-		h = (a->dir == DirHor ? 1 : f) * (a->fy - a->y);
++		w = a->dir == DirVer ? a->fx - a->x : f * (a->fx - a->x - a->n * gappx);
++		h = a->dir == DirHor ? a->fy - a->y : f * (a->fy - a->y - a->n * gappx);;
+ 		resize(c, m->wx + a->x, m->wy + a->y, w - 2 * c->bw, h - 2 * c->bw, False);
+-		a->x += a->dir == DirHor ? w : 0;
+-		a->y += a->dir == DirVer ? h : 0;
++		a->x += a->dir == DirHor ? w + gappx : 0;
++		a->y += a->dir == DirVer ? h + gappx : 0;
+ 	}
+ }
+ 
