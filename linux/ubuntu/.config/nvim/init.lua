@@ -1,1 +1,0 @@
-require "better-vim-core"
