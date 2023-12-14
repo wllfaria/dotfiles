@@ -4,7 +4,7 @@ return {
 	config = function()
 		require("toggleterm").setup({
 			open_mapping = [[<c-\>]],
-			direction = "vertical",
+			direction = "horizontal",
 			size = function(term)
 				if term.direction == "horizontal" then
 					return 15

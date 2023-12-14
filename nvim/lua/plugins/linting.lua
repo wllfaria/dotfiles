@@ -3,7 +3,7 @@ return {
 	event = { "BufWritePre", "BufNewFile" },
 	config = function()
 		local lint = require("lint")
-		lint.linter_by_ft = {
+		lint.linters_by_ft = {
 			json = { "jsonlint" },
 			javascript = { "eslint_d" },
 			typescript = { "eslint_d" },

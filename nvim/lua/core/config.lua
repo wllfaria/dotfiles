@@ -1,71 +1,41 @@
-require "core.helpers.globals"
+vim.opt.confirm = true
+vim.opt.mouse = "a"
+vim.opt.cursorline = false
 
--- Set associating between turned on plugins and filetype
-cmd[[filetype plugin on]]
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.termguicolors = true
 
--- Disable comments on pressing Enter
-cmd[[autocmd FileType * setlocal formatoptions-=cro]]
+vim.opt.undofile = true
+vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
+vim.opt.backup = false
+vim.opt.swapfile = false
+vim.opt.colorcolumn = "80"
 
--- General UI config
-opt.number = true																											-- Enabling line numbers
-opt.relativenumber = true																							-- Enabling relative line numbers
-opt.termguicolors = true																							-- Enabling colors on terminal
-opt.cursorline = false																								-- Disable cursor line
-opt.clipboard = "unnamedplus"																					-- Using the same clipboard as OS
-opt.confirm = true																										-- Confirming unsaved changes
-opt.mouse = "a"																												-- Enable mouse support
-opt.undofile = true																										-- Enable undo file
-opt.swapfile = false																									-- Disable swap file
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
--- Indentation
-opt.expandtab = false                																	-- Use tabs by default
-opt.shiftwidth = 2                  																	-- Set amount of space characters, when we press "<" or ">"
-opt.tabstop = 2                     																	-- 1 tab equal 2 spaces
-opt.smartindent = true																								-- Turn on smart indentation.
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.tabstop = 4
+vim.opt.smartindent = true
 
--- Search
-opt.ignorecase = true               																	-- Ignore case if all characters in lower case
-opt.joinspaces = false              																	-- Join multiple spaces in search
-opt.smartcase = true                																	-- When there is a one capital letter search for exact match
-opt.showmatch = true                																	-- Highlight search instances
+vim.opt.wrap = false
 
--- Split behavior
-opt.splitbelow = true               																	-- Put new windows below current
-opt.splitright = true               																	-- Put new vertical splits to right
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.isfname = vim.opt.isfname:append("@-@")
 
--- Wild Menu
-opt.wildmenu = true																										-- Enabling the wild menu
-opt.wildmode = "longest:full,full"																		-- Setting wild menu mode
+vim.opt.updatetime = 50
 
--- Make cursor blink magic
-opt.guicursor = {
-    "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50",
-    "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
-    "sm:block-blinkwait175-blinkoff150-blinkon175",
-}
+vim.opt.ignorecase = true
+vim.opt.joinspaces = false
+vim.opt.smartcase = true
+vim.opt.showmatch = true
 
--- Disabling default plugins
-local disabled_built_ins = {
-  "netrw",
-  "netrwPlugin",
-  "netrwSettings",
-  "netrwFileHandlers",
-  "gzip",
-  "zip",
-  "zipPlugin",
-  "tar",
-  "tarPlugin",
-  "getscript",
-  "getscriptPlugin",
-  "vimball",
-  "vimballPlugin",
-  "2html_plugin",
-  "logipat",
-  "rrhelper",
-  "spellfile_plugin",
-  "matchit"
-}
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
-for _, plugin in pairs(disabled_built_ins) do
-  g["loaded_" .. plugin] = 1
-end
+vim.opt.wildmenu = true
+vim.opt.wildmode = "longest:full,full"

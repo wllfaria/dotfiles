@@ -17,6 +17,7 @@ return {
 				gitrebase = false,
 				hgcommit = false,
 				svn = false,
+				rs = false,
 				cpp = false,
 				c = false,
 				cvs = false,

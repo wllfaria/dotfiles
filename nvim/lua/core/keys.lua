@@ -1,55 +1,78 @@
-require("core.helpers.globals")
-require("core.helpers.keymaps")
-
-g.mapleader = " " -- Using Space as leader
+vim.g.mapleader = " " -- Using Space as leader
 
 -- General mapping
-im("jk", "<Esc>") -- Using jk as ESC
+vim.keymap.set("i", "jk", "<Esc>") -- Using jk as ESC
+vim.keymap.set("n", "<leader>v", "<C-v>")
 
 -- Resizing Windows
-nm("<C-Up>", ":resize +2<cr>") -- Resize window Ctrl + UP
-nm("<C-Down>", ":resize -2<cr>") -- Resize window Ctrl + DOWN
-nm("<C-Left>", ":vertical resize -2<cr>") -- Resize window Ctrl + LEFT
-nm("<C-Right>", ":vertical resize +2<cr>") -- Resize window Ctrl + RIGHT
+vim.keymap.set("n", "<C-Up>", ":resize +2<cr>") -- Resize window Ctrl + UP
+vim.keymap.set("n", "<C-Down>", ":resize -2<cr>") -- Resize window Ctrl + DOWN
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<cr>") -- Resize window Ctrl + LEFT
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<cr>") -- Resize window Ctrl + RIGHT
 
-vm("<Tab>", ">gv") -- Indent selected text
-vm("<S-Tab>", "<gv") -- Unindent selected text
+vim.keymap.set("v", "<Tab>", ">gv") -- Indent selected text
+vim.keymap.set("v", "<S-Tab>", "<gv") -- Unindent selected text
+vim.keymap.set("v", ">>", ">gv") -- Indent selected text
+vim.keymap.set("v", "<<", "<gv") -- Unindent selected text
 
 -- LSP
-nm("K", "<cmd>lua vim.lsp.buf.hover()<CR>") -- Hover object
-nm("ga", "<cmd>lua vim.lsp.buf.code_action()<CR>") -- Code actions
-nm("gR", "<cmd>lua vim.lsp.buf.rename()<CR>") -- Rename an object
-nm("gD", "<cmd>lua vim.lsp.buf.declaration()<cr>") -- Go to declaration
+vim.keymap.set("n", "K", function()
+	vim.lsp.buf.hover()
+end)
+vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>") -- Go to declaration
+vim.keymap.set("n", "gd", function()
+	vim.lsp.buf.definition()
+end)
+vim.keymap.set("n", "<leader>vrr", function()
+	vim.lsp.buf.references()
+end)
+vim.keymap.set("n", "<leader>vca", function()
+	vim.lsp.buf.code_action()
+end)
+vim.keymap.set("n", "<leader>vrn", function()
+	vim.lsp.buf.rename()
+end)
 
--- Telescope
-nm("gd", "<cmd>Telescope lsp_definitions<CR>") -- Go to declaration
-nm("<leader>p", "<cmd>Telescope find_files<CR>") -- Search for a file (ignoring git-ignore)
-nm("<leader>P", "<cmd>Telescope git_files<CR>") -- Search for a file
-nm("<leader>f", "<cmd>Telescope live_grep<CR>") -- Find a string in project
-nm("<leader>r", "<cmd>Telescope oldfiles<CR>") -- Show recent files
-nm("<leader>q", "<cmd>Telescope buffers<CR>") -- Show all buffers
+vim.keymap.set("n", "<leader>pf", "<cmd>Telescope find_files<CR>") -- Search for a file (ignoring git-ignore)
+vim.keymap.set("n", "<C-p>", "<cmd>Telescope git_files<CR>") -- Search for a file
+vim.keymap.set("n", "<leader>f", "<cmd>Telescope live_grep<CR>") -- Find a string in project
+vim.keymap.set("n", "<leader>ps", function()
+	require("telescope.builtin").grep_string({
+		search = vim.fn.input("Grep String > "),
+	})
+end)
 
--- Trouble
-nm("<leader>x", "<cmd>TroubleToggle<CR>") -- Show all problems in project (with help of LSP)
-nm("gr", "<cmd>Trouble lsp_references<CR>") -- Show use of object in project
-
--- Neo Tree
-nm("<leader>b", "<cmd>Neotree toggle<CR>") -- Toggle file explorer
-
--- Dap
-nm("<leader>db", "<cmd>DapToggleBreakpoint<CR>") -- Toggle breakpoint on current line
-nm("<leader>dr", "<cmd>DapContinue<CR>") -- Start or Continue execution
+vim.keymap.set("n", "<leader>x", "<cmd>TroubleToggle<CR>") -- Show all problems in project (with help of LSP)
 
 -- Move Lines with ALT + hjkl
-nm("<A-j>", ":m .+1<cr>==")
-nm("<A-k>", ":m .-2<cr>==")
-im("<A-j>", "<esc><cmd>m .+1<cr>==gi")
-im("<A-k>", "<esc><cmd>m .-2<cr>==gi")
-vm("<A-j>", ":m '>+1<cr>gv=gv")
-vm("<A-k>", ":m '<-2<cr>gv=gv")
+vim.keymap.set("n", "<A-j>", ":m .+1<cr>==")
+vim.keymap.set("n", "<A-k>", ":m .-2<cr>==")
+vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi")
+vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi")
+vim.keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv")
+vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv")
 
--- Remove Search Highlight
-nm("<leader>sl", ":noh<cr>")
+vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "<leader>p", '"_dP')
+vim.keymap.set("n", "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>Y", '"+Y')
+
+vim.keymap.set("n", "<leader>d", '"_d')
+vim.keymap.set("v", "<leader>d", '"_d')
+vim.keymap.set("n", "Q", "<nop>")
+
+vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 function _G.set_terminal_keymaps()
 	vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])

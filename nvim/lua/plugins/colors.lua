@@ -1,9 +1,7 @@
-require("core.helpers.globals")
-
 local is_transparent = true
 
 if is_transparent then
-	opt.fillchars:append({
+	vim.opt.fillchars:append({
 		horiz = " ",
 		horizup = " ",
 		horizdown = " ",
@@ -25,7 +23,7 @@ return {
 				terminal_colors = true,
 				contrast = "hard",
 				transparent_mode = is_transparent,
-				-- cmd("colorscheme gruvbox")
+				-- vim.cmd("colorscheme gruvbox")
 			})
 		end,
 	},
@@ -43,7 +41,7 @@ return {
 					},
 				})
 			end
-			-- cmd("colorscheme tokyonight")
+			-- vim.cmd("colorscheme tokyonight")
 		end,
 	},
 	{
@@ -51,10 +49,44 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			g.adwaita_darker = true
-			g.adwaita_disable_cursorline = true
-			g.adwaita_transparent = true
-			cmd("colorscheme adwaita")
+			vim.g.adwaita_darker = true
+			vim.g.adwaita_disable_cursorline = true
+			vim.g.adwaita_transparent = true
+			-- vim.cmd("colorscheme adwaita")
+		end,
+	},
+	{
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("kanagawa").setup({
+				colors = {
+					theme = {
+						all = {
+							ui = {
+								bg_gutter = "none",
+							},
+						},
+					},
+				},
+
+				overrides = function(colors)
+					local theme = colors.theme
+					return {
+						Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+						PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+						PmenuSbar = { bg = theme.ui.bg_m1 },
+						PmenuThumb = { bg = theme.ui.bg_p2 },
+					}
+				end,
+				background = { -- map the value of 'background' option to a theme
+					dark = "dragon", -- try "dragon" !
+					light = "lotus",
+				},
+			})
+
+			vim.cmd("colorscheme kanagawa")
 		end,
 	},
 }
