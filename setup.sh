@@ -14,6 +14,12 @@ sudo apt install fd-find
 sudo apt install luarocks
 sudo apt-get install python3-pip
 python3 -m pip install pynvim
+sudo apt-get install pkg-config libncursesw5-dev libreadline-dev
+
+wget https://github.com/jarun/nnn/releases/download/v4.9/nnn-nerd-static-4.9.x86_64.tar.gz -P ~/code
+tar -xzf ~/code/nnn-nerd-static-4.9.x86_64.tar.gz
+mv nnn-nerd-static nnn
+sudo mv nnn /usr/local/bin/
 
 # omg node version manager?!
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
