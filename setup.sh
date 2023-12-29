@@ -15,6 +15,7 @@ sudo apt install luarocks
 sudo apt-get install python3-pip
 python3 -m pip install pynvim
 sudo apt-get install pkg-config libncursesw5-dev libreadline-dev
+sudo apt install mysql-server
 
 wget https://github.com/jarun/nnn/releases/download/v4.9/nnn-nerd-static-4.9.x86_64.tar.gz -P ~/code
 tar -xzf ~/code/nnn-nerd-static-4.9.x86_64.tar.gz
