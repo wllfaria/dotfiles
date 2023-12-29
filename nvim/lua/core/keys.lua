@@ -1,50 +1,41 @@
-vim.g.mapleader = " " -- Using Space as leader
+vim.g.mapleader = " "
 
--- General mapping
-vim.keymap.set("i", "jk", "<Esc>") -- Using jk as ESC
+vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("n", "<leader>v", "<C-v>")
 
--- Resizing Windows
-vim.keymap.set("n", "<C-Up>", ":resize +2<cr>") -- Resize window Ctrl + UP
-vim.keymap.set("n", "<C-Down>", ":resize -2<cr>") -- Resize window Ctrl + DOWN
-vim.keymap.set("n", "<C-Left>", ":vertical resize -2<cr>") -- Resize window Ctrl + LEFT
-vim.keymap.set("n", "<C-Right>", ":vertical resize +2<cr>") -- Resize window Ctrl + RIGHT
+vim.keymap.set("n", "<C-Up>", ":resize +2<cr>")
+vim.keymap.set("n", "<C-Down>", ":resize -2<cr>")
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<cr>")
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<cr>")
 
-vim.keymap.set("v", "<Tab>", ">gv") -- Indent selected text
-vim.keymap.set("v", "<S-Tab>", "<gv") -- Unindent selected text
-vim.keymap.set("v", ">>", ">gv") -- Indent selected text
-vim.keymap.set("v", "<<", "<gv") -- Unindent selected text
+vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>")
+vim.keymap.set("n", "<leader>t", "<Plug>PlenaryTestFile", { expr = true })
 
--- LSP
-vim.keymap.set("n", "K", function()
-	vim.lsp.buf.hover()
-end)
-vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>") -- Go to declaration
-vim.keymap.set("n", "gd", function()
-	vim.lsp.buf.definition()
-end)
-vim.keymap.set("n", "<leader>vrr", function()
-	vim.lsp.buf.references()
-end)
-vim.keymap.set("n", "<leader>vca", function()
-	vim.lsp.buf.code_action()
-end)
-vim.keymap.set("n", "<leader>vrn", function()
-	vim.lsp.buf.rename()
-end)
+vim.keymap.set("v", "<Tab>", ">gv")
+vim.keymap.set("v", "<S-Tab>", "<gv")
+vim.keymap.set("v", ">>", ">gv")
+vim.keymap.set("v", "<<", "<gv")
+vim.keymap.set("n", "<leader>K", '<cmd>lua vim.diagnostic.open_float({ border = "single"})<CR>')
 
-vim.keymap.set("n", "<leader>pf", "<cmd>Telescope find_files<CR>") -- Search for a file (ignoring git-ignore)
-vim.keymap.set("n", "<C-p>", "<cmd>Telescope git_files<CR>") -- Search for a file
-vim.keymap.set("n", "<leader>f", "<cmd>Telescope live_grep<CR>") -- Find a string in project
+
+vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>")
+vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
+vim.keymap.set("n", "<leader>vrr", "<cmd> lua vim.lsp.buf.references()<cr>")
+vim.keymap.set("n", "<leader>vca", "<cmd>lua vim.lsp.buf.code_action()<cr>")
+vim.keymap.set("n", "<leader>vrn", "<cmd>vim.lsp.buf.rename()<cr>")
+
+vim.keymap.set("n", "<leader>pf", "<cmd>Telescope find_files<CR>")
+vim.keymap.set("n", "<C-p>", "<cmd>Telescope git_files<CR>")
+vim.keymap.set("n", "<leader>f", "<cmd>Telescope live_grep<CR>")
+vim.keymap.set("n", "<leader>ph", "<cmd>Telescope help_tags<CR>")
 vim.keymap.set("n", "<leader>ps", function()
-	require("telescope.builtin").grep_string({
-		search = vim.fn.input("Grep String > "),
-	})
+    require("telescope.builtin").grep_string({
+        search = vim.fn.input("Grep String > "),
+    })
 end)
 
-vim.keymap.set("n", "<leader>x", "<cmd>TroubleToggle<CR>") -- Show all problems in project (with help of LSP)
+vim.keymap.set("n", "<leader>x", "<cmd>TroubleToggle<CR>")
 
--- Move Lines with ALT + hjkl
 vim.keymap.set("n", "<A-j>", ":m .+1<cr>==")
 vim.keymap.set("n", "<A-k>", ":m .-2<cr>==")
 vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi")
@@ -68,21 +59,23 @@ vim.keymap.set("n", "Q", "<nop>")
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<C-q><C-q>", "<cmd>cclose<CR>")
+vim.keymap.set("n", "<C-q><C-w>", "<cmd>copen<CR>")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>mx", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>gp", "<cmd>Git push<CR>")
 
 function _G.set_terminal_keymaps()
-	vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
-	vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
-	vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
-	vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
-	vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
-	vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
-	vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
+    vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
+    vim.keymap.set("t", "jk", [[<C-\><C-n>]], vim.opts)
+    vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], vim.opts)
+    vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], vim.opts)
+    vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], vim.opts)
+    vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], vim.opts)
+    vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], vim.opts)
 end
 
--- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
