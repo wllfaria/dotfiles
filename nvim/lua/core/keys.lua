@@ -17,7 +17,6 @@ vim.keymap.set("v", ">>", ">gv")
 vim.keymap.set("v", "<<", "<gv")
 vim.keymap.set("n", "<leader>K", '<cmd>lua vim.diagnostic.open_float({ border = "single"})<CR>')
 
-
 vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>")
 vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 vim.keymap.set("n", "<leader>vrr", "<cmd> lua vim.lsp.buf.references()<cr>")
@@ -29,9 +28,9 @@ vim.keymap.set("n", "<C-p>", "<cmd>Telescope git_files<CR>")
 vim.keymap.set("n", "<leader>f", "<cmd>Telescope live_grep<CR>")
 vim.keymap.set("n", "<leader>ph", "<cmd>Telescope help_tags<CR>")
 vim.keymap.set("n", "<leader>ps", function()
-    require("telescope.builtin").grep_string({
-        search = vim.fn.input("Grep String > "),
-    })
+	require("telescope.builtin").grep_string({
+		search = vim.fn.input("Grep String > "),
+	})
 end)
 
 vim.keymap.set("n", "<leader>x", "<cmd>TroubleToggle<CR>")
@@ -64,18 +63,8 @@ vim.keymap.set("n", "<C-q><C-w>", "<cmd>copen<CR>")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
+vim.keymap.set("n", "<c-f>", ":silent !tmux neww tmux-sessionizer<cr>")
+
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>mx", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>gp", "<cmd>Git push<CR>")
-
-function _G.set_terminal_keymaps()
-    vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
-    vim.keymap.set("t", "jk", [[<C-\><C-n>]], vim.opts)
-    vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], vim.opts)
-    vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], vim.opts)
-    vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], vim.opts)
-    vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], vim.opts)
-    vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], vim.opts)
-end
-
-vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")

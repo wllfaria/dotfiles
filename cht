@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-languages=$(echo "golang c cpp typescript rust python" | tr " " "\n")
+languages=$(echo "golang c cpp typescript rust python php" | tr " " "\n")
 core_utils=$(echo "find xargs sed awk grep" | tr " " "\n")
 selected=$(echo -e "$languages\n$core_utils" | fzf)
 

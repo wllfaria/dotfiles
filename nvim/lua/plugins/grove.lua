@@ -1,3 +1,4 @@
 return {
-    dir = "/home/wiru/code/personal/grove.nvim",
+	dir = "/home/wiru/code/personal/plugins/grove.nvim",
+	config = function() end,
 }
