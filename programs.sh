@@ -1,7 +1,12 @@
 sudo apt update
 sudo apt upgrade
 
+# window manager
 sudo apt install awesome
+
+# utils
+sudo apt install arandr
+sudo apt install nitrogen
 
 # Alacritty
 sudo add-apt-repository ppa:aslatter/ppa -y
@@ -52,5 +57,3 @@ sudo apt install ./discord-0.0.41.deb
 # OBS
 sudo add-apt-repository ppa:obsproject/obs-studio
 sudo apt install obs-studio
-
-
