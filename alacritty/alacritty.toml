@@ -1,0 +1,13 @@
+import=[
+    "~/.config/alacritty/themes/kanagawa.toml"
+]
+
+[window]
+padding={x = 0, y = 0}
+decorations="None"
+blur=false
+opacity=1.0
+
+[font]
+normal={family="CaskaydiaMono NerdFont"}
+size=14.0

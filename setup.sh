@@ -16,6 +16,7 @@ sudo apt-get install python3-pip
 python3 -m pip install pynvim
 sudo apt-get install pkg-config libncursesw5-dev libreadline-dev
 sudo apt install mysql-server
+sudo apt install fzf
 
 wget https://github.com/jarun/nnn/releases/download/v4.9/nnn-nerd-static-4.9.x86_64.tar.gz -P ~/code
 tar -xzf ~/code/nnn-nerd-static-4.9.x86_64.tar.gz
@@ -49,15 +50,9 @@ sudo apt-get install neovim
 
 # we config
 cp -r ./nvim ~/.config/nvim
-
-# we do a little alias
-sudo echo 'alias v=nvim_here() {
-    if [ $# -eq 0 ]; then
-        nvim .
-    else
-        nvim "$@"
-    fi
-}nvim_here' >> ~/.bashrc
+mkdir ~/.config/tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+cp -r ./tmux ~/.config/tmux
 
 source ~/.bashrc
 

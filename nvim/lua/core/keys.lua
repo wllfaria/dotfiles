@@ -28,9 +28,9 @@ vim.keymap.set("n", "<C-p>", "<cmd>Telescope git_files<CR>")
 vim.keymap.set("n", "<leader>f", "<cmd>Telescope live_grep<CR>")
 vim.keymap.set("n", "<leader>ph", "<cmd>Telescope help_tags<CR>")
 vim.keymap.set("n", "<leader>ps", function()
-	require("telescope.builtin").grep_string({
-		search = vim.fn.input("Grep String > "),
-	})
+    require("telescope.builtin").grep_string({
+        search = vim.fn.input("Grep String > "),
+    })
 end)
 
 vim.keymap.set("n", "<leader>x", "<cmd>TroubleToggle<CR>")
@@ -68,3 +68,5 @@ vim.keymap.set("n", "<c-f>", ":silent !tmux neww tmux-sessionizer<cr>")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>mx", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>gp", "<cmd>Git push<CR>")
+
+vim.keymap.set("n", "-", "<cmd>:Explore<CR>")
