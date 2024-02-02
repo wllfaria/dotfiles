@@ -92,5 +92,10 @@ require("main.client")
 --Autostart applications
 awful.spawn.with_shell("picom --daemon")
 awful.spawn.with_shell("nitrogen --restore")
-awful.util.spawn("nm-applet")
-awful.spawn.with_shell([[sleep 1s && xss-lock  awesome-client 'awesome.emit_signal("screen::lock")']])
+awful.spawn.with_shell("xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --left-of DP-2")
+awful.spawn.with_shell("xrandr --output DP-2 --mode 1920x1080 --rate 240 --primary")
+awful.spawn.with_shell("xinput --set-prop 17 'libinput Accel Profile Enabled' 0, 1")
+awful.spawn.with_shell("xinput --set-prop 17 'libinput Accel Speed' 0")
+
+-- awful.spawn.with_shell([[sleep 1s && xss-lock  awesome-client 'awesome.emit_signal("screen::lock")']])
+-- awful.util.spawn("nm-applet")

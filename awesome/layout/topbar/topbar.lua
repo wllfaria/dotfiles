@@ -67,7 +67,7 @@ awful.screen.connect_for_each_screen(function(s)
 		widget = wibox.container.margin,
 	})
 	local mywibox = awful.wibar({
-		position = "top",
+		position = "bottom",
 		margins = { top = dpi(0), left = dpi(0), right = dpi(0), bottom = 0 },
 		screen = s,
 		height = dpi(35),

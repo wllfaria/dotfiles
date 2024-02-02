@@ -26,7 +26,10 @@ local make_dashboard = function(s)
 		forced_width = 450,
 		maximum_height = 950,
 		placement = function(c)
-			awful.placement.top_left(c, { margins = { top = dpi(43), bottom = dpi(8), left = dpi(8), right = dpi(8) } })
+			awful.placement.bottom_left(
+				c,
+				{ margins = { top = dpi(8), bottom = dpi(43), left = dpi(8), right = dpi(8) } }
+			)
 		end,
 		shape = function(cr, width, height)
 			gears.shape.rounded_rect(cr, width, height, 0)
