@@ -1,25 +1,7 @@
--- awesomewm fancy_taglist: a taglist that contains a tasklist for each tag.
--- Usage (add s.mytaglist to the wibar):
--- awful.screen.connect_for_each_screen(function(s)
---     ...
---     local fancy_taglist = require("fancy_taglist")
---     s.mytaglist = fancy_taglist.new({
---         screen = s,
---         taglist = { buttons = mytagbuttons },
---         tasklist = { buttons = mytasklistbuttons }
---     })
---     ...
--- end)
---
--- If you want rounded corners, try this in your theme:
--- theme.taglist_shape = function(cr, w, h)
---     return gears.shape.rounded_rect(cr, w, h, theme.border_radius)
--- end
 local awful = require("awful")
 local beautiful = require("beautiful")
 local gears = require("gears")
 local wibox = require("wibox")
-
 local dpi = beautiful.xresources.apply_dpi
 local internal_spacing = dpi(7)
 local box_height = dpi(5)

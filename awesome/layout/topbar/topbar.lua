@@ -23,7 +23,7 @@ mytextclock = wibox.widget.textclock(
 
 local cw = calendar_widget({
 	theme = "nord",
-	placement = "top_center",
+	placement = "bottom_right",
 	start_sunday = true,
 	radius = 8,
 	previous_month_button = 1,
@@ -36,9 +36,6 @@ mytextclock:connect_signal("button::press", function(_, _, _, button)
 		cw.toggle()
 	end
 end)
-
-local top_left = require("layout.topbar.top_left")
-local systray = require("layout.topbar.systray")
 
 awful.screen.connect_for_each_screen(function(s)
 	local awesome_logo = require("layout.topbar.awesome_logo")(s)
@@ -53,7 +50,7 @@ awful.screen.connect_for_each_screen(function(s)
 		},
 	})
 
-	local fancy_taglist = wibox.widget({
+	fancy_taglist = wibox.widget({
 		{
 			mytaglist,
 			widget = wibox.container.background,
@@ -96,17 +93,9 @@ awful.screen.connect_for_each_screen(function(s)
 				{
 					-- Right widgets
 					layout = wibox.layout.fixed.horizontal,
-					systray,
-					separator,
-					top_left,
+					mytextclock,
 					separator,
 				},
-			},
-			{
-				mytextclock,
-				valign = "center",
-				halign = "center",
-				layout = wibox.container.place,
 			},
 		},
 		widget = wibox.container.background,

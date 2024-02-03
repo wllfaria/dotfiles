@@ -29,15 +29,6 @@ M.awesome = {
 	},
 }
 
-M.favorite = {
-	{ "Screen Record", "vokoscreenNG" },
-	{ "Files", "thunar" },
-	{ "VS Code", "code" },
-	{ "Firefox", "firefox", awful.util.getdir("config") .. "/firefox.png" },
-	{ "GIMP", "gimp" },
-	{ "KDEconnect", "kdeconnect-app" },
-}
-
 M.network_main = {
 	{ "wicd-curses", "wicd-curses" },
 	{ "wicd-gtk", "wicd-gtk" },
@@ -50,7 +41,6 @@ function _M.get()
 		{ "Awesome", M.awesome, beautiful.awesome_subicon },
 		{ "Open Terminal", terminal },
 		{ "Change Wallpaper", "nitrogen" },
-		{ "Favorite", M.favorite },
 	}
 
 	return menu_items

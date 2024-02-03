@@ -13,7 +13,6 @@ end)
 client.connect_signal("unfocus", function(c)
 	c.border_width = 5
 end)
--- Signal function to execute when a new client appears.
 client.connect_signal("manage", function(c)
 	if not awesome.startup then
 		awful.client.setslave(c)
@@ -23,8 +22,6 @@ client.connect_signal("manage", function(c)
 		awful.placement.no_offscreen(c)
 	end
 end)
-
---Grab the focus on opened window when swotching workspaces
 tag.connect_signal("property::selected", function(t)
 	local selected = tostring(t.selected) == "false"
 	if selected then
