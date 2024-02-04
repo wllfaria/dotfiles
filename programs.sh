@@ -57,3 +57,6 @@ sudo apt install ./discord-0.0.41.deb
 # OBS
 sudo add-apt-repository ppa:obsproject/obs-studio
 sudo apt install obs-studio
+
+sudo luarocks install lgi
+cargo install stylua
