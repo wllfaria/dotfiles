@@ -17,36 +17,36 @@ beautiful.wallpaper = RC.vars.wallpaper
 modkey = RC.vars.modkey
 
 local main = {
-	layouts = require("main.layouts"),
-	tags = require("main.tags"),
-	menu = require("main.menu"),
-	rules = require("main.rules"),
+    layouts = require("main.layouts"),
+    tags = require("main.tags"),
+    menu = require("main.menu"),
+    rules = require("main.rules"),
 }
 
 require("deco.notifications")
 
 local keys = {
-	globalbuttons = require("keys.globalbuttons"),
-	clientbuttons = require("keys.clientbuttons"),
-	globalkeys = require("keys.globalkeys"),
-	bindtotags = require("keys.bindtotags"),
-	clientkeys = require("keys.clientkeys"),
+    globalbuttons = require("keys.globalbuttons"),
+    clientbuttons = require("keys.clientbuttons"),
+    globalkeys = require("keys.globalkeys"),
+    bindtotags = require("keys.bindtotags"),
+    clientkeys = require("keys.clientkeys"),
 }
 
 RC.layouts = main.layouts()
 RC.tags = main.tags()
 
 RC.mainmenu = awful.menu({
-	items = main.menu(),
-	theme = {
-		width = 250,
-		height = 30,
-		font = "Ubuntu Nerd Font 14",
-		bg_normal = "#00000080",
-		bg_focus = "#729fcf",
-		border_width = 3,
-		border_color = "#000000",
-	},
+    items = main.menu(),
+    theme = {
+        width = 250,
+        height = 30,
+        font = "Ubuntu Nerd Font 14",
+        bg_normal = "#00000080",
+        bg_focus = "#729fcf",
+        border_width = 3,
+        border_color = "#000000",
+    },
 })
 
 RC.launcher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = RC.mainmenu })
@@ -64,7 +64,7 @@ awful.rules.rules = main.rules(keys.clientkeys(), keys.clientbuttons())
 
 require("main.signals")
 
-beautiful.init("~/.config/awesome/themes/mytheme/theme.lua")
+beautiful.init("~/.config/awesome/themes/theme.lua")
 beautiful.useless_gap = 4
 require("main.client")
 
