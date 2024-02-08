@@ -20,6 +20,9 @@ myawesomemenu = {
 
 function M.get()
     local globalkeys = gears.table.join(
+        awful.key({ modkey, "Shift" }, "s", function()
+            awful.spawn.with_shell("screenshot")
+        end, { description = "take a screenshot", group = "hotkeys" }),
         awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
         awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
         awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),

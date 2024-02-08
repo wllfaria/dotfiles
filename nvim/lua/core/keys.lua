@@ -21,7 +21,7 @@ vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>")
 vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 vim.keymap.set("n", "<leader>vrr", "<cmd> lua vim.lsp.buf.references()<cr>")
 vim.keymap.set("n", "<leader>vca", "<cmd>lua vim.lsp.buf.code_action()<cr>")
-vim.keymap.set("n", "<leader>vrn", "<cmd>vim.lsp.buf.rename()<cr>")
+vim.keymap.set("n", "<leader>vrn", "<cmd>lua vim.lsp.buf.rename()<cr>")
 
 vim.keymap.set("n", "<leader>pf", "<cmd>Telescope find_files<CR>")
 vim.keymap.set("n", "<C-p>", "<cmd>Telescope git_files<CR>")
