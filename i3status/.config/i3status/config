@@ -1,0 +1,51 @@
+general {
+  colors = true
+  color_good      = '#00ff2d'
+  color_degraded  = '#ccdc90'
+  color_bad       = '#ff1100'
+  interval = 5
+  separator = "|"
+}
+
+order += "cpu_temperature 0"
+order += "disk /"
+order += "cpu_usage"
+order += "memory"
+order += "tztime month"
+order += "tztime day"
+order += "volume master"
+
+cpu_temperature 0 {
+format = "tea: %degrees °C"
+max_threshold = 1 
+}
+
+disk "/" {
+  format = "/: %free"
+}
+
+cpu_usage {
+  format = "Cpu: %usage"
+}
+
+memory {
+  format="Memory: %used/%total"
+  threshold_degraded = "10%"
+  format_degraded = "MEMORY: %free"
+}
+
+tztime month {
+        format = "%y-%m-%m"
+}
+
+tztime day{
+        format = "%H:%M:%S"
+}
+
+volume master {
+        format = "vol: %volume"
+        format_muted = "vol: muted (%volume)"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
