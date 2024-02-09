@@ -1,0 +1,3 @@
+#!/bin/bash
+current_sink=$(pactl list sinks short | grep -iE "(RUNNING|IDLE)" | awk '{print $1}')
+[[ $(pactl get-sink-volume $current_sink | grep -i 'volume' | awk '{gsub(/%/, "", $5); print $5}') -lt 60 ]] && pactl set-sink-volume $current_sink +10%
