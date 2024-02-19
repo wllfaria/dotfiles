@@ -5,9 +5,7 @@ vim.opt.cursorline = false
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
-
 vim.opt.undofile = true
--- vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
 vim.opt.backup = false
 vim.opt.swapfile = false
 vim.opt.colorcolumn = "80"

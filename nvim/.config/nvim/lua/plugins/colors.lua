@@ -38,7 +38,6 @@ return {
         "alexanderbluhm/black.nvim",
         priority = 1000,
         config = function()
-            -- require("black").setup({})
             -- vim.cmd.colorscheme("black")
         end,
     },
@@ -88,10 +87,10 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            vim.g.adwaita_darker = true
+            vim.g.adwaita_darker = false
             vim.g.adwaita_disable_cursorline = true
             vim.g.adwaita_transparent = false
-            -- vim.cmd.colorscheme("adwaita")
+            vim.cmd.colorscheme("adwaita")
         end,
     },
     {
@@ -100,33 +99,14 @@ return {
         priority = 1000,
         config = function()
             require("kanagawa").setup({
-                colors = {
-                    theme = {
-                        all = {
-                            ui = {
-                                bg_gutter = "none",
-                            },
-                        },
-                    },
-                },
-
-                overrides = function(colors)
-                    local theme = colors.theme
-                    return {
-                        Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
-                        PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
-                        PmenuSbar = { bg = theme.ui.bg_m1 },
-                        PmenuThumb = { bg = theme.ui.bg_p2 },
-                    }
-                end,
-                background = { -- map the value of 'background' option to a theme
+                background = {       -- map the value of 'background' option to a theme
                     dark = "dragon", -- try "dragon" !
                     light = "lotus",
                 },
-                transparent = false,
+                transparent = true,
             })
 
-            vim.cmd.colorscheme("kanagawa")
+            -- vim.cmd.colorscheme("kanagawa")
         end,
     },
     {
