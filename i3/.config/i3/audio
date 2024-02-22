@@ -1,9 +1,0 @@
-#!/bin/bash
-my_headphone="bluez_output.98_67_2E_C6_BF_24.1"
-headphone_id=$(pactl list sinks short | grep -i $my_headphone | awk '{print $1}')
-
-if [ -n "$headphone_id" ]; then
-    [[ $(pactl get-sink-volume $headphone_id | grep -i 'volume' | awk '{gsub(/%/, "", $5); print $5}') -lt 60 ]] && pactl set-sink-volume $headphone_id +10%
-else
-    [[ $(pactl get-sink-volume @DEFAULT_SINK@ | grep -i 'volume' | awk '{gsub(/%/, "", $5); print $5}') -lt 60 ]] && pactl set-sink-volume @DEFAULT_SINK@ +10%
-fi
