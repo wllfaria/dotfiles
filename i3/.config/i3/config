@@ -204,7 +204,7 @@ exec xrandr --output HDMI-1 --mode 1920x1080 --rate 60 --left-of DP-2
 exec xrandr --output DP-2 --mode 1920x1080 --rate 240 --primary
 exec xinput --set-prop 17 'libinput Accel Profile Enabled' 0, 1
 exec xinput --set-prop 17 'libinput Accel Speed' 0
-exec_always --no-startup-id $HOME/.config/i3/sex
+# exec_always --no-startup-id $HOME/.config/i3/sex
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id picom --daemon
 

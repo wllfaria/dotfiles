@@ -25,7 +25,7 @@
 ; bar_width = 2
 ; bar_spacing = 1
 # bar_height is only used for output in "noritake" format
-bar_height = 10
+; bar_height = 32
 
 # For SDL width and space between bars is in pixels, defaults are:
 ; bar_width = 20
@@ -93,12 +93,6 @@ bar_height = 10
 # 'sdl' uses the Simple DirectMedia Layer to render in a graphical context.
 ; method = ncurses
 
-# Orientation of the visualization. Can be 'bottom', 'top', 'left' or 'right'.
-# Default is 'bottom'. Other orientations are only supported on sdl and ncruses
-# output. Note: many fonts have weird glyphs for 'top' and 'right' characters,
-# which can make ncurses not look right.
-; orientation = bottom
-
 # Visual channels. Can be 'stereo' or 'mono'.
 # 'stereo' mirrors both channels with low frequencies in center.
 # 'mono' outputs left to right lowest to highest frequencies.
@@ -131,21 +125,12 @@ bar_height = 10
 ; sdl_x = -1
 ; sdl_y= -1
 
-# set label on bars on the x-axis. Can be 'frequency' or 'none'. Default: 'none'
-# 'frequency' displays the lower cut off frequency of the bar above.
-# Only supported on ncurses and noncurses output.
-; xaxis = none
-
-# enable alacritty synchronized updates. 1 = on, 0 = off
-# removes flickering in alacritty terminal emeulator.
-# defaults to off since the behaviour in other terminal emulators is unknown
-; alacritty_sync = 0
-
 [color]
 
 # Colors can be one of seven predefined: black, blue, cyan, green, magenta, red, white, yellow.
 # Or defined by hex code '#xxxxxx' (hex code must be within ''). User defined colors requires
-# a terminal that can change color definitions such as Gnome-terminal or rxvt.
+# ncurses output method and a terminal that can change color definitions such as Gnome-terminal or rxvt.
+# if supported, ncurses mode will be forced on if user defined colors are used.
 # default is to keep current terminal color
 ; background = default
 ; foreground = default
@@ -155,23 +140,24 @@ bar_height = 10
 ; foreground = '#33cccc'
 
 
-# Gradient mode, only hex defined colors are supported,
-# background must also be defined in hex or remain commented out. 1 = on, 0 = off.
+# Gradient mode, only hex defined colors (and thereby ncurses mode) are supported,
+# background must also be defined in hex  or remain commented out. 1 = on, 0 = off.
 # You can define as many as 8 different colors. They range from bottom to top of screen
-gradient = 8
-gradient_count = 8
-gradient_color_1 = '#00FFFF'  # Cyan
-gradient_color_2 = '#66FFFF'
-gradient_color_3 = '#99FFFF'
-gradient_color_4 = '#CCE5FF'  # Light Violet
-gradient_color_5 = '#E6CCFF'
-gradient_color_6 = '#FFB3FF'
-gradient_color_7 = '#FF80FF'
-gradient_color_8 = '#FF00FF'
+ gradient = 1
+ gradient_count = 6
+ gradient_color_6 = '#DD868C'
+ gradient_color_5 = '#E4A2A8'
+ gradient_color_4 = '#E7B0B6'
+ gradient_color_3 = '#EABEC3'
+ gradient_color_2 = '#F0CED2'
+ gradient_color_1 = '#F5DDE0'
 
-
-
-
+; gradient_color_1 = '#D5CADE'
+; gradient_color_2 = '#DCC7CC'
+; gradient_color_3 = '#E8C4AE'
+; gradient_color_4 = '#F1C096'
+; gradient_color_5 = '#F6BE89'
+; gradient_color_6 = '#FDBC78'
 
 [smoothing]
 
@@ -197,7 +183,7 @@ gradient_color_8 = '#FF00FF'
 # Noise reduction, float 0 - 1. default 0.77
 # the raw visualization is very noisy, this factor adjusts the integral and gravity filters to keep the signal smooth
 # 1 will be very slow and smooth, 0 will be fast but noisy.
-; noise_reduction = 0.77
+ noise_reduction = 0.77
 
 
 [eq]
@@ -205,8 +191,11 @@ gradient_color_8 = '#FF00FF'
 # This one is tricky. You can have as much keys as you want.
 # Remember to uncomment more then one key! More keys = more precision.
 # Look at readme.md on github for further explanations and examples.
+# DEPRECATED as of 0.8.0 can be brought back by popular request, open issue at:
+# https://github.com/karlstav/cava
 ; 1 = 1 # bass
 ; 2 = 1
 ; 3 = 1 # midtone
 ; 4 = 1
 ; 5 = 1 # treble
+
