@@ -8,7 +8,7 @@ vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.backup = false
 vim.opt.swapfile = false
-vim.opt.colorcolumn = "80"
+-- vim.opt.colorcolumn = "80"
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
