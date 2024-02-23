@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 down() {
 pamixer -d 5
 volume=$(pamixer --get-volume)
@@ -31,5 +31,3 @@ case "$1" in
   down) down;;
   mute) mute;;
 esac
-
-#vim: set ft=bash
