@@ -37,5 +37,5 @@ vim.opt.splitright = true
 vim.opt.wildmenu = true
 vim.opt.wildmode = "longest:full,full"
 vim.opt.pumblend = 17
-vim.opt.smoothscroll = true
+-- vim.opt.smoothscroll = true
 vim.opt.fillchars = { eob = "~" }
