@@ -1,0 +1,62 @@
+set $mod Mod1
+set $left h
+set $down j
+set $up k
+set $right l
+set $term alacritty
+
+# █▄▀ ██▀ ▀▄▀ ██▄ █ █▄ █ █▀▄ ▄▀▀
+# █ █ █▄▄  █  █▄█ █ █ ▀█ █▄▀ ▄██
+include ~/.config/sway/keys.conf
+
+# █▄ ▄█ ▄▀▄ █▄ █ █ ▀█▀ ▄▀▄ █▀▄ ▄▀▀
+# █ ▀ █ ▀▄▀ █ ▀█ █  █  ▀▄▀ █▀▄ ▄██
+output HDMI-A-1 mode 1920x1080@60hz position 0,0
+output DP-2 mode 1920x1080@240hz position 1920,0
+
+# ██▄ █   █ █ █▀▄
+# █▄█ █▄▄ ▀▄█ █▀▄
+blur on
+blur_xray on
+blur_passes 1
+blur_radius 6
+
+# ██▄ ▄▀▄ █▀▄ █▀▄ ██▀ █▀▄ ▄▀▀   █▄ █   ▄▀  ▄▀▄ █▀▄ ▄▀▀
+# █▄█ ▀▄▀ █▀▄ █▄▀ █▄▄ █▀▄ ▄██   █ ▀█   ▀▄█ █▀█ █▀  ▄██
+default_border pixel
+shadows enable
+layer_effects "waybar" blur enable; shadows enable;
+layer_effects "alacritty" blur enable; shadows enable;
+corner_radius 6
+gaps outer 2
+gaps inner 8
+
+# Property Name             Border  BG      Text    Indicator Child-border
+client.focused              #9077e7 #9077e7 #cecece #9077e7   #9077e7
+client.focused_inactive     #C6BAF3 #C6BAF3 #cecece #9077e7   #C6BAF3
+client.unfocused            #C6BAF3 #C6BAF3 #cecece #9077e7   #C6BAF3
+client.urgent               #C6BAF3 #C6BAF3 #cecece #9077e7   #C6BAF3
+client.placeholder          #C6BAF3 #C6BAF3 #cecece #9077e7   #C6BAF3
+
+# █   █ ▄▀▄ ▀▄▀ ██▄ ▄▀▄ █▀▄
+# ▀▄▀▄▀ █▀█  █  █▄█ █▀█ █▀▄
+bar {
+    swaybar_command waybar
+}
+
+
+# █▄▀ ██▀ ▀▄▀ ██▄ ▄▀▄ ▄▀▄ █▀▄ █▀▄
+# █ █ █▄▄  █  █▄█ ▀▄▀ █▀█ █▀▄ █▄▀
+input "type:keyboard" {
+    xkb_layout br
+    xkb_variant abnt2
+}
+
+# ▄▀▀ ▀█▀ ▄▀▄ █▀▄ ▀█▀ █ █ █▀▄
+# ▄██  █  █▀█ █▀▄  █  ▀▄█ █▀ 
+exec --no-startup-id swww init || swww img `find $wallpaper_path -type f | shuf -n 1`
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+exec --no-startup-id systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+for_window [app_id="flameshot"] floating enable, fullscreen disable, move absolute position 0 0, border pixel 0
