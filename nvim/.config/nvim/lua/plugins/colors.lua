@@ -71,7 +71,14 @@ return {
         name = "catppuccin",
         priority = 1000,
         config = function()
-            -- vim.cmd.colorscheme("catppuccin")
+            require("catppuccin").setup({
+                background = { -- :h background
+                    light = "mocha",
+                    dark = "mocha",
+                },
+                transparent_background = true,
+            })
+            vim.cmd.colorscheme("catppuccin")
         end,
     },
     {
@@ -90,7 +97,7 @@ return {
             vim.g.adwaita_darker = false
             vim.g.adwaita_disable_cursorline = true
             vim.g.adwaita_transparent = true
-            vim.cmd.colorscheme("adwaita")
+            -- vim.cmd.colorscheme("adwaita")
         end,
     },
     {
