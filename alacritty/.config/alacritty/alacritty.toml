@@ -8,7 +8,7 @@ term = "xterm-256color"
 [window]
 padding={x = 0, y = 0}
 blur=false
-opacity=0.6
+opacity=0.8
 
 [font]
 normal={family="Berkeley Mono"}
