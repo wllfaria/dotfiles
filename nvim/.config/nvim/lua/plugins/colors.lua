@@ -78,7 +78,7 @@ return {
                 },
                 transparent_background = true,
             })
-            vim.cmd.colorscheme("catppuccin")
+            -- vim.cmd.colorscheme("catppuccin")
         end,
     },
     {
@@ -106,6 +106,25 @@ return {
         priority = 1000,
         config = function()
             require("kanagawa").setup({
+                colors = {
+                    theme = {
+                        all = {
+                            ui = {
+                                bg_gutter = "none",
+                            },
+                        },
+                    },
+                },
+
+                overrides = function(colors)
+                    local theme = colors.theme
+                    return {
+                        Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+                        PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+                        PmenuSbar = { bg = theme.ui.bg_m1 },
+                        PmenuThumb = { bg = theme.ui.bg_p2 },
+                    }
+                end,
                 background = {       -- map the value of 'background' option to a theme
                     dark = "dragon", -- try "dragon" !
                     light = "lotus",
@@ -130,8 +149,32 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            require("github-theme").setup({})
+            require("github-theme").setup({
+                options = {
+                    transparent = false
+                }
+            })
             -- vim.cmd.colorscheme("github_dark_default")
         end,
     },
+    {
+        'olivercederborg/poimandres.nvim',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require('poimandres').setup({
+                disable_background = true
+            })
+            -- vim.cmd.colorscheme("poimandres")
+        end
+    },
+    {
+        "tiagovla/tokyodark.nvim",
+        config = function()
+            require("tokyodark").setup({
+                transparent_background = true
+            })
+            vim.cmd.colorscheme("tokyodark")
+        end,
+    }
 }

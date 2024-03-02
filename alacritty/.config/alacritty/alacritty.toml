@@ -1,5 +1,6 @@
 import=[
-    "~/.config/alacritty/themes/kanagawa.toml"
+    #"~/.config/alacritty/themes/catpuccin-mocha.toml"
+    "~/.config/alacritty/themes/tinty.toml"
 ]
 
 [env]
@@ -8,8 +9,11 @@ term = "xterm-256color"
 [window]
 padding={x = 0, y = 0}
 blur=false
-opacity=0.6
+opacity=1.0
 
 [font]
-normal={family="JetBrainsMono Nerd Font"}
 size=14.0
+normal={family="BerkeleyMono Nerd Font"}
+bold={family="BerkeleyMono Nerd Font"}
+# normal={family="JetBrainsMono Nerd Font"}
+# normal={family="BitstromWera Nerd Font"}
