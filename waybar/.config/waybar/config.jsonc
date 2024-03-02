@@ -114,8 +114,8 @@
   },
   "custom/randwall": {
     "format": "󰏘",
-    "on-click": "bash $HOME/.config/hypr/randwall.sh",
-    "on-click-right": "bash $HOME/.config/hypr/randwall.sh",
+    "on-click": "bash $HOME/.config/sway/scripts/randwall",
+    "on-click-right": "bash $HOME/.config/sway/scripts/randwall",
   },
   "custom/launcher": {
     "format": "󰈸",
