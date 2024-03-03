@@ -9,9 +9,16 @@ return {
     config = function()
         require("telescope").setup({
             extensions = {
-                ['ui-select'] = {
-                    require('telescope.themes').get_dropdown(),
+                ["ui-select"] = require("telescope.themes").get_dropdown({}),
+            },
+
+            defaults = {
+                layout_config = {
+                    horizontal = {
+                        prompt_position = "top",
+                    },
                 },
+                sorting_strategy = "ascending",
             },
         })
         pcall(require('telescope').load_extension, 'fzf')

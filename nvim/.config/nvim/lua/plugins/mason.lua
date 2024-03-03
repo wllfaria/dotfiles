@@ -48,5 +48,17 @@ return {
                 },
             },
         })
+
+        lspconfig.rust_analyzer.setup({
+            settings = {
+                ["rust-analyzer"] = {
+                    check = {
+                        command = "clippy",
+                        extraArgs = { "--tests" },
+                        features = "all",
+                    },
+                },
+            },
+        })
     end,
 }
