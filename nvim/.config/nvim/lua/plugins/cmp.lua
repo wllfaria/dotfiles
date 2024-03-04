@@ -20,10 +20,10 @@ return {
             },
             window = {
                 completion = cmp.config.window.bordered({
-                    winhighlight = "NormalFloat:NormalFloat,FloatBorder:NormalFloat",
+                    winhighlight = "NormalFloat:NormalFloat,CursorLine:Visual",
                 }),
                 documentation = cmp.config.window.bordered({
-                    winhighlight = "NormalFloat:NormalFloat,FloatBorder:NormalFloat",
+                    winhighlight = "NormalFloat:NormalFloat,CursorLine:Visual",
                 }),
             },
             mapping = {
@@ -34,8 +34,8 @@ return {
                     i = cmp.mapping.abort(),
                     c = cmp.mapping.close(),
                 }),
-                ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i" }),
-                ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i" }),
+                ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i" }),
+                ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i" }),
             },
             sources = {
                 { name = "nvim_lsp" },
@@ -46,8 +46,8 @@ return {
             },
         })
 
-        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {})
         vim.lsp.handlers["textDocument/signatureHelp"] =
-            vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+            vim.lsp.with(vim.lsp.handlers.signature_help, {})
     end,
 }
