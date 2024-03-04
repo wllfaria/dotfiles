@@ -15,73 +15,6 @@ end
 
 return {
     {
-        "ellisonleao/gruvbox.nvim",
-        priority = 1000,
-        config = function()
-            local gruvbox = require("gruvbox")
-            gruvbox.setup({
-                terminal_colors = true,
-                contrast = "hard",
-                transparent_mode = false,
-                -- vim.cmd.colorscheme("gruvbox"),
-            })
-        end,
-    },
-    {
-        "aktersnurra/no-clown-fiesta.nvim",
-        priority = 1000,
-        config = function()
-            -- vim.cmd.colorscheme("no-clown-fiesta")
-        end,
-    },
-    {
-        "alexanderbluhm/black.nvim",
-        priority = 1000,
-        config = function()
-            -- vim.cmd.colorscheme("black")
-        end,
-    },
-    {
-        "wuelnerdotexe/vim-enfocado",
-        priority = 1000,
-        config = function()
-            -- require("enfocado").setup({})
-            -- vim.cmd.colorscheme("enfocado")
-        end,
-    },
-    {
-        "dasupradyumna/midnight.nvim",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require("midnight").setup({})
-            -- vim.cmd.colorscheme("midnight")
-        end,
-    },
-    {
-        "EdenEast/nightfox.nvim",
-        priority = 1000,
-        config = function()
-            require("nightfox").setup({})
-            -- vim.cmd.colorscheme("carbonfox")
-        end,
-    },
-    {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        priority = 1000,
-        config = function()
-            require("catppuccin").setup({
-                background = { -- :h background
-                    light = "mocha",
-                    dark = "mocha",
-                },
-                transparent_background = true,
-            })
-            -- vim.cmd.colorscheme("catppuccin")
-        end,
-    },
-    {
         "folke/tokyonight.nvim",
         priority = 1000,
         lazy = false,
@@ -136,37 +69,17 @@ return {
         end,
     },
     {
-        "rose-pine/neovim",
-        config = function()
-            require("rose-pine").setup({
-                variant = "main",
-            })
-            -- vim.cmd.colorscheme("rose-pine")
-        end,
-    },
-    {
         "projekt0n/github-nvim-theme",
         lazy = false,
         priority = 1000,
         config = function()
             require("github-theme").setup({
                 options = {
-                    transparent = false
+                    transparent = true
                 }
             })
-            -- vim.cmd.colorscheme("github_dark_default")
+            -- vim.cmd.colorscheme("github_dark")
         end,
-    },
-    {
-        'olivercederborg/poimandres.nvim',
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require('poimandres').setup({
-                disable_background = true
-            })
-            -- vim.cmd.colorscheme("poimandres")
-        end
     },
     {
         "tiagovla/tokyodark.nvim",
@@ -174,7 +87,7 @@ return {
             require("tokyodark").setup({
                 transparent_background = true
             })
-            vim.cmd.colorscheme("tokyodark")
+            -- vim.cmd.colorscheme("tokyodark")
         end,
     }
 }
