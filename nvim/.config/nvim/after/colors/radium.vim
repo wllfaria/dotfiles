@@ -419,7 +419,7 @@ hi NeogitUnstagedchanges gui=bold guifg=#FB7373
 hi NeogitUntrackedfiles gui=bold guifg=#5FB0FC
 hi NonText guifg=#222931
 hi NormalFloat guibg=#151A1F guifg=#BABABE
-hi Normal guibg=#101317 guifg=#D4D4D5
+hi Normal guibg=#10131700 guifg=#D4D4D5
 hi NotifyBackground guibg=#101317 guifg=#D4D4D5
 hi NotifyDEBUGBody guibg=#171C21 guifg=#C397D8
 hi NotifyDEBUGBorder guibg=#171C21 guifg=#171C21
@@ -633,7 +633,7 @@ hi UndotreeSeq guifg=#515C68
 hi UndotreeTimeStamp guifg=#70C0BA
 hi VertSplit guifg=#171C21
 hi VirtColumn guibg=#101317 guifg=#171A20
-hi Visual guibg=#192023
+hi Visual guibg=#333333
 hi WarningMsg guifg=#FB7373
 hi WhichKeyBorder guibg=#0E1014
 hi WhichKeyDesc guifg=#FFE59E

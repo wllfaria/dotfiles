@@ -37,6 +37,7 @@ return {
                     },
                     command = {
                         a = { fg = colours.fg, bg = colours.red },
+                        z = { fg = colours.grey, bg = colours.bg },
                     },
                     terminal = {
                         a = { fg = colours.orange, bg = colours.bg },
