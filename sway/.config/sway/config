@@ -58,5 +58,7 @@ exec --no-startup-id swww init || swww img `find $wallpaper_path -type f | shuf 
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec --no-startup-id /usr/lib/xdg-desktop-portal -r & 
+exec --no-startup-id /usr/lib/xdg-desktop-portal-wlr &
 
 for_window [app_id="flameshot"] floating enable, fullscreen disable, move absolute position 0 0, border pixel 0

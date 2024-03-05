@@ -2,7 +2,7 @@
 # Source https//github.com/rebelot/kanagawa.nvim
 
 [colors.primary]
-background = '#181616'
+background = '#ff0000'
 foreground = '#c5c9c5'
 
 [colors.normal]

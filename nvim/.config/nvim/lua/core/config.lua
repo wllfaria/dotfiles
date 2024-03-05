@@ -2,6 +2,7 @@ vim.opt.confirm = true
 vim.opt.mouse = "a"
 vim.opt.cursorline = false
 vim.opt.grepprg = 'rg --vimgrep --no-heading'
+vim.opt.guicursor = ""
 
 vim.opt.number = true
 vim.opt.relativenumber = true
