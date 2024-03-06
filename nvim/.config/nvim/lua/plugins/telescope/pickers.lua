@@ -12,4 +12,5 @@ return {
     find_files = bottom_layout,
     git_files = bottom_layout,
     buffers = bottom_layout,
+    help_tags = bottom_layout,
 }

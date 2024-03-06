@@ -7,11 +7,14 @@ return {
         "hrsh7th/cmp-nvim-lsp-signature-help",
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-cmdline",
     },
     config = function()
         local cmp = require("cmp")
         cmp.setup({
+            snippet = {
+                expand = function(_)
+                end
+            },
             mapping = {
                 ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i" }),
                 ["<C-y>"] = cmp.mapping.confirm({ select = true }),
