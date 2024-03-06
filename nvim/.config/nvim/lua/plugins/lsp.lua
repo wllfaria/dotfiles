@@ -21,6 +21,11 @@ return {
                         extraArgs = { "--tests" },
                         features = "all",
                     },
+                    inlayHints = {
+                        implicitDrops = {
+                            enable = true,
+                        },
+                    },
                 },
             },
         })
