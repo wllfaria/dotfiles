@@ -11,6 +11,7 @@ return {
         local extensions = require("plugins.telescope.extensions")
         local pickers = require("plugins.telescope.pickers")
         local mappings = require("plugins.telescope.mappings")
+        require("plugins.telescope.git_links")
 
         require("telescope").setup({
             extensions = extensions,
