@@ -1,18 +1,3 @@
-local Color = require("colors");
-local colors = Color.current_theme_colors()
-
-vim.opt.fillchars = { vert = '│', horiz = '─' }
-vim.api.nvim_set_hl(0, "TelescopePromptNormal", Color.transparent and { bg = nil } or { bg = colors.color_0 })
-vim.api.nvim_set_hl(0, "TelescopePromptBorder",
-    Color.transparent and { bg = nil, fg = colors.color_1 } or { bg = colors.color_0, fg = colors.color_1 })
-vim.api.nvim_set_hl(0, "TelescopePreviewBorder",
-    Color.transparent and { bg = nil, fg = colors.color_1 } or { bg = colors.color_0, fg = colors.color_1 })
-vim.api.nvim_set_hl(0, "TelescopeResultsBorder",
-    Color.transparent and { bg = nil, fg = colors.color_1 } or { bg = colors.color_0, fg = colors.color_1 })
-vim.api.nvim_set_hl(0, "TelescopePreviewNormal", Color.transparent and { bg = nil } or { bg = colors.color_0 })
-vim.api.nvim_set_hl(0, "TelescopeResultsNormal", Color.transparent and { bg = nil } or { bg = colors.color_0 })
-vim.api.nvim_set_hl(0, "TelescopePromptCounter", Color.transparent and { bg = nil } or { bg = colors.color_0 })
-
 ---@param consider_selection boolean
 local function git_link(consider_selection)
     local git_rev = vim.trim(vim.system({ "git", "rev-parse", "HEAD" }):wait().stdout)

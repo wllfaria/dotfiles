@@ -2,38 +2,35 @@ local radium = require("colors.radium")
 
 --- @alias HexColor string
 
---- @class Theme
---- @field groups function
---- @field colors table<string, HexColor>
-
---- @class Colors
---- @field current_theme string
---- @field themes table<string, Theme>
-local Colors = {
-    current_theme = "radium",
+--- @class ThemeConfig
+--- @field theme string
+--- @field variant string
+--- @field transparent boolean
+local config = {
+    theme = "radium",
+    variant = "default",
     transparent = true,
-    themes = {
-        radium = radium,
-    }
 }
 
-local theme = Colors.themes[Colors.current_theme]
-local groups = theme.groups(Colors.transparent)
-local colors = theme.colors
+local themes = {
+    radium = radium,
+}
+
+local theme = themes[config.theme]
+
+local groups = theme:get_groups(config)
 
 vim.cmd.hi("clear")
 vim.o.termguicolors = true
-vim.g.colors_name = Colors.current_theme
+vim.g.colors_name = config.theme
+
 
 for group, settings in pairs(groups) do
     vim.api.nvim_set_hl(0, group, settings)
 end
 
---- Returns the table of colors from the current theme
----
---- @return table<string, HexColor>
-Colors.current_theme_colors = function()
-    return colors
+for index, value in ipairs(theme.term_colors) do
+    vim.g["terminal_color_" .. index - 1] = value
 end
 
-return Colors
+return config
