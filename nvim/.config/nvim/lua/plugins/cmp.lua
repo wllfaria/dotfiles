@@ -8,32 +8,14 @@ return {
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-cmdline",
-        "L3MON4D3/LuaSnip",
     },
     config = function()
         local cmp = require("cmp")
         cmp.setup({
-            snippet = {
-                expand = function(args)
-                    require("luasnip").lsp_expand(args.body)
-                end,
-            },
-            window = {
-                completion = cmp.config.window.bordered({
-                    winhighlight = "NormalFloat:NormalFloat,CursorLine:Visual",
-                }),
-                documentation = cmp.config.window.bordered({
-                    winhighlight = "NormalFloat:NormalFloat,CursorLine:Visual",
-                }),
-            },
             mapping = {
                 ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i" }),
-                ["<CR>"] = cmp.mapping.confirm({ select = true }),
                 ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-                ["<C-e>"] = cmp.mapping({
-                    i = cmp.mapping.abort(),
-                    c = cmp.mapping.close(),
-                }),
+                ["<C-e>"] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
                 ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i" }),
                 ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i" }),
             },
