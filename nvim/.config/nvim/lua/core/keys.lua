@@ -16,8 +16,6 @@ vim.keymap.set("i", "<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
 vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
 
-vim.keymap.set("n", "<leader>x", "<cmd>TroubleToggle<CR>")
-
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -43,6 +41,5 @@ vim.keymap.set("n", "<c-f>", ":silent !tmux neww tmux-sessionizer<cr>")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>mx", "<cmd>!chmod +x %<CR>", { silent = true })
-vim.keymap.set("n", "<leader>gp", "<cmd>Git push<CR>")
 
 vim.keymap.set("n", "-", "<cmd>Ex<CR>")

@@ -1,35 +1,17 @@
+local Color = require("colors");
+local colors = Color.current_theme_colors()
+
 vim.opt.fillchars = { vert = '│', horiz = '─' }
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.current_buffer_fuzzy_find)
-vim.keymap.set("n", "<leader>fgc", builtin.git_commits)
-vim.keymap.set("n", "<leader>fgb", builtin.git_branches)
-vim.keymap.set("n", "<leader>fr", builtin.resume)
-vim.keymap.set("n", "<leader>fc", builtin.commands)
-vim.keymap.set("n", "<leader>fo", builtin.vim_options)
-vim.keymap.set("n", "<leader>fht", builtin.help_tags)
-vim.keymap.set("n", "<leader>fpr", builtin.reloader)
-vim.keymap.set("n", "<leader>fb", builtin.buffers)
-vim.keymap.set("n", "<leader>fk", builtin.keymaps)
-vim.keymap.set("n", "<leader>fhi", builtin.highlights)
-vim.keymap.set("n", "<leader>fa", builtin.autocommands)
-vim.keymap.set("n", "<leader>fd", builtin.diagnostics)
-vim.keymap.set("n", "<leader>fpf", builtin.find_files)
-vim.keymap.set("n", "<leader>fgg", builtin.git_files)
-vim.keymap.set("n", "<leader>flg", builtin.live_grep)
-
-vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "#161B20" })
-vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "#161B20", fg = "#121212" })
-vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = "#161B20" })
-vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = "#161B20", fg = "#121212" })
-vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = "#161B20" })
-vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { bg = "#161B20", fg = "#121212" })
-vim.api.nvim_set_hl(0, "TelescopePromptCounter", { bg = "#161B20" })
-
-local actions = require("telescope.actions")
-local actions_state = require("telescope.actions.state")
-local pickers = require("telescope.pickers")
-local finders = require("telescope.finders")
-local themes = require("telescope.themes")
+vim.api.nvim_set_hl(0, "TelescopePromptNormal", Color.transparent and { bg = nil } or { bg = colors.color_0 })
+vim.api.nvim_set_hl(0, "TelescopePromptBorder",
+    Color.transparent and { bg = nil, fg = colors.color_1 } or { bg = colors.color_0, fg = colors.color_1 })
+vim.api.nvim_set_hl(0, "TelescopePreviewBorder",
+    Color.transparent and { bg = nil, fg = colors.color_1 } or { bg = colors.color_0, fg = colors.color_1 })
+vim.api.nvim_set_hl(0, "TelescopeResultsBorder",
+    Color.transparent and { bg = nil, fg = colors.color_1 } or { bg = colors.color_0, fg = colors.color_1 })
+vim.api.nvim_set_hl(0, "TelescopePreviewNormal", Color.transparent and { bg = nil } or { bg = colors.color_0 })
+vim.api.nvim_set_hl(0, "TelescopeResultsNormal", Color.transparent and { bg = nil } or { bg = colors.color_0 })
+vim.api.nvim_set_hl(0, "TelescopePromptCounter", Color.transparent and { bg = nil } or { bg = colors.color_0 })
 
 ---@param consider_selection boolean
 local function git_link(consider_selection)
