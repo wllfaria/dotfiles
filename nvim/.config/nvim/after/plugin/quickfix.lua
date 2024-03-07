@@ -73,6 +73,53 @@ local function filtered_to_qf(level)
     populate("Warnings", qf_list)
 end
 
+--- Populates quickfix list with all the comments containing:
+--- * TODO:
+--- * FIXME:
+--- * HACK:
+local function todo_to_qf()
+    clear_qf()
+
+    local patterns = { "TODO:", "FIXME:", "HACK:" }
+    local filetype = { "*.js", "*.ts", "*.tsx", "*.s", "*.c", "*.cpp", "*.cc", "*.ml", "*.mli", "*.go", }
+    local type_str = ""
+    for _, type in ipairs(filetype) do
+        type_str = type_str .. ' -o -name "' .. type .. '"'
+    end
+    local find_cmd = "find . -type f \\( -name '*.rs'" .. type_str .. " \\) -exec grep -HnE '%s' {} +"
+
+    local grep_tbl = table.concat(patterns, '|')
+    local grep_cmd = string.format(find_cmd, grep_tbl)
+
+    local on_stdout = function(_, data, _)
+        if not data then return end
+        local qf_list = {}
+        for _, line in ipairs(data) do
+            if line ~= "" then -- ignore empty lines
+                local file, lnum, text = line:match("([^:]+):(%d+):(.*)")
+                -- ignore anything that is missing all the patterns
+                -- just in case it captures something wrong
+                if file and lnum and text then
+                    table.insert(qf_list, {
+                        filename = file,
+                        lnum = tonumber(lnum),
+                        text = text
+                    })
+                end
+            end
+        end
+
+        if #qf_list > 0 then
+            populate("Todos", qf_list)
+        end
+    end
+
+    vim.fn.jobstart(grep_cmd, {
+        on_stdout = on_stdout,
+        stdout_buffered = true
+    })
+end
+
 vim.keymap.set("n", "<leader>qq", function()
     clear_qf()
 end)
@@ -87,4 +134,8 @@ end)
 
 vim.keymap.set("n", "<leader>qe", function()
     filtered_to_qf(1)
+end)
+
+vim.keymap.set("n", "<leader>qt", function()
+    todo_to_qf()
 end)
