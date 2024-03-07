@@ -91,10 +91,10 @@ end)
 
 vim.keymap.set("n", "<leader>qt", function()
     local langs = { "rust", "js", "ts", "cpp", "c", "asm", "go", "ocaml" }
-    local cmd = "grep 'TODO:\\|FIXME:\\|HACK:'"
+    local cmd = "'TODO:\\|FIXME:\\|HACK:'"
     for _, lang in ipairs(langs) do
         cmd = cmd .. " --type " .. lang
     end
-    vim.cmd(cmd)
+    vim.cmd("silent! grep! " .. cmd)
     vim.cmd("copen")
 end)

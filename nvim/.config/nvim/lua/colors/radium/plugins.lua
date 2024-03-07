@@ -54,6 +54,36 @@ end
 
 --- @param config ThemeConfig
 --- @return ThemeGroup
+M.statusline = function(config)
+    local colors = palette[config.variant]
+    return {
+        StatusLineModeNormal = { bg = colors.magenta, fg = colors.white },
+        StatusLineNormalSeparator = { bg = nil, fg = colors.magenta },
+        StatusLineModeCommand = { bg = colors.red, fg = colors.white },
+        StatusLineCommandSeparator = { bg = nil, fg = colors.red },
+        StatusLineModeInsert = { bg = colors.blue, fg = colors.white },
+        StatusLineInsertSeparator = { bg = nil, fg = colors.blue },
+        StatusLineModeVisual = { bg = colors.green, fg = colors.white },
+        StatusLineVisualSeparator = { bg = nil, fg = colors.green },
+        StatusLineGitBranch = { bg = nil, fg = colors.green },
+        StatusLineFilename = { bg = nil, fg = colors.grey },
+        StatusLineCursor = { bg = nil, fg = colors.green },
+        StatusLineCursorPercent = { bg = nil, fg = colors.magenta },
+
+        FiletypeLua = { bg = nil, fg = colors.blue },
+        FiletypeRust = { bg = nil, fg = colors.yellow },
+        FiletypeJs = { bg = nil, fg = colors.yellow },
+        FiletypeTs = { bg = nil, fg = colors.blue },
+        FiletypeOcaml = { bg = nil, fg = colors.yellow },
+        FiletypeC = { bg = nil, fg = colors.blue },
+        FiletypeGo = { bg = nil, fg = colors.blue },
+        FiletypeDir = { bg = nil, fg = colors.yellow },
+        FiletypeNone = { bg = nil, fg = colors.red },
+    }
+end
+
+--- @param config ThemeConfig
+--- @return ThemeGroup
 M.defaults = function(config)
     local colors = palette[config.variant]
     local transparent = config.transparent
@@ -839,6 +869,7 @@ end
 
 --- @param config ThemeConfig
 function M:with_config(config)
+    local statusline = M.statusline(config)
     local defaults = M.defaults(config)
     local diffview = M.diffview(config)
     local cmp = M.cmp(config)
@@ -876,7 +907,8 @@ function M:with_config(config)
         todo,
         treesitter,
         undotree,
-        whichkey
+        whichkey,
+        statusline
     )
 
     return groups
