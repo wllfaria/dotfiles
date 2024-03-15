@@ -6,11 +6,12 @@
 --- @field severity string
 
 local type_of_list = ""
-local cmd_id = nil 
+local cmd_id = nil
 
 local function maybe_del_autocmd()
     if cmd_id ~= nil then
         vim.api.nvim_del_autocmd(cmd_id)
+        cmd_id = nil
     end
 end
 

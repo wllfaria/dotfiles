@@ -3,7 +3,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term alacritty
+set $term kitty
 
 # █▄▀ ██▀ ▀▄▀ ██▄ █ █▄ █ █▀▄ ▄▀▀
 # █ █ █▄▄  █  █▄█ █ █ ▀█ █▄▀ ▄██
@@ -34,7 +34,7 @@ gaps inner 8
 # Property Name             Border  BG      Text    Indicator Child-border
 client.focused              #9077e7 #9077e7 #cecece #9077e7   #9077e7
 client.focused_inactive     #C6BAF3 #C6BAF3 #cecece #9077e7   #C6BAF3
-client.unfocused            #C6BAF3 #C6BAF3 #cecece #9077e7   #C6BAF3
+client.unfocused            #C6BAF3 #C6BAF3 #7040e7 #9077e7   #C6BAF3
 client.urgent               #C6BAF3 #C6BAF3 #cecece #9077e7   #C6BAF3
 client.placeholder          #C6BAF3 #C6BAF3 #cecece #9077e7   #C6BAF3
 
@@ -60,5 +60,3 @@ exec --no-startup-id systemctl --user import-environment DISPLAY WAYLAND_DISPLAY
 exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec_always --no-startup-id /usr/lib/xdg-desktop-portal -r & 
 exec_always --no-startup-id /usr/lib/xdg-desktop-portal-wlr &
-
-for_window [app_id="flameshot"] floating enable, fullscreen disable, move absolute position 0 0, border pixel 0

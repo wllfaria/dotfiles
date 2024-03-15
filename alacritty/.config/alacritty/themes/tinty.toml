@@ -6,32 +6,32 @@ draw_bold_text_with_bright_colors = false
 
 # Default colors
 [colors.primary]
-background = '0x121212'
-foreground = '0xdcd7ba'
+background = '#1f1f28'
+foreground = '#dcd7ba'
 
 # Colors the cursor will use if `custom_cursor_colors` is true
 [colors.cursor]
-text = '0x1f1f28'
-cursor = '0xdcd7ba'
+text = '#1f1f28'
+cursor = '#dcd7ba'
 
 # Normal colors
 [colors.normal]
-black = '0x1f1f28'
-red = '0xc34043'
-green = '0x76946a'
-yellow = '0xc0a36e'
-blue = '0x7e9cd8'
-magenta = '0x957fb8'
-cyan = '0x6a9589'
-white = '0xdcd7ba'
+black = '#1f1f28'
+red = '#c34043'
+green = '#76946a'
+yellow = '#c0a36e'
+blue = '#7e9cd8'
+magenta = '#957fb8'
+cyan = '#6a9589'
+white = '#dcd7ba'
 
 # Bright colors
 [colors.bright]
-black = '0x54546d'
-red = '0xffa066'
-green = '0x16161d'
-yellow = '0x223249'
-blue = '0x727169'
-magenta = '0xc8c093'
-cyan = '0xd27e99'
-white = '0x717c7c'
+black = '#54546d'
+red = '#ffa066'
+green = '#16161d'
+yellow = '#223249'
+blue = '#727169'
+magenta = '#c8c093'
+cyan = '#d27e99'
+white = '#717c7c'

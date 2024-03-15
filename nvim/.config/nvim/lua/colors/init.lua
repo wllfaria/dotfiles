@@ -1,4 +1,5 @@
 local radium = require("colors.radium")
+local lucky = require("colors.lucky")
 
 --- @alias HexColor string
 
@@ -7,13 +8,14 @@ local radium = require("colors.radium")
 --- @field variant string
 --- @field transparent boolean
 local config = {
-    theme = "radium",
-    variant = "default",
-    transparent = true,
+	theme = "radium",
+	variant = "default",
+	transparent = false,
 }
 
 local themes = {
-    radium = radium,
+	radium = radium,
+	lucky = lucky,
 }
 
 local theme = themes[config.theme]
@@ -24,13 +26,12 @@ vim.cmd.hi("clear")
 vim.o.termguicolors = true
 vim.g.colors_name = config.theme
 
-
 for group, settings in pairs(groups) do
-    vim.api.nvim_set_hl(0, group, settings)
+	vim.api.nvim_set_hl(0, group, settings)
 end
 
 for index, value in ipairs(theme.term_colors) do
-    vim.g["terminal_color_" .. index - 1] = value
+	vim.g["terminal_color_" .. index - 1] = value
 end
 
 return config

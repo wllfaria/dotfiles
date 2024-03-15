@@ -9,11 +9,9 @@ term = "xterm-256color"
 [window]
 padding={x = 0, y = 0}
 blur=false
-opacity=0.8
+opacity=1.0
 
 [font]
-size=11.0
-normal={family="BerkeleyMono Nerd Font"}
-bold={family="BerkeleyMono Nerd Font"}
-# normal={family="JetBrainsMono Nerd Font"}
-# normal={family="BitstromWera Nerd Font"}
+size=14.0
+normal={family="Liga BerkeleyMono Nerd Font"}
+bold={family="Liga BerkeleyMono Nerd Font"}
