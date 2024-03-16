@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 
+vim.keymap.set("n", "<leader>rr", function() end)
+
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>")
 vim.keymap.set("n", "<leader>t", "<Plug>PlenaryTestFile", { expr = true })

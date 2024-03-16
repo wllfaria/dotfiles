@@ -42,9 +42,25 @@ local separators = {
 	right = "",
 }
 
-M.component_separator = " "
+local file_icons = {
+	lua = { hl = "%#FiletypeLua#", icon = " " },
+	rs = { hl = "%#FiletypeRust#", icon = " " },
+	js = { hl = "%#FiletypeJs#", icon = "󰌞 " },
+	ts = { hl = "%#FiletypeTs#", icon = "󰛦 " },
+	ml = { hl = "%#FiletypeOcaml#", icon = " " },
+	mli = { hl = "%#FiletypeOcaml#", icon = " " },
+	c = { hl = "%#FiletypeC#", icon = " " },
+	go = { hl = "%#FiletypeGo#", icon = " " },
+	dir = { hl = "%#FiletypeDir#", icon = " " },
+	none = { hl = "%#FileTypeNone#", icon = " " },
+	gleam = { hl = "%#FileTypeGleam#", icon = "⭐️ " },
+	exs = { hl = "%#FileTypeElixir#", icon = " " },
+	ex = { hl = "%#FileTypeElixir#", icon = " " },
+}
 
-M.get_mode = function()
+local component_separator = " "
+
+local function get_mode()
 	local curr_mode = vim.api.nvim_get_mode().mode
 	local mode = " " .. modes[curr_mode] .. " "
 	local formatted = ""
@@ -63,7 +79,7 @@ M.get_mode = function()
 	return formatted
 end
 
-M.get_diagnostics = function()
+local function get_diagnostics()
 	local diagnostics = {}
 	local error = #vim.diagnostic.get(nil, { severity = vim.diagnostic.severity.ERROR })
 	local warns = #vim.diagnostic.get(nil, { severity = vim.diagnostic.severity.WARN })
@@ -86,7 +102,7 @@ M.get_diagnostics = function()
 	return table.concat(diagnostics, " ")
 end
 
-M.get_git_branch = function()
+local function get_git_branch()
 	local branch = vim.trim(vim.system({ "git", "branch", "--show-current" }):wait().stdout)
 	if branch == "" then
 		return ""
@@ -94,23 +110,7 @@ M.get_git_branch = function()
 	return "%#StatusLineGitBranch#" .. " " .. branch
 end
 
-local file_icons = {
-	lua = { hl = "%#FiletypeLua#", icon = " " },
-	rs = { hl = "%#FiletypeRust#", icon = " " },
-	js = { hl = "%#FiletypeJs#", icon = "󰌞 " },
-	ts = { hl = "%#FiletypeTs#", icon = "󰛦 " },
-	ml = { hl = "%#FiletypeOcaml#", icon = " " },
-	mli = { hl = "%#FiletypeOcaml#", icon = " " },
-	c = { hl = "%#FiletypeC#", icon = " " },
-	go = { hl = "%#FiletypeGo#", icon = " " },
-	dir = { hl = "%#FiletypeDir#", icon = " " },
-	none = { hl = "%#FileTypeNone#", icon = " " },
-	gleam = { hl = "%#FileTypeGleam#", icon = "⭐️ " },
-	exs = { hl = "%#FileTypeElixir#", icon = " " },
-	ex = { hl = "%#FileTypeElixir#", icon = " " },
-}
-
-M.get_filename = function()
+local function get_filename()
 	local filename = vim.fn.expand("%:t")
 	local path = vim.fn.expand("%:r")
 	local parent = vim.fn.fnamemodify(vim.fn.fnamemodify(path, ":h"), ":t")
@@ -134,13 +134,13 @@ M.get_filename = function()
 	return file_icon .. file_hl .. parent .. "/" .. filename
 end
 
-M.get_cursor = function()
+local function get_cursor()
 	local cursor = vim.api.nvim_win_get_cursor(0)
 	local cursor_str = table.concat(cursor, ":")
 	return "%#StatusLineCursor#" .. cursor_str
 end
 
-M.get_line_percentage = function()
+local function get_line_percentage()
 	local cursor = vim.api.nvim_win_get_cursor(0)
 	local line = cursor[1]
 	local total_lines = vim.api.nvim_buf_line_count(0)
@@ -153,6 +153,37 @@ M.get_line_percentage = function()
 		local percent = string.format("%d", line / total_lines * 100)
 		return hl .. percent .. "󱉸  "
 	end
+end
+
+M.left = function()
+	local mode = get_mode()
+	local separator = component_separator
+	local diagnostics = get_diagnostics()
+	local filename = get_filename()
+	local branch = get_git_branch()
+
+	local components = {
+		mode,
+		branch,
+		filename,
+		diagnostics,
+	}
+	local left = table.concat(components, separator)
+	return left
+end
+
+M.right = function()
+	local separator = component_separator
+	local lines_percentage = get_line_percentage()
+	local cursor = get_cursor()
+
+	local components = {
+		lines_percentage,
+		cursor,
+	}
+
+	local right = table.concat(components, separator)
+	return right .. separator
 end
 
 return M

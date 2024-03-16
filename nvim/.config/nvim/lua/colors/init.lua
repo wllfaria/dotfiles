@@ -1,6 +1,8 @@
 local radium = require("colors.radium")
 local lucky = require("colors.lucky")
 
+--- @alias ThemeStyle vim.api.keyset.highlight
+--- @alias ThemeGroup table<string, ThemeStyle>
 --- @alias HexColor string
 
 --- @class ThemeConfig

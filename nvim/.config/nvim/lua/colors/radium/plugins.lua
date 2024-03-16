@@ -2,10 +2,6 @@ local palette = require("colors.radium.palette")
 
 local M = {}
 
---- @alias ThemeStyle vim.api.keyset.highlight
-
---- @alias ThemeGroup table<string, ThemeStyle>
-
 --- @param config ThemeConfig
 --- @return ThemeGroup
 M.lsp = function(config)

@@ -1,3 +1,5 @@
+-- someday ill make this a colorscheme
+
 return {
 	default = {
 		bg = "#000a07",
