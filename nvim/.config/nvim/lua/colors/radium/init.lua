@@ -17,56 +17,71 @@ local palette = require("colors.radium.palette")
 -- "
 -- " Read the complete license here: https://www.gnu.org/licenses/gpl-3.0.en.html
 
-local M = {}
-M.name = "radium"
-M.palette = palette
+local Radium = {}
+Radium.__index = Radium
 
-M.term_colors = {
-    M.palette.default.bg,
-    M.palette.default.red,
-    M.palette.default.green,
-    M.palette.default.yellow,
-    M.palette.default.blue,
-    M.palette.default.magenta,
-    M.palette.default.cyan,
-    M.palette.default.bg1,
-    M.palette.default.grey,
-    M.palette.default.red_bright,
-    M.palette.default.green_bright,
-    M.palette.default.yellow_bright,
-    M.palette.default.blue_bright,
-    M.palette.default.magenta_bright,
-    M.palette.default.cyan_bright,
-    M.palette.default.white,
-}
+local instance = nil
 
---- @param config ThemeConfig
---- @return ThemeGroup
-function M:get_groups(config)
-    local groups = plugin_groups:with_config(config)
-    M.groups = groups
-    return groups
+function Radium:new()
+	if instance == nil then
+		instance = setmetatable({
+			config = {},
+			name = "radium",
+			palette = palette,
+			term_colors = {
+				palette.default.bg,
+				palette.default.red,
+				palette.default.green,
+				palette.default.yellow,
+				palette.default.blue,
+				palette.default.magenta,
+				palette.default.cyan,
+				palette.default.bg1,
+				palette.default.grey,
+				palette.default.red_bright,
+				palette.default.green_bright,
+				palette.default.yellow_bright,
+				palette.default.blue_bright,
+				palette.default.magenta_bright,
+				palette.default.cyan_bright,
+				palette.default.white,
+			},
+		}, Radium)
+	end
+	return instance
 end
 
-M.get_termcolors = function()
-    return M.term_colors
+function Radium:get_groups(config)
+	local groups = plugin_groups:with_config(config)
+	self.groups = groups
+	return groups
 end
 
---- @param config ThemeConfig
-M.setup = function(config)
-    M:get_groups(config)
-
-    vim.cmd.hi("clear")
-    vim.o.termguicolors = true
-    vim.g.colors_name = M.name
-
-    for group, settings in pairs(M.groups) do
-        vim.api.nvim_set_hl(0, group, settings)
-    end
-
-    for index, value in ipairs(M.term_colors) do
-        vim.g["terminal_color_" .. index - 1] = value
-    end
+function Radium:get_termcolors()
+	return self.term_colors
 end
 
-return M
+function Radium.setup(config)
+	local radium = Radium:new()
+	radium.config = vim.tbl_deep_extend("force", radium.config, config or {})
+end
+
+Radium.load = function()
+	local radium = Radium:new()
+	print("config", vim.inspect(radium.config))
+	radium:get_groups(radium.config)
+
+	vim.cmd.hi("clear")
+	vim.o.termguicolors = true
+	vim.g.colors_name = Radium.name
+
+	for group, settings in pairs(radium.groups) do
+		vim.api.nvim_set_hl(0, group, settings)
+	end
+
+	for index, value in ipairs(radium.term_colors) do
+		vim.g["terminal_color_" .. index - 1] = value
+	end
+end
+
+return Radium

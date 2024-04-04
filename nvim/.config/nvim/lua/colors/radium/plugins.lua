@@ -5,7 +5,7 @@ local M = {}
 --- @param config ThemeConfig
 --- @return ThemeGroup
 M.lsp = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		LspDiagnosticsSignError = { fg = colors.red_bright },
@@ -50,40 +50,8 @@ end
 
 --- @param config ThemeConfig
 --- @return ThemeGroup
-M.statusline = function(config)
-	local colors = palette[config.variant]
-	return {
-		StatusLineModeNormal = { bg = colors.magenta, fg = colors.white },
-		StatusLineNormalSeparator = { bg = nil, fg = colors.magenta },
-		StatusLineModeCommand = { bg = colors.red, fg = colors.white },
-		StatusLineCommandSeparator = { bg = nil, fg = colors.red },
-		StatusLineModeInsert = { bg = colors.blue, fg = colors.white },
-		StatusLineInsertSeparator = { bg = nil, fg = colors.blue },
-		StatusLineModeVisual = { bg = colors.green, fg = colors.white },
-		StatusLineVisualSeparator = { bg = nil, fg = colors.green },
-		StatusLineGitBranch = { bg = nil, fg = colors.green },
-		StatusLineFilename = { bg = nil, fg = colors.grey },
-		StatusLineCursor = { bg = nil, fg = colors.green },
-		StatusLineCursorPercent = { bg = nil, fg = colors.magenta },
-
-		FiletypeLua = { bg = nil, fg = colors.blue },
-		FiletypeRust = { bg = nil, fg = colors.yellow },
-		FiletypeJs = { bg = nil, fg = colors.yellow },
-		FiletypeTs = { bg = nil, fg = colors.blue },
-		FiletypeOcaml = { bg = nil, fg = colors.yellow },
-		FiletypeC = { bg = nil, fg = colors.blue },
-		FiletypeGo = { bg = nil, fg = colors.blue },
-		FiletypeGleam = { bg = nil, fg = colors.magenta },
-		FileTypeElixir = { bg = nil, fg = colors.magenta },
-		FiletypeDir = { bg = nil, fg = colors.yellow },
-		FiletypeNone = { bg = nil, fg = colors.red },
-	}
-end
-
---- @param config ThemeConfig
---- @return ThemeGroup
 M.defaults = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		Title = { bold = true, fg = "#66B3FF" },
@@ -283,7 +251,7 @@ end
 --- @param config ThemeConfig
 --- @return ThemeGroup
 M.diffview = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		DiffAdd = { fg = colors.green_bright, reverse = true },
@@ -320,7 +288,7 @@ end
 --- @param config ThemeConfig
 --- @return ThemeGroup
 M.cmp = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		CmpItemAbbrDeprecated = { fg = "#3E4450" },
@@ -360,7 +328,7 @@ end
 --- @param config ThemeConfig
 --- @return ThemeGroup
 M.gitsigns = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		GitSignsAdd = { fg = colors.blue_bright },
@@ -411,7 +379,7 @@ end
 --- @param config ThemeConfig
 --- @return ThemeGroup
 M.harpoon = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		HarpoonBorder = { bg = "#151A1F", fg = "#151A1F" },
@@ -425,7 +393,7 @@ end
 --- @param config ThemeConfig
 --- @return ThemeGroup
 M.incline = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		InclineBG = { bg = "#171C21" },
@@ -443,7 +411,7 @@ end
 --- @param config ThemeConfig
 --- @return ThemeGroup
 M.lua = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		luaCommentDelimiter = { fg = "#515C68" },
@@ -474,7 +442,7 @@ end
 --- @param config ThemeConfig
 --- @return ThemeGroup
 M.navic = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		NavicIconsArray = { fg = colors.yellow },
@@ -510,7 +478,7 @@ end
 --- @param config ThemeConfig
 --- @return ThemeGroup
 M.neogit = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		NeogitBranch = { bold = true, fg = colors.green },
@@ -549,7 +517,7 @@ end
 --- @param config ThemeConfig
 --- @return ThemeGroup
 M.notify = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		NotifyBackground = { bg = colors.bg, fg = colors.grey },
@@ -581,7 +549,7 @@ end
 --- @param config ThemeConfig
 --- @return ThemeGroup
 M.nui = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		NUICancel = { fg = "#222931" },
@@ -598,7 +566,7 @@ end
 --- @param config ThemeConfig
 --- @return ThemeGroup
 M.nvimtree = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		NvimTreeBookmark = { fg = colors.yellow_bright },
@@ -639,7 +607,7 @@ end
 --- @param config ThemeConfig
 --- @return ThemeGroup
 M.scrollbar = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		ScrollbarCursor = { fg = colors.cyan },
@@ -669,7 +637,7 @@ end
 --- @param config ThemeConfig
 --- @return ThemeGroup
 local telescope = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		TelescopeMatching = { bold = true, fg = "#DC97CA" },
@@ -693,7 +661,7 @@ end
 --- @param config ThemeConfig
 --- @return ThemeGroup
 M.todo = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		TodoBgBUG = { bg = colors.red, bold = true, fg = "#171C21" },
@@ -745,7 +713,7 @@ end
 --- @param config ThemeConfig
 --- @return ThemeGroup
 local trouble = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		TroubleNormal = { bg = "#0C0E11" },
@@ -755,7 +723,7 @@ end
 --- @param config ThemeConfig
 --- @return ThemeGroup
 M.undotree = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		UndotreeBranch = { fg = "#FF6666" },
@@ -778,7 +746,7 @@ end
 --- @param config ThemeConfig
 --- @return ThemeGroup
 M.whichkey = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		WhichKeyBorder = { bg = "#0E1014" },
@@ -794,7 +762,7 @@ end
 --- @param config ThemeConfig
 --- @return ThemeGroup
 M.treesitter = function(config)
-	local colors = palette[config.variant]
+	local colors = config.variant and palette[config.variant] or palette.default
 	local transparent = config.transparent
 	return {
 		TSRainbowBlue = { fg = "#94CAF9" },
@@ -865,7 +833,7 @@ end
 
 --- @param config ThemeConfig
 function M:with_config(config)
-	local statusline = M.statusline(config)
+	print(vim.inspect(config))
 	local defaults = M.defaults(config)
 	local diffview = M.diffview(config)
 	local cmp = M.cmp(config)
@@ -905,8 +873,7 @@ function M:with_config(config)
 		todo,
 		treesitter,
 		undotree,
-		whichkey,
-		statusline
+		whichkey
 	)
 
 	return groups

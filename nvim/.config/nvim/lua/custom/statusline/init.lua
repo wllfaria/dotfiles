@@ -186,4 +186,28 @@ M.right = function()
 	return right .. separator
 end
 
+M.center = function()
+	local separator = component_separator
+
+	local tmux = vim.system({ "tmux", "list-windows" }):wait().stdout
+
+	if not tmux then
+		return "%="
+	end
+
+	local splitted = vim.fn.split(tmux, "\n")
+	local status = ""
+
+	for _, v in ipairs(splitted) do
+		local parts = vim.fn.split(v, " ")
+		status = status .. parts[1] .. parts[2] .. separator
+	end
+
+	local right = M.right()
+	local space = vim.o.columns - #right + #status
+	local padding = string.rep(" ", math.floor(space / 2))
+
+	return "%=" .. separator .. padding
+end
+
 return M

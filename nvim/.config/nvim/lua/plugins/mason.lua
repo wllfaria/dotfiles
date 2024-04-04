@@ -52,6 +52,10 @@ return {
 			cmd = { "/home/wiru/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
 		})
 		lspconfig.lexical.setup({})
+		lspconfig.gopls.setup({})
+		lspconfig.zls.setup({})
+		lspconfig.ols.setup({})
+		lspconfig.clangd.setup({})
 
 		vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 		vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")

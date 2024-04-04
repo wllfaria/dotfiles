@@ -3,15 +3,12 @@ import=[
     "~/.config/alacritty/themes/tinty.toml"
 ]
 
-[env]
-term = "xterm-256color"
-
 [window]
 padding={x = 0, y = 0}
 blur=false
 opacity=1.0
 
 [font]
-size=14.0
-normal={family="Liga BerkeleyMono Nerd Font"}
-bold={family="Liga BerkeleyMono Nerd Font"}
+size=15.0
+normal={family="BerkeleyMono Nerd Font"}
+bold={family="BerkeleyMono Nerd Font"}

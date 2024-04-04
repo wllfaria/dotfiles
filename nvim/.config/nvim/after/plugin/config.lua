@@ -1,1 +1,1 @@
-vim.opt.fillchars = { vert = '│', horiz = '─' }
+vim.opt.fillchars = { vert = "│", horiz = "─" }

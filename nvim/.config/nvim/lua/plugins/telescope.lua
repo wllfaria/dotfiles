@@ -24,6 +24,8 @@ return {
 			git_files = bottom_layout,
 			buffers = bottom_layout,
 			help_tags = bottom_layout,
+			live_grep = bottom_layout,
+			keymaps = bottom_layout,
 		}
 
 		require("telescope").setup({
