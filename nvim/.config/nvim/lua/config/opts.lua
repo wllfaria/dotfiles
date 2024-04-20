@@ -1,8 +1,8 @@
 vim.opt.confirm = true
-vim.opt.mouse = "a"
-vim.opt.cursorline = false
+vim.opt.mouse = 'a'
+vim.opt.cursorline = true
 vim.opt.grepprg = 'rg --vimgrep --no-heading'
-vim.opt.guicursor = ""
+vim.opt.guicursor = ''
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -23,7 +23,7 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = 'no'
 
 vim.opt.updatetime = 50
 
@@ -36,7 +36,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 vim.opt.wildmenu = true
-vim.opt.wildmode = "longest:full,full"
+vim.opt.wildmode = 'longest:full,full'
 vim.opt.pumblend = 17
 
 vim.g.netrw_browse_split = 0

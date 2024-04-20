@@ -1,5 +1,5 @@
-local plugin_groups = require("colors.radium.plugins")
-local palette = require("colors.radium.palette")
+local palette = require 'colors.radium.palette'
+local plugin_groups = require 'colors.radium.plugins'
 
 -- " Radium
 -- " A radioactive colorscheme.
@@ -23,65 +23,65 @@ Radium.__index = Radium
 local instance = nil
 
 function Radium:new()
-	if instance == nil then
-		instance = setmetatable({
-			config = {},
-			name = "radium",
-			palette = palette,
-			term_colors = {
-				palette.default.bg,
-				palette.default.red,
-				palette.default.green,
-				palette.default.yellow,
-				palette.default.blue,
-				palette.default.magenta,
-				palette.default.cyan,
-				palette.default.bg1,
-				palette.default.grey,
-				palette.default.red_bright,
-				palette.default.green_bright,
-				palette.default.yellow_bright,
-				palette.default.blue_bright,
-				palette.default.magenta_bright,
-				palette.default.cyan_bright,
-				palette.default.white,
-			},
-		}, Radium)
-	end
-	return instance
+  if instance == nil then
+    instance = setmetatable({
+      config = {},
+      name = 'radium',
+      palette = palette,
+      term_colors = {
+        palette.default.bg,
+        palette.default.red,
+        palette.default.green,
+        palette.default.yellow,
+        palette.default.blue,
+        palette.default.magenta,
+        palette.default.cyan,
+        palette.default.bg1,
+        palette.default.grey,
+        palette.default.red_bright,
+        palette.default.green_bright,
+        palette.default.yellow_bright,
+        palette.default.blue_bright,
+        palette.default.magenta_bright,
+        palette.default.cyan_bright,
+        palette.default.white,
+      },
+    }, Radium)
+  end
+  return instance
 end
 
 function Radium:get_groups(config)
-	local groups = plugin_groups:with_config(config)
-	self.groups = groups
-	return groups
+  local groups = plugin_groups:with_config(config)
+  self.groups = groups
+  return groups
 end
 
 function Radium:get_termcolors()
-	return self.term_colors
+  return self.term_colors
 end
 
 function Radium.setup(config)
-	local radium = Radium:new()
-	radium.config = vim.tbl_deep_extend("force", radium.config, config or {})
+  local radium = Radium:new()
+  radium.config = vim.tbl_deep_extend('force', radium.config, config or {})
 end
 
 Radium.load = function()
-	local radium = Radium:new()
-	print("config", vim.inspect(radium.config))
-	radium:get_groups(radium.config)
+  local radium = Radium:new()
+  print('config', vim.inspect(radium.config))
+  radium:get_groups(radium.config)
 
-	vim.cmd.hi("clear")
-	vim.o.termguicolors = true
-	vim.g.colors_name = Radium.name
+  vim.cmd.hi 'clear'
+  vim.o.termguicolors = true
+  vim.g.colors_name = Radium.name
 
-	for group, settings in pairs(radium.groups) do
-		vim.api.nvim_set_hl(0, group, settings)
-	end
+  for group, settings in pairs(radium.groups) do
+    vim.api.nvim_set_hl(0, group, settings)
+  end
 
-	for index, value in ipairs(radium.term_colors) do
-		vim.g["terminal_color_" .. index - 1] = value
-	end
+  for index, value in ipairs(radium.term_colors) do
+    vim.g['terminal_color_' .. index - 1] = value
+  end
 end
 
 return Radium

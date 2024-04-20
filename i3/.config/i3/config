@@ -47,3 +47,5 @@ exec --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --left-of
 exec --no-startup-id xrandr --output DP-2 --mode 1920x1080 --rate 240 --primary
 exec --no-startup-id xinput --set-prop 17 'libinput Accel Profile Enabled' 0, 1
 exec --no-startup-id xinput --set-prop 17 'libinput Accel Speed' 0
+
+bindsym $mod+Shift+z [floating] resize set 1200 600

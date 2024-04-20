@@ -1,1 +1,1 @@
-require("custom.telescope")
+require 'custom.telescope'
