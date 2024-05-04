@@ -1,6 +1,8 @@
 vim.g.mapleader = ' '
 
 vim.keymap.set('t', '<esc><esc>', '<C-\\><C-n>')
+vim.keymap.set('t', '<c-j>', '<C-\\><C-n>')
+
 vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('n', '<leader><leader>x', '<cmd>source %<CR>')
 vim.keymap.set('n', '<leader>t', '<Plug>PlenaryTestFile', { expr = true })
@@ -16,10 +18,10 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
 vim.keymap.set('n', 'Q', '<nop>')
 
-vim.keymap.set('n', '<C-A-h>', function() vim.cmd 'vertical resize +2' end)
-vim.keymap.set('n', '<C-A-j>', function() vim.cmd 'resize -2' end)
-vim.keymap.set('n', '<C-A-k>', function() vim.cmd 'resize +2' end)
-vim.keymap.set('n', '<C-A-l>', function() vim.cmd 'vertical resize -2' end)
+vim.keymap.set('n', '<C-A-h>', function() vim.cmd 'vertical resize +4' end)
+vim.keymap.set('n', '<C-A-j>', function() vim.cmd 'resize -4' end)
+vim.keymap.set('n', '<C-A-k>', function() vim.cmd 'resize +4' end)
+vim.keymap.set('n', '<C-A-l>', function() vim.cmd 'vertical resize -4' end)
 
 vim.keymap.set('n', '<leader>d', '"_d')
 vim.keymap.set('v', '<leader>d', '"_d')
@@ -29,8 +31,12 @@ vim.keymap.set('n', '<leader>mx', '<cmd>!chmod +x %<CR>', { silent = true })
 
 vim.keymap.set('n', '<Right>', function() vim.cmd.tabnext() end)
 vim.keymap.set('n', '<Left>', function() vim.cmd.tabprev() end)
-vim.keymap.set('n', '<Up>', function() vim.cmd.tabnew() end)
 vim.keymap.set('n', '<Down>', function() vim.cmd.tabclose() end)
+
+vim.keymap.set('n', '<leader>co', function() vim.cmd.copen() end)
+vim.keymap.set('n', '<leader>cc', function() vim.cmd.cclose() end)
+vim.keymap.set('n', '<leader>]', function() vim.cmd.cnext() end)
+vim.keymap.set('n', '<leader>[', function() vim.cmd.cprev() end)
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',

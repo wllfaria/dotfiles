@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+git clone --depth 1 "$1" temp-linecount-repo &&
+	tokei temp-linecount-repo &&
+	rm -rf temp-linecount-repo

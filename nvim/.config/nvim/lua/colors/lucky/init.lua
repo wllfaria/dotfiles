@@ -46,9 +46,7 @@ function M:get_groups(config)
   return groups
 end
 
-M.get_termcolors = function()
-  return M.term_colors
-end
+M.get_termcolors = function() return M.term_colors end
 
 M.setup = function(config)
   M:get_groups(config)

@@ -1,5 +1,6 @@
 return {
   'stevearc/conform.nvim',
+  event = 'BufWritePre',
   config = function()
     local conform = require 'conform'
 
@@ -12,6 +13,7 @@ return {
         typescriptreact = { 'prettier' },
         javascript = { 'prettier' },
         javascriptreact = { 'prettier' },
+        sh = { 'shfmt' },
       },
       format_on_save = {
         timeout_ms = 500,

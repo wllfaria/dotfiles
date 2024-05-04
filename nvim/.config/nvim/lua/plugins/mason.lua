@@ -9,8 +9,8 @@ return {
     local lsp_defaults = lspconfig.util.default_config
     local neodev = require 'neodev'
 
-    -- local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
-    -- lsp_defaults.capabilities = vim.tbl_deep_extend('force', lsp_defaults.capabilities, cmp_capabilities)
+    local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+    lsp_defaults.capabilities = vim.tbl_deep_extend('force', lsp_defaults.capabilities, cmp_capabilities)
 
     neodev.setup {}
     mason.setup()
@@ -60,18 +60,11 @@ return {
         },
       },
     }
-    lspconfig.gleam.setup {}
+
     lspconfig.lua_ls.setup {}
-    lspconfig.ocamllsp.setup {}
-    lspconfig.elixirls.setup {
-      cmd = { '/home/wiru/.local/share/nvim/mason/packages/elixir-ls/language_server.sh' },
-    }
-    lspconfig.lexical.setup {}
     lspconfig.gopls.setup {}
-    lspconfig.zls.setup {}
-    lspconfig.ols.setup {}
-    lspconfig.clangd.setup {}
-    lspconfig.taplo.setup {}
+    lspconfig.eslint.setup {}
+    lspconfig.svelte.setup {}
 
     vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end)
     vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end)

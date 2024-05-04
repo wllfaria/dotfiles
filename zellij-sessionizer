@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+session=$(find ~/code/personal ~/dotfiles ~/code/work -mindepth 1 -maxdepth 1 -type d | fzf)
+session_name=$(basename "$session" | tr . _)
+
+curr_session=$(zellij ls -s | rg "$session_name")
+is_attached=$(echo $ZELLIJ)
+
+if [ "$is_attached" = "0" ]; then
+	window_id=$(xdotool getactivewindow)
+	echo "sending quit to $window_id"
+	xdotool key --window $window_id ctrl+d
+fi
+
+# if [ -n "$curr_session" ]; then
+# 	cd $session
+# 	zellij attach -c "$curr_session"
+# fi

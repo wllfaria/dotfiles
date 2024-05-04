@@ -3,7 +3,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term alacritty
+set $term wezterm
 set $refresh_i3status killall -SIGUSR1 i3status
 
 # █▄▀ ██▀ ▀▄▀ ██▄ █ █▄ █ █▀▄ ▄▀▀

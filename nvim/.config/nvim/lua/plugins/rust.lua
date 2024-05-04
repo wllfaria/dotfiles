@@ -1,6 +1,5 @@
 return {
   'saecki/crates.nvim',
-  config = function()
-    require('crates').setup {}
-  end,
+  event = 'BufEnter',
+  config = function() require('crates').setup {} end,
 }

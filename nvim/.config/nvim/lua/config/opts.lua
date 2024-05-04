@@ -3,6 +3,8 @@ vim.opt.mouse = 'a'
 vim.opt.cursorline = true
 vim.opt.grepprg = 'rg --vimgrep --no-heading'
 vim.opt.guicursor = ''
+-- vim.opt.listchars = { tab = '│ ', leadmultispace = '│∙∙∙', trail = '-' }
+vim.opt.list = true
 
 vim.opt.number = true
 vim.opt.relativenumber = true
