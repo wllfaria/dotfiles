@@ -10,27 +10,7 @@ return {
     local builtin = require 'telescope.builtin'
     local actions = require 'telescope.actions'
 
-    local bottom_layout = {
-      results_title = '',
-      sorting_strategy = 'ascending',
-      layout_strategy = 'bottom_pane',
-      borderchars = {
-        prompt = { '─', ' ', ' ', ' ', '─', '─', ' ', ' ' },
-        results = { ' ' },
-      },
-    }
-
-    local pickers = {
-      find_files = bottom_layout,
-      git_files = bottom_layout,
-      buffers = bottom_layout,
-      help_tags = bottom_layout,
-      live_grep = bottom_layout,
-      keymaps = bottom_layout,
-    }
-
     require('telescope').setup {
-      pickers = pickers,
       defaults = {
         mappings = {
           i = {
@@ -40,7 +20,6 @@ return {
         },
         vimgrep_arguments = {
           'rg',
-          '--color=never',
           '--with-filename',
           '--no-heading',
           '--line-number',
@@ -57,17 +36,6 @@ return {
           '%.snap',
           'node_modules/',
         },
-        preview = false,
-        layout_config = {
-          bottom_pane = {
-            height = 0.50,
-            prompt_position = 'bottom',
-          },
-          horizontal = {
-            prompt_position = 'top',
-          },
-        },
-        sorting_strategy = 'ascending',
       },
     }
     pcall(require('telescope').load_extension, 'fzf')

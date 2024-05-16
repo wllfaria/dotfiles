@@ -24,6 +24,18 @@ return {
       vim.o.background = 'dark'
       require('kanagawa').setup {
         background = { dark = 'dragon', light = 'lotus' },
+        overrides = function(colors)
+          local theme = colors.theme
+          return {
+            TelescopeTitle = { fg = theme.ui.special, bold = true },
+            TelescopePromptNormal = { bg = theme.ui.bg_dim },
+            TelescopePromptBorder = { fg = theme.ui.bg_dim, bg = theme.ui.bg_dim },
+            TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_dim },
+            TelescopeResultsBorder = { fg = theme.ui.bg_dim, bg = theme.ui.bg_dim },
+            TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+            TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+          }
+        end,
       }
       vim.cmd.colorscheme 'kanagawa'
       comment_as_boolean()

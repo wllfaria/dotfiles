@@ -25,12 +25,14 @@ vim.keymap.set('n', '<C-A-l>', function() vim.cmd 'vertical resize -4' end)
 
 vim.keymap.set('n', '<leader>d', '"_d')
 vim.keymap.set('v', '<leader>d', '"_d')
+vim.keymap.set('x', '<leader>d', '"_d')
 vim.keymap.set('n', '<c-f>', ':silent !tmux neww tmux-sessionizer<cr>')
 vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set('n', '<leader>mx', '<cmd>!chmod +x %<CR>', { silent = true })
 
 vim.keymap.set('n', '<Right>', function() vim.cmd.tabnext() end)
 vim.keymap.set('n', '<Left>', function() vim.cmd.tabprev() end)
+vim.keymap.set('n', '<Up>', function() vim.cmd.tabnew() end)
 vim.keymap.set('n', '<Down>', function() vim.cmd.tabclose() end)
 
 vim.keymap.set('n', '<leader>co', function() vim.cmd.copen() end)

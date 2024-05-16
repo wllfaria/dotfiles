@@ -13,7 +13,7 @@ return {
     lsp_defaults.capabilities = vim.tbl_deep_extend('force', lsp_defaults.capabilities, cmp_capabilities)
 
     neodev.setup {}
-    mason.setup()
+    mason.setup {}
 
     local lexical_config = {
       filetypes = { 'elixir', 'eelixir', 'heex' },
