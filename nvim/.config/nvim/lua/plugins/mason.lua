@@ -75,6 +75,12 @@ return {
     vim.keymap.set('n', '<leader>dn', function() vim.diagnostic.goto_next { scope = 'workspace' } end)
     vim.keymap.set('n', '<leader>dN', function() vim.diagnostic.goto_prev { scope = 'workspace' } end)
 
+    vim.keymap.set(
+      'n',
+      '<leader>i',
+      function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = 0 }) end
+    )
+
     vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.references() end)
     vim.keymap.set('n', '<leader>vws', function() vim.lsp.buf.workspace_symbol() end)
   end,

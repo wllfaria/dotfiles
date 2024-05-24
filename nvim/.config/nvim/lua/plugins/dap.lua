@@ -1,5 +1,6 @@
 return {
   'mfussenegger/nvim-dap',
+  event = 'BufEnter',
   dependencies = {
     'rcarriga/nvim-dap-ui',
     'theHamsta/nvim-dap-virtual-text',
@@ -11,11 +12,32 @@ return {
 
     require('dapui').setup()
     require('nvim-dap-virtual-text').setup {}
+    local codelldb = require('mason-registry').get_package('codelldb'):get_install_path() .. '/codelldb'
+
+    dap.adapters.codelldb = {
+      type = 'server',
+      port = '${port}',
+      executable = {
+        command = codelldb,
+        args = { '--port', '${port}' },
+      },
+    }
+
+    dap.configurations.rust = {
+      {
+        name = 'Rust debug',
+        type = 'codelldb',
+        request = 'launch',
+        program = function() return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file') end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = true,
+      },
+    }
 
     vim.keymap.set('n', '<space>?', function() require('dapui').eval(nil, { enter = true }) end)
 
-    vim.keymap.set('n', '<leader>B', dap.set_breakpoint)
-    vim.keymap.set('n', '<leader>.', dap.continue)
+    vim.keymap.set('n', '<leader>b', dap.set_breakpoint)
+    vim.keymap.set('n', '<leader>c', dap.continue)
     vim.keymap.set('n', '<leader>>', dap.step_into)
     vim.keymap.set('n', '<leader>;', dap.step_over)
     vim.keymap.set('n', '<leader><', dap.step_out)

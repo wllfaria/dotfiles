@@ -28,7 +28,7 @@ bar {
 }
 
 # ▄▀▀ ▀█▀ ▄▀▄ █▀▄ ▀█▀ █ █ █▀▄
-# ▄██  █  █▀█ █▀▄  █  ▀▄█ █▀ 
+# ▄██  █  █▀█ █▀▄  █  ▀▄█ █▀
 tiling_drag modifier titlebar
 font pango:BerkeleyMono Nerd Font 10.0
 
@@ -37,14 +37,6 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore
-exec_always --no-startup-id systemctl --user enable pipewire.service
-exec_always --no-startup-id systemctl --user start pipewire.service
-exec_always --no-startup-id systemctl --user start wireplumber.service
-exec_always --no-startup-id systemctl --user enable wireplumber.service
-exec_always --no-startup-id systemctl --user enable pipewire-pulse.service
-exec_always --no-startup-id systemctl --user start pipewire-pulse.service
-exec --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --left-of DP-2
-exec --no-startup-id xrandr --output DP-2 --mode 1920x1080 --rate 240 --primary
 exec --no-startup-id xinput --set-prop 17 'libinput Accel Profile Enabled' 0, 1
 exec --no-startup-id xinput --set-prop 17 'libinput Accel Speed' 0
 

@@ -12,7 +12,7 @@ return {
     priority = 1000,
     config = function()
       -- vim.o.background = 'dark'
-      -- vim.cmd.colorscheme 'base16-gruvbox-dark-hard'
+      -- vim.cmd.colorscheme 'base16-rose-pine'
       -- comment_as_boolean()
     end,
   },
@@ -21,9 +21,8 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.o.background = 'dark'
       require('kanagawa').setup {
-        background = { dark = 'dragon', light = 'lotus' },
+        background = { dark = 'wave', light = 'lotus' },
         overrides = function(colors)
           local theme = colors.theme
           return {
@@ -34,10 +33,21 @@ return {
             TelescopeResultsBorder = { fg = theme.ui.bg_dim, bg = theme.ui.bg_dim },
             TelescopePreviewNormal = { bg = theme.ui.bg_dim },
             TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+            EndOfBuffer = { fg = theme.ui.whitespace },
           }
         end,
       }
-      vim.cmd.colorscheme 'kanagawa'
+      -- vim.o.background = 'dark'
+      -- vim.cmd.colorscheme 'kanagawa-dragon'
+      -- comment_as_boolean()
+    end,
+  },
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    config = function()
+      require('rose-pine').setup {}
+      vim.cmd.colorscheme 'rose-pine'
       comment_as_boolean()
     end,
   },
