@@ -52,6 +52,7 @@
     coreutils
     feh
     dunst
+    tokei
     fzf
     fd
     eza
