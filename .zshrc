@@ -26,7 +26,7 @@ zstyle ':completion:*' menu no
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^p' history-search-forward
-bindkey -s '^f' '/usr/local/bin/tmux-sessionizer\n'
+bindkey -s '^f' '/home/wiru/.local/bin/tmux-sessionizer\n'
 
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
