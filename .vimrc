@@ -37,11 +37,9 @@ set colorcolumn=101
 set confirm
 set fillchars=fold:\ ,foldopen:v,foldclose:>
 set foldmethod=indent
-set listchars=tab:â”‚\ ,trail:-
 set foldlevel=99
 set guicursor=a:block,v-r-cr-o:hor20,i:ver20
 set laststatus=2
-set list
 set menuitems=12
 set number
 set relativenumber

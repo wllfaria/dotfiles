@@ -100,6 +100,11 @@
 
   programs.home-manager.enable = true;
 
+  programs.neovim = {
+    enable = true;
+    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+  }
+
   programs.git = {
     enable = true;
     userName = "wiru";
