@@ -1,0 +1,170 @@
+leader = "Mod1"
+workspaces = 9
+border_width = 4
+border_color = "#252525"
+active_border_color = "#2D4F67"
+focus_new_clients = true
+
+startup_commands = [
+    "dunst -config ~/.config/dunst/dunstrc",
+    "nm-applet",
+    "nitrogen --restore",
+    "flameshot &",
+    "xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --left-of DP-2",
+    "xrandr --output DP-2 --mode 1920x1080 --rate 240 --primary",
+]
+
+[[actions]]
+modifiers = ["Leader"]
+key = "q"
+action = "Close"
+
+[[actions]]
+modifiers = ["Leader", "Shift"]
+key = "r"
+action = "Reload"
+
+[[actions]]
+modifiers = ["Leader"]
+key = "h"
+action = "FocusLeft"
+
+[[actions]]
+modifiers = ["Leader"]
+key = "j"
+action = "FocusDown"
+
+[[actions]]
+modifiers = ["Leader"]
+key = "k"
+action = "FocusUp"
+
+[[actions]]
+modifiers = ["Leader"]
+key = "l"
+action = "FocusRight"
+
+[[actions]]
+modifiers = ["Leader", "Shift"]
+key = "h"
+action = "MoveLeft"
+
+[[actions]]
+modifiers = ["Leader", "Shift"]
+key = "j"
+action = "MoveDown"
+
+[[actions]]
+modifiers = ["Leader", "Shift"]
+key = "k"
+action = "MoveUp"
+
+[[actions]]
+modifiers = ["Leader", "Shift"]
+key = "l"
+action = "MoveRight"
+
+[[actions]]
+modifiers = ["Leader"]
+key = "1"
+action = "Workspace1"
+
+[[actions]]
+modifiers = ["Leader"]
+key = "2"
+action = "Workspace2"
+
+[[actions]]
+modifiers = ["Leader"]
+key = "3"
+action = "Workspace3"
+
+[[actions]]
+modifiers = ["Leader"]
+key = "4"
+action = "Workspace4"
+
+[[actions]]
+modifiers = ["Leader"]
+key = "5"
+action = "Workspace5"
+
+[[actions]]
+modifiers = ["Leader"]
+key = "6"
+action = "Workspace6"
+
+[[actions]]
+modifiers = ["Leader"]
+key = "7"
+action = "Workspace7"
+
+[[actions]]
+modifiers = ["Leader"]
+key = "8"
+action = "Workspace8"
+
+[[actions]]
+modifiers = ["Leader"]
+key = "9"
+action = "Workspace9"
+
+[[actions]]
+modifiers = ["Leader", "Shift"]
+key = "1"
+action = "MoveToWorkspace1"
+
+[[actions]]
+modifiers = ["Leader", "Shift"]
+key = "2"
+action = "MoveToWorkspace2"
+
+[[actions]]
+modifiers = ["Leader", "Shift"]
+key = "3"
+action = "MoveToWorkspace3"
+
+[[actions]]
+modifiers = ["Leader", "Shift"]
+key = "4"
+action = "MoveToWorkspace4"
+
+[[actions]]
+modifiers = ["Leader", "Shift"]
+key = "5"
+action = "MoveToWorkspace5"
+
+[[actions]]
+modifiers = ["Leader", "Shift"]
+key = "6"
+action = "MoveToWorkspace6"
+
+[[actions]]
+modifiers = ["Leader", "Shift"]
+key = "7"
+action = "MoveToWorkspace7"
+
+[[actions]]
+modifiers = ["Leader", "Shift"]
+key = "8"
+action = "MoveToWorkspace8"
+
+[[actions]]
+modifiers = ["Leader", "Shift"]
+key = "9"
+action = "MoveToWorkspace9"
+
+[[commands]]
+modifiers = ["Leader"]
+key = "Enter"
+command = "wezterm"
+
+[[commands]]
+modifiers = ["Leader"]
+key = "d"
+command = "rofi -show drun"
+
+[[commands]]
+modifiers = ["Leader"]
+key = "t"
+command = "thunar"

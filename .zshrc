@@ -43,6 +43,7 @@ setopt hist_find_no_dups
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export EDITOR="nvim"
+export GPG_TTY=$(tty)
 
 alias ls="eza --icons=always"
 alias paru="paru --bottomup --skipreview"

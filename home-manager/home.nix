@@ -1,4 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
+let ocamlPackages = pkgs.ocaml-ng.ocamlPackages_5_2;
+in
 {
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -10,15 +12,7 @@
 
   nixpkgs = {
     overlays = [
-      # If you want to use overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
+      inputs.neovim-nightly-overlay.overlays.default
     ];
     config = {
       allowUnfree = true;
@@ -34,16 +28,11 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
-    # shell things
-    zsh
-
     # utilities
     btop
     inlyne
     flameshot
     pavucontrol
-    rofi
-    wezterm
     curl
     zip
     unzip
@@ -55,7 +44,10 @@
     xfce.thunar
     xclip
     vesktop
-    
+    less
+    xorg.xrandr
+    jetbrains-mono
+
     # dev utils
     bat
     jq
@@ -65,6 +57,7 @@
     ripgrep
     eza
     zoxide
+    tmux
 
     # my display manager
     ly
@@ -82,13 +75,7 @@
     lua
     go
 
-    # LSP
     lua-language-server
-    nodePackages.eslint
-    nodePackages.eslint_d
-    nodePackages.prettier
-    nodePackages.svelte-language-server
-    nodePackages.typescript-language-server
     prettierd
     gopls
     stylua
@@ -96,21 +83,34 @@
     # gaming in linux is possible since 1999
     bottles
     steam
-  ];
+  ]
+  ++ (with nodePackages; [
+    nodePackages.eslint
+    nodePackages.eslint_d
+    nodePackages.prettier
+    nodePackages.svelte-language-server
+    nodePackages.typescript-language-server
+  ])
+  ++ (with ocamlPackages; [
+    ocaml
+    dune_2
+    ocamlformat
+    opam
+  ]);
 
   programs.home-manager.enable = true;
 
   programs.neovim = {
     enable = true;
     package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
-  }
+  };
 
   programs.git = {
     enable = true;
     userName = "wiru";
     userEmail = "dev.willians.faria@gmail.com";
     signing = {
-      key = "69F358B33C62022D56C3AE505F5B711EF447A840";
+      key = "0E1E92EEB8953D2966535924B6C605C7C23A6F76";
       signByDefault = true;
     };
     extraConfig = {
@@ -169,6 +169,11 @@
 
     ".config/dunst" = {
         source = ../dunst;
+        recursive = true;
+    };
+
+    ".config/lucky" = {
+        source = ../lucky;
         recursive = true;
     };
 
