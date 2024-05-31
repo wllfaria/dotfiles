@@ -45,18 +45,29 @@
     rofi
     wezterm
     curl
-    bat
     zip
     unzip
     gzip
     coreutils
     feh
     dunst
+    nitrogen
+    xfce.thunar
+    xclip
+    vesktop
+    
+    # dev utils
+    bat
+    jq
     tokei
     fzf
     fd
+    ripgrep
     eza
     zoxide
+
+    # my display manager
+    ly
 
     # debuggig / profiling
     gdb
@@ -68,6 +79,7 @@
     cargo-expand
     cargo-watch
     gh
+    lua
     go
 
     # LSP

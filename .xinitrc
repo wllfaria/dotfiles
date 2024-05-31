@@ -1,1 +1,1 @@
-exec lucky
+exec ~/.local/bin/lucky

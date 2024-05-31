@@ -45,7 +45,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export EDITOR="nvim"
 
 alias ls="eza --icons=always"
-alias paru="paru --bottomup"
+alias paru="paru --bottomup --skipreview"
 alias v="nvim"
 
 eval "$(zoxide init --cmd cd zsh)"
