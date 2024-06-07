@@ -5,14 +5,16 @@
     overlays = [];
     config = {
       allowUnfree = true;
-      allowUnfreePredicate = _; true;
+      allowUnfreePredicate = _: true;
     };
   };
 
   home = {
     username = "wiru";
-    homeDirectory: "/home/wiru";
+    homeDirectory = "/Users/wiru";
   };
 
-  home.packages = with pkgs; [ ];
+  home.packages = with pkgs; [ 
+    lldb
+  ];
 }

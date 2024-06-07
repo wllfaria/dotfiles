@@ -51,6 +51,13 @@ local function compile_some_rust()
   vim.cmd(err_out .. warn_out)
 end
 
+local current_os = vim.loop.os_uname().sysname
+if current_os == 'Linux' then
+  vim.g.termdebugger = 'rust-gdb'
+elseif 'macOS' then
+  vim.g.termdebugger = 'rust-lldb'
+end
+
 vim.api.nvim_create_user_command('Compile', function() compile_some_rust() end, {})
 vim.keymap.set('n', '<C-x>', function() vim.cmd 'Compile' end)
 vim.keymap.set('n', '<leader>rt', function() vim.cmd 'RustTest' end)

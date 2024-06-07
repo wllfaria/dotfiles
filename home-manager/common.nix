@@ -1,6 +1,4 @@
 { pkgs, inputs, ... }:
-let ocamlPackages = pkgs.ocaml-ng.ocamlPackages_5_2;
-in
 {
   imports = [];
 
@@ -14,11 +12,6 @@ in
     };
   };
 
-  home = {
-    username = "wiru";
-    homeDirectory = "/home/wiru";
-  };
-
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
@@ -30,8 +23,8 @@ in
     unzip
     gzip
     xclip
-    vesktop
     less
+    discord
     jetbrains-mono
 
     # dev utils
@@ -46,9 +39,7 @@ in
     tmux
 
     # debuggig / profiling
-    gdb
     cargo-flamegraph
-    perf-tools
 
     # dev stuff
     rustup
@@ -69,12 +60,6 @@ in
     nodePackages.prettier
     nodePackages.svelte-language-server
     nodePackages.typescript-language-server
-  ])
-  ++ (with ocamlPackages; [
-    ocaml
-    dune_2
-    ocamlformat
-    opam
   ]);
 
   programs.home-manager.enable = true;

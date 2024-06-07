@@ -1,21 +1,25 @@
 { pkgs, inputs, ... }:
+let ocamlPackages = pkgs.ocaml-ng.ocamlPackages_5_2;
+in
 {
   imports = [];
   nixpkgs = {
     overlays = [];
     config = {
       allowUnfree = true;
-      allowUnfreePredicate = _; true;
+      allowUnfreePredicate = _: true;
     };
   };
 
   home = {
     username = "wiru";
-    homeDirectory: "/home/wiru";
+    homeDirectory = "/home/wiru";
   };
 
   home.packages = with pkgs; [ 
+    perf-tools
     coreutils
+    gdb
     flameshot
     pavucontrol
     feh
@@ -30,7 +34,13 @@
     # gaming in linux is possible since 1999
     steam
     bottles
-  ];
+  ]
+  ++ (with ocamlPackages; [
+    ocaml
+    dune_2
+    ocamlformat
+    opam
+  ]);
 
   home.file = {
     ".config/rofi" = {
