@@ -2,13 +2,7 @@
 let ocamlPackages = pkgs.ocaml-ng.ocamlPackages_5_2;
 in
 {
-  imports = [
-    # If you want to use home-manager modules from other flakes (such as nix-colors):
-    # inputs.nix-colors.homeManagerModule
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
-  ];
+  imports = [];
 
   nixpkgs = {
     overlays = [
@@ -31,21 +25,13 @@ in
     # utilities
     btop
     inlyne
-    flameshot
-    pavucontrol
     curl
     zip
     unzip
     gzip
-    coreutils
-    feh
-    dunst
-    nitrogen
-    xfce.thunar
     xclip
     vesktop
     less
-    xorg.xrandr
     jetbrains-mono
 
     # dev utils
@@ -58,9 +44,6 @@ in
     eza
     zoxide
     tmux
-
-    # my display manager
-    ly
 
     # debuggig / profiling
     gdb
@@ -79,10 +62,6 @@ in
     prettierd
     gopls
     stylua
-
-    # gaming in linux is possible since 1999
-    bottles
-    steam
   ]
   ++ (with nodePackages; [
     nodePackages.eslint
@@ -137,11 +116,6 @@ in
       recursive = true;
     };
 
-    ".config/rofi" = {
-      source = ../rofi;
-      recursive = true;
-    };
-
     ".config/tmux" = {
       source = ../tmux;
       recursive = true;
@@ -152,33 +126,7 @@ in
         recursive = true;
     };
 
-    ".config/i3" = {
-        source = ../i3;
-        recursive = true;
-    };
-
-    ".config/i3status" = {
-        source = ../i3status;
-        recursive = true;
-    };
-
-    ".config/feh" = {
-        source = ../feh;
-        recursive = true;
-    };
-
-    ".config/dunst" = {
-        source = ../dunst;
-        recursive = true;
-    };
-
-    ".config/lucky" = {
-        source = ../lucky;
-        recursive = true;
-    };
-
     ".zshrc".source = ../.zshrc;
-    ".xinitrc".source = ../.xinitrc;
     ".vimrc".source = ../.vimrc;
 
     ".local/bin/tmux-sessionizer" = {

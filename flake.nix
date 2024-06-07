@@ -15,12 +15,32 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-  in {
+    lib = nixpkgs.lib // home-manager.lib;
+    forAllSystems = lib.genAttrs [
+      "aarch64-linux"
+      "i686-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
+    ];
+  in rec {
+    legacyPackages = forAllSystems (
+      system:
+        import inputs.nixpkgs {
+          inherit system;
+	  config.allowUnfree = true;
+	}
+    );
     homeConfigurations = {
-      "wiru@wiru" = home-manager.lib.homeManagerConfiguration {
+      "wiru@linux" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home-manager/home.nix];
+        modules = [./home-manager/common.nix ./home-manager/linux.nix];
+      };
+      "wiru@macos" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./home-manager/common.nix ./home-manager/darwin.nix];
       };
     };
   };
