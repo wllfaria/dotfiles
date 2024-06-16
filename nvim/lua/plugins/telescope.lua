@@ -11,6 +11,7 @@ return {
 
     require('telescope').setup {
       defaults = {
+        path_display = { truncate = 2 },
         mappings = {
           i = {
             ['<C-j>'] = actions.move_selection_next,
@@ -49,7 +50,6 @@ return {
     vim.keymap.set('n', '<leader>fk', builtin.keymaps)
     vim.keymap.set('n', '<leader>fhi', builtin.highlights)
     vim.keymap.set('n', '<leader>fa', builtin.autocommands)
-
     vim.keymap.set('n', '<leader>ff', builtin.current_buffer_fuzzy_find)
     vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols)
     vim.keymap.set('n', '<leader>fb', builtin.buffers)

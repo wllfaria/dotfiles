@@ -1,0 +1,9 @@
+stow --target=~/.config nvim
+stow --target=~/.config wezterm
+stow --target=~/.config dunst
+stow --target=~/.config feh
+stow --target=~/.config i3
+stow --target=~/.config i3status
+stow --target=~/.config rofi
+stow --target=~/.config tmux
+stow --target=~ .zshrc

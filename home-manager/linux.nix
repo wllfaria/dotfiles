@@ -47,7 +47,7 @@ in
       source = ../rofi;
       recursive = true;
     };
-    
+
     ".config/i3" = {
         source = ../i3;
         recursive = true;

@@ -30,6 +30,7 @@ return {
         { name = 'nvim_lua' },
         { name = 'buffer' },
         { name = 'path' },
+        { name = 'supermaven' },
       },
     }
 

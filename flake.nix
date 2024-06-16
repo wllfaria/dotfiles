@@ -26,10 +26,10 @@
   in rec {
     legacyPackages = forAllSystems (
       system:
-        import inputs.nixpkgs {
-          inherit system;
-	  config.allowUnfree = true;
-	}
+      import inputs.nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      }
     );
     homeConfigurations = {
       "wiru@linux" = home-manager.lib.homeManagerConfiguration {
@@ -44,4 +44,5 @@
       };
     };
   };
+
 }

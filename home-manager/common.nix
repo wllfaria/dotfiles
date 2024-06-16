@@ -42,7 +42,6 @@
     cargo-flamegraph
 
     # dev stuff
-    rustup
     cargo-expand
     cargo-watch
     gh
@@ -108,7 +107,6 @@
 
     ".config/nvim" = {
         source = ../nvim;
-        recursive = true;
     };
 
     ".zshrc".source = ../.zshrc;

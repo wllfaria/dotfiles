@@ -7,6 +7,7 @@ vim.opt.list = true
 -- vim.opt.listchars = { tab = '│ ', leadmultispace = '│∙∙∙', trail = '-' }
 
 vim.opt.number = true
+vim.opt.completeopt = 'menu,menuone,noinsert'
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.undofile = true
