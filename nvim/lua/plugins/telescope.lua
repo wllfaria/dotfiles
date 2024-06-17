@@ -59,3 +59,4 @@ return {
     vim.keymap.set('n', '<leader>flg', builtin.live_grep)
   end,
 }
+

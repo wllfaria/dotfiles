@@ -1,5 +1,3 @@
-local utils = require 'custom.utils'
-
 local M = {}
 
 local function format_on_save(buffer)
@@ -13,13 +11,20 @@ local function format_on_save(buffer)
 end
 
 M.setup = function()
-  local root_dir = vim.uv.cwd()
+  local root_dir = vim.fs.find({ '*.opam', 'dune' }, { upward = true })[1] or vim.loop.cwd()
 
   vim.lsp.start({
     name = 'ocamlsp',
     cmd = { 'ocamllsp' },
     filetypes = { 'ocaml', 'menhir', 'ocamlinterface', 'ocamllex', 'reason', 'dune' },
-    root_dir = utils.root_pattern('*.opam', 'esy.json', 'package.json', '.git', 'dune-project', 'dune-workspace')(root_dir),
+    root_dir = root_dir,
+    settings = {
+      ocamllsp = {
+        ocamlformat = {
+          enable = true,
+        },
+      },
+    },
     on_attach = function(_, buffer)
       format_on_save(buffer)
     end
@@ -28,4 +33,3 @@ end
 
 
 return M
-
