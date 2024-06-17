@@ -20,6 +20,11 @@ return {
       highlight = { enable = true },
       indent = { enable = true },
     }
+
+    require('nvim-treesitter.parsers').get_parser_configs().brainfuck = {
+      install_info = { files = { '~/dotfiles/treesitter_parsers/brainfuck/parser.so' } },
+      filetype = 'brainfuck',
+    }
   end,
 }
 

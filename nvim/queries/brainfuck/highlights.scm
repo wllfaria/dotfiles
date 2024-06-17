@@ -1,0 +1,2 @@
+(command) @pointerleft
+(command) @pointerright

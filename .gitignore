@@ -1,2 +1,3 @@
 **/undodir
 tmux/.config/tmux/plugins
+*.so

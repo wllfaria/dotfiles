@@ -1,0 +1,228 @@
+{
+  "name": "brainfuck",
+  "rules": {
+    "source_file": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "initial_comment"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_any"
+          }
+        }
+      ]
+    },
+    "initial_comment": {
+      "type": "SYMBOL",
+      "name": "_any_comment"
+    },
+    "_any_comment": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "REPEAT1",
+        "content": {
+          "type": "PREC",
+          "value": 10,
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "comment_loop"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "comment"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "ext_debugger"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "comment_loop": {
+      "type": "PREC",
+      "value": 10,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "["
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "comment_loop"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "[^\\[\\]]+"
+                }
+              ]
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "]"
+          }
+        ]
+      }
+    },
+    "_any": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "loop"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_any_comment"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_command"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "comment"
+          }
+        ]
+      }
+    },
+    "loop": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_any"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "_command": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "pointerleft"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "pointerright"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "memoryadd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "memorysubtract"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "memoryinput"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "memoryoutput"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ext_debugger"
+        }
+      ]
+    },
+    "pointerleft": {
+      "type": "STRING",
+      "value": "<"
+    },
+    "pointerright": {
+      "type": "STRING",
+      "value": ">"
+    },
+    "memoryadd": {
+      "type": "STRING",
+      "value": "+"
+    },
+    "memorysubtract": {
+      "type": "STRING",
+      "value": "-"
+    },
+    "memoryinput": {
+      "type": "STRING",
+      "value": ","
+    },
+    "memoryoutput": {
+      "type": "STRING",
+      "value": "."
+    },
+    "comment": {
+      "type": "PATTERN",
+      "value": "[^<>+\\-\\[\\],.#]+"
+    },
+    "ext_debugger": {
+      "type": "STRING",
+      "value": "#"
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}
