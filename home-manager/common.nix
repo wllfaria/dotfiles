@@ -109,6 +109,10 @@
         source = ../nvim;
     };
 
+    ".config/vim" = {
+        source = ../vim;
+    };
+
     ".zshrc".source = ../.zshrc;
     ".vimrc".source = ../.vimrc;
 
