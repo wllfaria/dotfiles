@@ -24,8 +24,6 @@
     gzip
     xclip
     less
-    discord
-    jetbrains-mono
 
     # dev utils
     bat

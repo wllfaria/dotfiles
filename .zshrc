@@ -54,7 +54,6 @@ alias v="nvim"
 
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
-eval $(opam env)
 
 zinit cdreplay -q
 
