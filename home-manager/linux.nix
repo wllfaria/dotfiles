@@ -32,7 +32,6 @@ in
     ly
 
     # gaming in linux is possible since 1999
-    steam
     bottles
   ]
   ++ (with ocamlPackages; [

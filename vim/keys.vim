@@ -4,6 +4,7 @@ tnoremap <C-j> <C-\><C-n>
 inoremap jk <Esc>
 
 nnoremap J mzJ`z
+nnoremap - :Ex<CR>
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap <leader>P "_dP

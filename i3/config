@@ -39,5 +39,6 @@ exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id xinput --set-prop 17 'libinput Accel Profile Enabled' 0, 1
 exec --no-startup-id xinput --set-prop 17 'libinput Accel Speed' 0
+exec --no-startup-id flameshot
 
 bindsym $mod+Shift+z [floating] resize set 1200 600

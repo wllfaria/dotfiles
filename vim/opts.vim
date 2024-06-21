@@ -3,15 +3,19 @@ set mouse=a
 set cursorline
 set grepprg=rg\ --vimgrep\ --no-heading
 set guicursor=
-set list
+set nolist
+set listchars=
 
-set syntax on
+colorscheme habamax
+
+syntax on
 filetype plugin indent on
 
 set number
 set completeopt=menu,menuone,noinsert
 set relativenumber
-set termiguicolors
+set background=dark
+set termguicolors
 set undofile
 set nobackup
 set noswapfile
@@ -39,7 +43,6 @@ set splitright
 
 set wildmenu
 set wildmode=longest:full,full
-set pumblend=17
 
 let g:netrw_browse_split = 0
 let g:netrw_banner = 0

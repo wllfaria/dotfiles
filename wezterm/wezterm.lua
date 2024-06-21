@@ -1,21 +1,39 @@
 local wezterm = require 'wezterm'
 local config = {}
 
-config.font = wezterm.font {
-  family = 'Monaspace Argon',
-  harfbuzz_features = {
-    'calt=1',
-    'clig=1',
-    'liga=1',
-    'ss01=1',
-    'ss02=1',
-    'ss03=1',
-    'ss04=1',
-    'ss05=1',
-    'ss06=1',
-    'ss07=1',
-    'ss08=1',
-  },
+config.font = wezterm.font_with_fallback {
+    { 
+        family = 'Monaspace Argon', 
+        harfbuzz_features = {
+            'calt=1',
+            'clig=1',
+            'liga=1',
+            'ss01=1',
+            'ss02=1',
+            'ss03=1',
+            'ss04=1',
+            'ss05=1',
+            'ss06=1',
+            'ss07=1',
+            'ss08=1',
+        }
+    },
+    { 
+        family = 'JetBrainsMono Nerd Font', 
+        harfbuzz_features = {
+            'calt=1',
+            'clig=1',
+            'liga=1',
+            'ss01=1',
+            'ss02=1',
+            'ss03=1',
+            'ss04=1',
+            'ss05=1',
+            'ss06=1',
+            'ss07=1',
+            'ss08=1',
+        }
+    }
 }
 
 config.font_size = 12.0

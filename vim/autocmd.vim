@@ -1,8 +1,6 @@
 augroup globals
-  autocmd!
-  autocmd TextYankPost * silent! lua vim.highlight.on_yank({ timeout = 50 })
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank({ timeout = 50 })
 
-  autocmd!
-  autocmd TermOpen * setlocal nonumber norelativenumber
+    au BufWritePre *.rs RustFmt
 augroup END
-

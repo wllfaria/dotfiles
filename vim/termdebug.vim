@@ -3,12 +3,6 @@ packadd termdebug
 let current_os = system('uname')
 let current_os = substitute(current_os, '\n', '', 'g')
 
-if current_os == 'Linux'
-  let g:termdebugger = 'gdb'
-elseif current_os == 'Darwin'
-  let g:termdebugger = 'lldb'
-endif
-
 function! DebugInTab()
   let path = input('path: ', '', 'file')
   execute 'Termdebug ' . path
