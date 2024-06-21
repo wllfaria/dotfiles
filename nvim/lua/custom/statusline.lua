@@ -38,8 +38,8 @@ local modes = {
 }
 
 local separators = {
-  left = '',
-  right = '',
+  left = ' ',
+  right = ' ',
 }
 
 local component_separator = ' '
@@ -80,7 +80,7 @@ end
 
 local function get_git_branch()
   local branch = vim.trim(vim.system({ 'git', 'branch', '--show-current' }):wait().stdout)
-  return '%#StatusLineGitBranch#' .. ' ' .. branch
+  return '%#StatuslineGitBranch#' .. ' ' .. branch
 end
 
 local file_icons = {
@@ -101,7 +101,7 @@ local function get_filename()
   local path = vim.fn.expand '%:r'
   local parent = vim.fn.fnamemodify(vim.fn.fnamemodify(path, ':h'), ':t')
 
-  local file_hl = '%#StatusLineFilename#'
+  local file_hl = '%#StatuslineFilename#'
 
   local extension = vim.fn.expand '%:e'
   local icon = file_icons[extension]
@@ -121,21 +121,21 @@ end
 local function get_cursor()
   local cursor = vim.api.nvim_win_get_cursor(0)
   local cursor_str = table.concat(cursor, ':')
-  return '%#StatusLineCursor#' .. cursor_str
+  return '%#StatuslineCursor#' .. cursor_str
 end
 
 local function get_line_percentage()
   local cursor = vim.api.nvim_win_get_cursor(0)
   local line = cursor[1]
   local total_lines = vim.api.nvim_buf_line_count(0)
-  local hl = '%#StatusLineCursorPercent#'
+  local hl = '%#StatuslineCursorPercent#'
   if line == 1 then
-    return hl .. 'TOP  '
+    return hl .. '  TOP  '
   elseif line == total_lines then
-    return hl .. 'BOT  '
+    return hl .. '  BOT  '
   else
     local percent = string.format('%d', line / total_lines * 100)
-    return hl .. percent .. '󱉸  '
+    return hl .. ' ' .. percent .. '󱉸  '
   end
 end
 
@@ -145,12 +145,14 @@ M.left = function()
   local diagnostics = get_diagnostics()
   local filename = get_filename()
   local branch = get_git_branch()
+  local reset = '%#StatuslineReset#'
 
   local components = {
     mode,
     branch,
     filename,
     diagnostics,
+    reset,
   }
   local left = table.concat(components, separator)
   return left
