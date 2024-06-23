@@ -53,3 +53,4 @@ end
 
 vim.api.nvim_create_user_command('CheckRust', function() run_cargo_check() end, {})
 vim.keymap.set('n', '<C-X>', function() vim.cmd 'CheckRust' end)
+

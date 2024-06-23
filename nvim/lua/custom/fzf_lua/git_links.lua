@@ -14,9 +14,7 @@ local function git_link(consider_selection)
       { pos_c[2], pos_c[3] },
     }
 
-    table.sort(lines, function(a, b)
-      return a[1] < b[1]
-    end)
+    table.sort(lines, function(a, b) return a[1] < b[1] end)
 
     lines[2][2] = lines[2][2] + 1
   end
@@ -32,13 +30,9 @@ local function git_link(consider_selection)
 
     local is_github = false
 
-    if url:match 'github.com' then
-      is_github = true
-    end
+    if url:match 'github.com' then is_github = true end
 
-    if vim.endswith(url, '.git') then
-      url = url:sub(1, #url - 4)
-    end
+    if vim.endswith(url, '.git') then url = url:sub(1, #url - 4) end
 
     if is_github then
       url = url .. '/blob/' .. git_rev .. path
@@ -46,17 +40,11 @@ local function git_link(consider_selection)
       url = url .. '/tree/' .. git_rev .. '/item' .. path
     end
 
-    if not consider_selection then
-      return string.format('%s', url)
-    end
+    if not consider_selection then return string.format('%s', url) end
 
-    if not is_github then
-      return string.format('%s#L%d-%d', url, lines[1][1], lines[2][1])
-    end
+    if not is_github then return string.format('%s#L%d-%d', url, lines[1][1], lines[2][1]) end
 
-    if mode == 'V' then
-      return string.format('%s#L%d-L%d', url, lines[1][1], lines[2][1])
-    end
+    if mode == 'V' then return string.format('%s#L%d-L%d', url, lines[1][1], lines[2][1]) end
 
     return string.format('%s#L%dC%d-L%dC%d', url, lines[1][1], lines[1][2], lines[2][1], lines[2][2])
   end
@@ -67,9 +55,7 @@ local function git_link(consider_selection)
       { target = 'browser', text = 'Open in Browser' },
       { target = 'clipboard', text = 'Copy to Clipboard' },
     }, {
-      format_item = function(item)
-        return item.text
-      end,
+      format_item = function(item) return item.text end,
     }, function(choice)
       if choice.target == 'browser' then
         vim.ui.open(url)
@@ -84,9 +70,7 @@ local function git_link(consider_selection)
     { 'git', 'remote', '-v' },
     {},
     vim.schedule_wrap(function(result)
-      if result.code ~= 0 then
-        error('failed to get git remotes: ' .. result.stderr)
-      end
+      if result.code ~= 0 then error('failed to get git remotes: ' .. result.stderr) end
 
       local urls = {}
 
@@ -94,26 +78,19 @@ local function git_link(consider_selection)
         local parts = vim.split(line, '\t')
         local url = vim.split(parts[2], ' ')[1]
 
-        if not vim.tbl_contains(urls, url) then
-          table.insert(urls, url)
-        end
+        if not vim.tbl_contains(urls, url) then table.insert(urls, url) end
       end
 
       if #urls == 1 then
         handle_url(get_url(urls[1]))
       else
-        vim.ui.select(urls, {}, function(choice)
-          handle_url(get_url(choice))
-        end)
+        vim.ui.select(urls, {}, function(choice) handle_url(get_url(choice)) end)
       end
     end)
   )
 end
 
-vim.keymap.set('v', 'gl', function()
-  git_link(true)
-end)
+vim.keymap.set('v', 'gl', function() git_link(true) end)
 
-vim.keymap.set('n', '<Leader>gl', function()
-  git_link(false)
-end)
+vim.keymap.set('n', '<Leader>gl', function() git_link(false) end)
+

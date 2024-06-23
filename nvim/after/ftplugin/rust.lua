@@ -4,4 +4,5 @@ local lsp = require 'custom.rust.rust_analyzer'
 
 lsp.setup()
 
-vim.api.nvim_command('autocmd FileType * setlocal omnifunc=v:lua.vim.lsp.omnifunc')
+vim.api.nvim_command 'autocmd FileType * setlocal omnifunc=v:lua.vim.lsp.omnifunc'
+

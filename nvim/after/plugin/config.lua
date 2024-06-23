@@ -19,6 +19,7 @@ local colorscheme_hl = {
   ['DiagnosticWarn'] = get_highlight 'DiagnosticWarn',
   ['DiagnosticInfo'] = get_highlight 'DiagnosticInfo',
   ['DiagnosticHint'] = get_highlight 'DiagnosticHint',
+  ['DiagnosticOk'] = get_highlight 'DiagnosticOk',
   ['Define'] = get_highlight 'Define',
 }
 
@@ -33,7 +34,7 @@ local highlights = {
   ['DiagnosticSignInfo'] = { fg = colorscheme_hl['DiagnosticInfo'].fg, bg = colorscheme_hl['CursorColumn'].bg },
   ['DiagnosticSignHint'] = { fg = colorscheme_hl['DiagnosticHint'].fg, bg = colorscheme_hl['CursorColumn'].bg },
   ['FiletypeLua'] = { fg = '#1565C0', bg = colorscheme_hl['CursorColumn'].bg },
-  ['FiletypeRust'] = { fg = '#37474F', bg = colorscheme_hl['CursorColumn'].bg },
+  ['FiletypeRust'] = { fg = '#e43716', bg = colorscheme_hl['CursorColumn'].bg },
   ['FiletypeJs'] = { fg = '#FFD600', bg = colorscheme_hl['CursorColumn'].bg },
   ['FiletypeTs'] = { fg = '#1976D2', bg = colorscheme_hl['CursorColumn'].bg },
   ['FiletypeOcaml'] = { fg = '#F29100', bg = colorscheme_hl['CursorColumn'].bg },
@@ -41,8 +42,8 @@ local highlights = {
   ['FiletypeGo'] = { fg = '#FFCC80', bg = colorscheme_hl['CursorColumn'].bg },
   ['FiletypeDir'] = { fg = '#FFA000', bg = colorscheme_hl['CursorColumn'].bg },
   ['FiletypeNone'] = { fg = '#90CAF9', bg = colorscheme_hl['CursorColumn'].bg },
-  ['FiletypeReset'] = { fg = colorscheme_hl['Normal'].bg, bg = colorscheme_hl['Normal'].bg },
-  ['StatuslineGitBranch'] = { fg = colorscheme_hl['Function'].fg, bg = colorscheme_hl['CursorColumn'].bg },
+  ['StatuslineReset'] = { fg = colorscheme_hl['Normal'].bg, bg = colorscheme_hl['Normal'].bg },
+  ['StatuslineGitBranch'] = { fg = colorscheme_hl['DiagnosticOk'].fg, bg = colorscheme_hl['CursorColumn'].bg },
   ['StatuslineCursor'] = { fg = colorscheme_hl['Normal'].bg, bg = colorscheme_hl['Function'].fg },
   ['StatuslineFilename'] = { fg = colorscheme_hl['Function'].fg, bg = colorscheme_hl['CursorColumn'].bg },
   ['StatuslineCursorPercent'] = { fg = colorscheme_hl['Normal'].bg, bg = colorscheme_hl['Function'].fg },

@@ -4,3 +4,4 @@ if current_os == 'Linux' then
 elseif 'macOS' then
   vim.g.termdebugger = 'rust-lldb'
 end
+

@@ -38,11 +38,11 @@ local modes = {
 }
 
 local separators = {
-  left = ' ',
-  right = ' ',
+  left = '',
+  right = '',
 }
 
-local component_separator = ' '
+local component_separator = ''
 
 local function get_mode()
   local curr_mode = vim.api.nvim_get_mode().mode
@@ -75,12 +75,16 @@ local function get_diagnostics()
   if infos > 0 then table.insert(diagnostics, '%#DiagnosticSignInfo#󰋽  ' .. tostring(infos)) end
   if hints > 0 then table.insert(diagnostics, '%#DiagnosticSignHint#󰌶  ' .. tostring(hints)) end
 
-  return table.concat(diagnostics, ' ')
+  if #diagnostics == 0 then
+    return ''
+  else
+    return table.concat(diagnostics, ' ') .. ' '
+  end
 end
 
 local function get_git_branch()
   local branch = vim.trim(vim.system({ 'git', 'branch', '--show-current' }):wait().stdout)
-  return '%#StatuslineGitBranch#' .. ' ' .. branch
+  return '%#StatuslineGitBranch#' .. '  ' .. branch
 end
 
 local file_icons = {
@@ -93,35 +97,39 @@ local file_icons = {
   c = { hl = '%#FiletypeC#', icon = ' ' },
   go = { hl = '%#FiletypeGo#', icon = ' ' },
   dir = { hl = '%#FiletypeDir#', icon = ' ' },
+  shell = { hl = '%#FiletypeRust#', icon = ' ' },
   none = { hl = '%#FileTypeNone#', icon = ' ' },
 }
 
 local function get_filename()
+  local file_hl = '%#StatuslineFilename#'
   local filename = vim.fn.expand '%:t'
   local path = vim.fn.expand '%:r'
   local parent = vim.fn.fnamemodify(vim.fn.fnamemodify(path, ':h'), ':t')
-
-  local file_hl = '%#StatuslineFilename#'
-
   local extension = vim.fn.expand '%:e'
+  local is_dir = vim.api.nvim_buf_get_option(0, 'filetype') == 'netrw'
   local icon = file_icons[extension]
   local file_icon = ''
 
-  if filename == '' then return file_icons.dir.hl .. file_icons.dir.icon .. file_hl .. parent end
+  if filename == '' then return ' ' .. file_icons.dir.hl .. file_icons.dir.icon .. file_hl .. parent end
 
   if not icon then
-    file_icon = file_icons.none.hl .. file_icons.none.icon
+    file_icon = ' ' .. file_icons.none.hl .. file_icons.none.icon
   else
-    file_icon = icon.hl .. icon.icon
+    file_icon = ' ' .. icon.hl .. icon.icon
   end
 
-  return file_icon .. file_hl .. parent .. '/' .. filename
+  if is_dir then file_icon = ' ' .. file_icons.dir.hl .. file_icons.dir.icon end
+  if filename:match 'zsh' then file_icon = ' ' .. file_icons.shell.hl .. file_icons.shell.icon end
+
+  return file_icon .. file_hl .. parent .. '/' .. filename .. ' '
 end
 
+get_filename()
 local function get_cursor()
   local cursor = vim.api.nvim_win_get_cursor(0)
   local cursor_str = table.concat(cursor, ':')
-  return '%#StatuslineCursor#' .. cursor_str
+  return '%#StatuslineCursor#' .. cursor_str .. ' '
 end
 
 local function get_line_percentage()
@@ -130,9 +138,9 @@ local function get_line_percentage()
   local total_lines = vim.api.nvim_buf_line_count(0)
   local hl = '%#StatuslineCursorPercent#'
   if line == 1 then
-    return hl .. '  TOP  '
+    return hl .. ' TOP  '
   elseif line == total_lines then
-    return hl .. '  BOT  '
+    return hl .. ' BOT  '
   else
     local percent = string.format('%d', line / total_lines * 100)
     return hl .. ' ' .. percent .. '󱉸  '
