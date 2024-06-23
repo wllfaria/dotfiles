@@ -1,4 +1,4 @@
-require 'custom.telescope'
+require 'custom.fzf_lua'
 require 'custom.termdebug'
 
 vim.opt.laststatus = 3

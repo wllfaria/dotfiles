@@ -27,6 +27,7 @@ in
     nitrogen
     xfce.thunar
     xorg.xrandr
+    vesktop
 
     # my display manager
     ly

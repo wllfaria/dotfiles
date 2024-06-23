@@ -1,2 +1,2 @@
-xrandr --output DP-2 --mode 1920x1080 --rate 240 --primary --right-of HDMI-0
+xrandr --output DP-0 --mode 1920x1080 --rate 240 --primary --right-of HDMI-0
 xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --left-of DP-2
