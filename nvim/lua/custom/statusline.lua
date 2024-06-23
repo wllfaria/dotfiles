@@ -107,7 +107,7 @@ local function get_filename()
   local path = vim.fn.expand '%:r'
   local parent = vim.fn.fnamemodify(vim.fn.fnamemodify(path, ':h'), ':t')
   local extension = vim.fn.expand '%:e'
-  local is_dir = vim.api.nvim_buf_get_option(0, 'filetype') == 'netrw'
+  local is_dir = vim.api.nvim_get_option_value('filetype', { buf = 0 }) == 'netrw'
   local icon = file_icons[extension]
   local file_icon = ''
 
