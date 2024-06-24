@@ -21,7 +21,6 @@ local function open_lazygit()
   vim.cmd.startinsert()
 end
 
-local group = vim.api.nvim_create_augroup('lazygit', { clear = true })
 vim.api.nvim_create_user_command('LazygitStart', open_lazygit, {})
 vim.keymap.set('n', '<leader>gs', function() vim.cmd 'LazygitStart' end)
 
