@@ -9,7 +9,7 @@ startup_commands = [
     "dunst -config ~/.config/dunst/dunstrc",
     "nm-applet",
     "nitrogen --restore",
-    "flameshot &",
+    "flameshot",
     "xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --left-of DP-2",
     "xrandr --output DP-2 --mode 1920x1080 --rate 240 --primary",
 ]
@@ -18,6 +18,11 @@ startup_commands = [
 modifiers = ["Leader"]
 key = "q"
 action = "Close"
+
+[[actions]]
+modifiers = ["Leader", "Shift"]
+key = "q"
+action = "Quit"
 
 [[actions]]
 modifiers = ["Leader", "Shift"]
@@ -153,6 +158,11 @@ action = "MoveToWorkspace8"
 modifiers = ["Leader", "Shift"]
 key = "9"
 action = "MoveToWorkspace9"
+
+[[actions]]
+modifiers = ["Leader", "Shift"]
+key = "r"
+action = "Reload"
 
 [[commands]]
 modifiers = ["Leader"]
