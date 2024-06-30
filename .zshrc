@@ -45,6 +45,7 @@ setopt hist_find_no_dups
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.spicetify:$PATH"
 export EDITOR="nvim"
 export GPG_TTY=$(tty)
 

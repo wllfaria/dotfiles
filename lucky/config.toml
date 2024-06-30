@@ -1,8 +1,8 @@
 leader = "Mod1"
 workspaces = 9
 border_width = 4
-border_color = "#252525"
-active_border_color = "#2D4F67"
+border_color = "#191724"
+active_border_color = "#31748f"
 focus_new_clients = true
 
 startup_commands = [
@@ -10,8 +10,10 @@ startup_commands = [
     "nm-applet",
     "nitrogen --restore",
     "flameshot",
-    "xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --left-of DP-2",
-    "xrandr --output DP-2 --mode 1920x1080 --rate 240 --primary",
+    "xrandr --output DP-0 --mode 1920x1080 --rate 240 --primary --right-of HDMI-0",
+    "xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --left-of DP-0",
+    "polybar mon1",
+    "polybar mon2",
 ]
 
 [[actions]]

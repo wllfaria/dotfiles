@@ -5,6 +5,11 @@ return {
 
     fzf_lua.setup {
       'skim',
+      keymap = {
+        fzf = {
+          ['ctrl-q'] = 'select-all+accept',
+        },
+      },
       grep = {
         rg_opts = '-l --no-heading --color=always --smart-case --max-columns=4096 -e',
       },

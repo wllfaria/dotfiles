@@ -1,5 +1,6 @@
 { pkgs, inputs, ... }:
-let ocamlPackages = pkgs.ocaml-ng.ocamlPackages_5_2;
+let ocamlPackages = pkgs.ocaml-ng.ocamlPackages_5_2; in
+let rocmPackages = pkgs.rocmPackages_5.llvm;
 in
 {
   imports = [];
@@ -27,7 +28,6 @@ in
     nitrogen
     xfce.thunar
     xorg.xrandr
-    vesktop
 
     # my display manager
     ly
@@ -35,6 +35,9 @@ in
     # gaming in linux is possible since 1999
     bottles
   ]
+  ++ (with rocmPackages; [
+    clang-tools-extra
+  ])
   ++ (with ocamlPackages; [
     ocaml
     dune_2

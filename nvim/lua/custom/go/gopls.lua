@@ -10,12 +10,18 @@ end
 
 M.setup = function()
   vim.lsp.start {
-    name = 'clang',
-    cmd = { 'clangd' },
-    filetypes = { 'c', 'cpp' },
-    root_dir = vim.fs.find({ 'build-commands.json', 'CMakeLists.txt', '.clang-format', '.git' }, { upward = true })[1]
-      or vim.loop.cwd(),
-    settings = {},
+    name = 'gopls',
+    cmd = { 'gopls' },
+    root_dir = vim.F.if_nil(vim.fs.root(0, 'go.mod'), 'go.work', '.git', vim.uv.cwd()),
+    filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+    settings = {
+      ['rust-analyzer'] = {
+        check = {
+          command = 'clippy',
+          extraArgs = { '--tests' },
+        },
+      },
+    },
     on_attach = function(_, buffer) format_on_save(buffer) end,
   }
 end
