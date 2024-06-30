@@ -23,9 +23,7 @@ client.placeholder          #C6BAF3 #C6BAF3 #7040e7 #9077e7   #C6BAF3
 
 # ██▄ ▄▀▄ █▀▄
 # █▄█ █▀█ █▀▄
-bar {
-    status_command i3status
-}
+exec_always ~/.config/polybar/polybar.sh
 
 # ▄▀▀ ▀█▀ ▄▀▄ █▀▄ ▀█▀ █ █ █▀▄
 # ▄██  █  █▀█ █▀▄  █  ▀▄█ █▀
@@ -40,5 +38,7 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id xinput --set-prop 17 'libinput Accel Profile Enabled' 0, 1
 exec --no-startup-id xinput --set-prop 17 'libinput Accel Speed' 0
 exec --no-startup-id flameshot
+exec --no-startup-id xrandr --output DP-0 --mode 1920x1080 --rate 240 --primary --right-of HDMI-0
+exec --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --left-of DP-0
 
 bindsym $mod+Shift+z [floating] resize set 1200 600

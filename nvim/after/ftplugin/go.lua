@@ -1,4 +1,4 @@
-local lsp = require 'custom.go.clang'
+local lsp = require 'custom.go.gopls'
 
 lsp.setup()
 
