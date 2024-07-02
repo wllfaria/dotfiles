@@ -76,6 +76,11 @@ in
         recursive = true;
     };
 
+    ".config/polybar" = {
+        source = ../polybar;
+        recursive = true;
+    };
+
     ".xinitrc".source = ../.xinitrc;
   };
 }

@@ -14,12 +14,30 @@ include ~/.config/i3/keys.conf
 # █▄█ ▀▄▀ █▀▄ █▄▀ █▄▄ █▀▄ ▄██   █ ▀█   ▀▄█ █▀█ █▀  ▄██
 default_border pixel
 
-# Property Name             Border  BG      Text    Indicator Child-border
-client.focused              #9077e7 #9077e7 #cecece #9077e7   #9077e7
-client.focused_inactive     #C6BAF3 #C6BAF3 #7040e7 #9077e7   #C6BAF3
-client.unfocused            #C6BAF3 #C6BAF3 #7040e7 #9077e7   #C6BAF3
-client.urgent               #C6BAF3 #C6BAF3 #7040e7 #9077e7   #C6BAF3
-client.placeholder          #C6BAF3 #C6BAF3 #7040e7 #9077e7   #C6BAF3
+# set primary Rosé Pine colorscheme colors
+set $base           #191724
+set $surface        #1f1d2e
+set $overlay        #26233a
+set $muted          #6e6a86
+set $subtle         #908caa
+set $text           #e0def4
+set $love           #eb6f92
+set $gold           #f6c177
+set $rose           #ebbcba
+set $pine           #31748f
+set $foam           #9ccfd8
+set $iris           #c4a7e7
+set $highlightlow   #21202e
+set $highlightmed   #403d52
+set $highlighthigh  #524f67
+
+# target                 title     bg    text   indicator  border
+client.focused           $rose     $base $text  $rose      $rose
+client.focused_inactive  $base     $base $text  $base      $base
+client.unfocused         $base     $base $text  $base      $base
+client.urgent            $base     $base $text  $base      $base
+client.placeholder       $base     $base $text  $base      $base
+client.background        $base
 
 # ██▄ ▄▀▄ █▀▄
 # █▄█ █▀█ █▀▄
