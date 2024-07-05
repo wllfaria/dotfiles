@@ -103,10 +103,6 @@
       recursive = true;
     };
 
-    ".config/nvim" = {
-        source = ../nvim;
-    };
-
     ".config/vim" = {
         source = ../vim;
     };

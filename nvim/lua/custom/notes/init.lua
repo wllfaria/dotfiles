@@ -94,7 +94,7 @@ function M:set_local_keymaps()
   end
 end
 
-local function set_commands_and_keymaps()
+function M.set_commands_and_keymaps()
   vim.api.nvim_create_user_command('NotesOpen', function() M.open() end, {})
   vim.api.nvim_create_user_command('NotesClose', function() mt:close() end, {})
   vim.api.nvim_create_user_command('NotesConfirm', function() mt:confirm() end, {})
@@ -103,8 +103,6 @@ local function set_commands_and_keymaps()
   vim.keymap.set('n', '<leader>no', function() vim.cmd 'NotesOpen' end, {})
   vim.keymap.set('n', '<leader>nc', function() vim.cmd 'NotesClose' end, {})
 end
-
-set_commands_and_keymaps()
 
 return M
 

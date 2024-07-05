@@ -37,12 +37,6 @@ in
   ]
   ++ (with rocmPackages; [
     clang-tools-extra
-  ])
-  ++ (with ocamlPackages; [
-    ocaml
-    dune_2
-    ocamlformat
-    opam
   ]);
 
   home.file = {

@@ -14,7 +14,18 @@ M.setup = function()
   vim.lsp.start {
     name = 'ocamlsp',
     cmd = { 'ocamllsp' },
-    filetypes = { 'ocaml', 'menhir', 'ocamlinterface', 'ocamllex', 'reason', 'dune' },
+    filetypes = {
+      'ocaml',
+      'menhir',
+      'ocamlinterface',
+      'ocamllex',
+      'ocaml.ocamllex',
+      'reason',
+      'dune',
+      'ocaml.lexer',
+      'ocaml.parser',
+      'ocaml.menhir',
+    },
     root_dir = root_dir,
     settings = {
       ocamllsp = {
