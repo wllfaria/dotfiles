@@ -7,6 +7,30 @@ return {
 
     neodev.setup {}
     lspconfig.lua_ls.setup {}
+    lspconfig.tsserver.setup {}
+    lspconfig.rust_analyzer.setup {
+      settings = {
+        ['rust-analyzer'] = {
+          check = {
+            command = 'clippy',
+            extraArgs = { '--tests' },
+          },
+        },
+      },
+    }
+
+    lspconfig.ocamllsp.setup {
+      settings = {
+        codelens = { enable = true },
+        inlayHints = { enable = true },
+      },
+      filetypes = {
+        "ocaml",
+        "ocaml.interface",
+        "ocaml.menhir",
+        "ocaml.cram",
+      },
+    }
 
     vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end)
     vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end)
@@ -19,6 +43,8 @@ return {
     vim.keymap.set('n', '<leader>cf', function() vim.lsp.buf.format() end)
     vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.references() end)
     vim.keymap.set('n', '<leader>vws', function() vim.lsp.buf.workspace_symbol() end)
+    vim.keymap.set('n', '<leader>dr', function() vim.diagnostic.reset() end)
+    vim.keymap.set('n', '-', function() vim.cmd 'Ex' end)
 
     vim.keymap.set(
       'n',

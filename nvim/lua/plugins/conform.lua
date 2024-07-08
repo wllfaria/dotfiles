@@ -24,8 +24,8 @@ return {
         javascript = { 'prettier' },
         javascriptreact = { 'prettier' },
       },
-      format_on_save = function(bufnr)
-        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then return end
+      format_on_save = function(buffer)
+        if vim.g.disable_autoformat or vim.b[buffer].disable_autoformat then return end
         return { timeout_ms = 500, lsp_format = 'fallback' }
       end,
     }
