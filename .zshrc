@@ -4,6 +4,9 @@ fi
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
+[[ ! -r '/Users/wiru/.opam/opam-init/init.zsh' ]] || source '/Users/wiru/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+
+
 if [ ! -d "$ZINIT_HOME" ]; then
     mkdir -p "$(dirname $ZINIT_HOME)"
     git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
@@ -31,7 +34,7 @@ zstyle ':completion:*' menu no
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^p' history-search-forward
-bindkey -s '^f' '/home/wiru/.local/bin/tmux-sessionizer\n'
+bindkey -s '^f' "$HOME/.local/bin/tmux-sessionizer\n"
 
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
