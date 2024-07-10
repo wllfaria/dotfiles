@@ -91,9 +91,11 @@ local file_icons = {
   lua = { hl = '%#FiletypeLua#', icon = ' ' },
   rs = { hl = '%#FiletypeRust#', icon = ' ' },
   js = { hl = '%#FiletypeJs#', icon = '󰌞 ' },
-  ts = { hl = '%#FiletypeTs#', icon = '󰛦 ' },
+  javascriptreact = { hl = '%#FiletypeJs#', icon = '󰌞 ' },
+  typescriptreact = { hl = '%#FiletypeTs#', icon = '󰛦 ' },
   ml = { hl = '%#FiletypeOcaml#', icon = ' ' },
   mli = { hl = '%#FiletypeOcaml#', icon = ' ' },
+  dune = { hl = '%#FiletypeOcaml#', icon = ' ' },
   c = { hl = '%#FiletypeC#', icon = ' ' },
   go = { hl = '%#FiletypeGo#', icon = ' ' },
   dir = { hl = '%#FiletypeDir#', icon = ' ' },
@@ -111,7 +113,7 @@ local function get_filename()
   local icon = file_icons[extension]
   local file_icon = ''
 
-  if filename == '' then return ' ' .. file_icons.dir.hl .. file_icons.dir.icon .. file_hl .. parent end
+  if filename == '' then return ' ' .. file_icons.dir.hl .. file_icons.dir.icon .. file_hl .. parent .. ' ' end
 
   if not icon then
     file_icon = ' ' .. file_icons.none.hl .. file_icons.none.icon
@@ -181,4 +183,3 @@ M.right = function()
 end
 
 return M
-

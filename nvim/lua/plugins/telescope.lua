@@ -1,5 +1,6 @@
 return {
   'nvim-telescope/telescope.nvim',
+  enabled = true,
   event = 'VeryLazy',
   dependencies = {
     'nvim-lua/plenary.nvim',
@@ -59,4 +60,3 @@ return {
     vim.keymap.set('n', '<leader>flg', builtin.live_grep)
   end,
 }
-

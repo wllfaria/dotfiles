@@ -1,5 +1,6 @@
 return {
   'williamboman/mason.nvim',
+  enabled = false,
   event = { 'InsertEnter', 'BufRead', 'BufNewFile', 'InsertLeave', 'BufWritePost' },
   dependencies = { 'neovim/nvim-lspconfig', 'folke/neodev.nvim', 'L3MON4D3/LuaSnip' },
   config = function()

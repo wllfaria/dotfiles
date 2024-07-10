@@ -1,5 +1,6 @@
 return {
   'ibhagwan/fzf-lua',
+  enabled = false,
   config = function()
     local fzf_lua = require 'fzf-lua'
 
@@ -43,4 +44,3 @@ return {
     vim.keymap.set('n', '<leader>flg', fzf_lua.live_grep)
   end,
 }
-

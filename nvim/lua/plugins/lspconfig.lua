@@ -44,7 +44,6 @@ return {
     vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.references() end)
     vim.keymap.set('n', '<leader>vws', function() vim.lsp.buf.workspace_symbol() end)
     vim.keymap.set('n', '<leader>dr', function() vim.diagnostic.reset() end)
-    vim.keymap.set('n', '-', function() vim.cmd 'Ex' end)
 
     vim.keymap.set(
       'n',
