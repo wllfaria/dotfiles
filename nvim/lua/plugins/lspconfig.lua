@@ -1,13 +1,14 @@
 return {
-  "neovim/nvim-lspconfig",
-  dependencies = { "folke/neodev.nvim" },
+  'neovim/nvim-lspconfig',
+  dependencies = { 'folke/neodev.nvim' },
   config = function()
-    local lspconfig = require("lspconfig")
-    local neodev = require("neodev")
+    local lspconfig = require 'lspconfig'
+    local neodev = require 'neodev'
 
     neodev.setup {}
     lspconfig.lua_ls.setup {}
     lspconfig.tsserver.setup {}
+    lspconfig.clangd.setup {}
     lspconfig.rust_analyzer.setup {
       settings = {
         ['rust-analyzer'] = {
@@ -18,17 +19,16 @@ return {
         },
       },
     }
-
     lspconfig.ocamllsp.setup {
       settings = {
         codelens = { enable = true },
         inlayHints = { enable = true },
       },
       filetypes = {
-        "ocaml",
-        "ocaml.interface",
-        "ocaml.menhir",
-        "ocaml.cram",
+        'ocaml',
+        'ocaml.interface',
+        'ocaml.menhir',
+        'ocaml.cram',
       },
     }
 
@@ -50,5 +50,5 @@ return {
       '<leader>i',
       function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = 0 }) end
     )
-  end
+  end,
 }

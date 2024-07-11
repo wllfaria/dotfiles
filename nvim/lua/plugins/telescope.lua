@@ -11,7 +11,10 @@ return {
     local actions = require 'telescope.actions'
 
     require('telescope').setup {
-      defaults = {
+      pickers = {
+        theme = 'ivy',
+      },
+      defaults = require('telescope.themes').get_ivy {
         path_display = { truncate = 2 },
         mappings = {
           i = {
