@@ -19,6 +19,8 @@ return {
         },
       },
     }
+
+    lspconfig.ols.setup {}
     lspconfig.ocamllsp.setup {
       settings = {
         codelens = { enable = true },
