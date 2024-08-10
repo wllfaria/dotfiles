@@ -5,7 +5,7 @@
 local function get_highlight(highlight)
   local group = vim.api.nvim_get_hl(0, { name = highlight })
   for key, opt in pairs(group) do
-    group[key] = string.format('#%06x', opt)
+    if type(opt) == 'number' then group[key] = string.format('#%06x', opt) end
   end
   return group ---@type vim.api.keyset.highlight
 end
@@ -37,6 +37,7 @@ local highlights = {
   ['FiletypeRust'] = { fg = '#e43716', bg = colorscheme_hl['CursorColumn'].bg },
   ['FiletypeJs'] = { fg = '#FFD600', bg = colorscheme_hl['CursorColumn'].bg },
   ['FiletypeTs'] = { fg = '#1976D2', bg = colorscheme_hl['CursorColumn'].bg },
+  ['FiletypeLedger'] = { fg = colorscheme_hl['DiagnosticOk'].fg },
   ['FiletypeOcaml'] = { fg = '#F29100', bg = colorscheme_hl['CursorColumn'].bg },
   ['FiletypeC'] = { fg = '#283593', bg = colorscheme_hl['CursorColumn'].bg },
   ['FiletypeGo'] = { fg = '#FFCC80', bg = colorscheme_hl['CursorColumn'].bg },
@@ -54,4 +55,3 @@ for highlight, opts in pairs(highlights) do
 end
 
 vim.opt.fillchars = { vert = '│', horiz = '─' }
-

@@ -7,8 +7,10 @@ return {
 
     neodev.setup {}
     lspconfig.lua_ls.setup {}
+    lspconfig.gopls.setup {}
     lspconfig.tsserver.setup {}
     lspconfig.clangd.setup {}
+    lspconfig.ols.setup {}
     lspconfig.rust_analyzer.setup {
       settings = {
         ['rust-analyzer'] = {

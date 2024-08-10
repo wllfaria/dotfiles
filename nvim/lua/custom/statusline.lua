@@ -91,6 +91,7 @@ local file_icons = {
   lua = { hl = '%#FiletypeLua#', icon = ' ' },
   rs = { hl = '%#FiletypeRust#', icon = ' ' },
   js = { hl = '%#FiletypeJs#', icon = '󰌞 ' },
+  ts = { hl = '%#FiletypeTs#', icon = '󰛦 ' },
   javascriptreact = { hl = '%#FiletypeJs#', icon = '󰌞 ' },
   typescriptreact = { hl = '%#FiletypeTs#', icon = '󰛦 ' },
   ml = { hl = '%#FiletypeOcaml#', icon = ' ' },
@@ -101,6 +102,7 @@ local file_icons = {
   dir = { hl = '%#FiletypeDir#', icon = ' ' },
   shell = { hl = '%#FiletypeRust#', icon = ' ' },
   none = { hl = '%#FileTypeNone#', icon = ' ' },
+  ledger = { hl = '%#FileTypeLedger#', icon = '  ' },
 }
 
 local function get_filename()
@@ -127,7 +129,6 @@ local function get_filename()
   return file_icon .. file_hl .. parent .. '/' .. filename .. ' '
 end
 
-get_filename()
 local function get_cursor()
   local cursor = vim.api.nvim_win_get_cursor(0)
   local cursor_str = table.concat(cursor, ':')

@@ -3,7 +3,7 @@ local config = {}
 
 config.font = wezterm.font_with_fallback {
   {
-    family = 'Monaspace Argon',
+    family = 'Rec Mono Casual',
     harfbuzz_features = {
       'calt=1',
       'clig=1',
@@ -36,7 +36,7 @@ config.font = wezterm.font_with_fallback {
   },
 }
 
-config.font_size = 12.0
+config.font_size = 22.0
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 config.enable_tab_bar = false
 
@@ -69,12 +69,14 @@ local colors = {
   },
 }
 
-config.keys = {
+local keys = {
   { key = 'l', mods = 'CTRL|SHIFT', action = wezterm.action.DisableDefaultAssignment },
   { key = 'k', mods = 'CTRL|SHIFT', action = wezterm.action.DisableDefaultAssignment },
 }
+config.keys = keys
 
-config.color_scheme = 'rose-pine'
+config.colors = colors.kanagawa_dragon
+-- config.color_scheme = 'Kanagawa Dragon (Gogh)'
+-- config.color_scheme = 'rose-pine'
 
 return config
-

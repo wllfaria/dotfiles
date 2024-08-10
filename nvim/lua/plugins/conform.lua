@@ -20,10 +20,10 @@ return {
     conform.setup {
       formatters_by_ft = {
         lua = { 'stylua' },
-        typescript = { 'prettier' },
-        typescriptreact = { 'prettier' },
-        javascript = { 'prettier' },
-        javascriptreact = { 'prettier' },
+        typescript = { 'prettierd' },
+        typescriptreact = { 'prettierd' },
+        javascript = { 'prettierd' },
+        javascriptreact = { 'prettierd' },
       },
       format_on_save = function(buffer)
         if vim.g.disable_autoformat or vim.b[buffer].disable_autoformat then return end
