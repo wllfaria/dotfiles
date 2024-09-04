@@ -18,7 +18,11 @@ return {
       snippet = {
         expand = function(args) require('luasnip').lsp_expand(args.body) end,
       },
+      completion = {
+        autocomplete = false,
+      },
       mapping = {
+        ['<C-x><C-o>'] = cmp.mapping.complete(),
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i' }),
         ['<C-y>'] = cmp.mapping.confirm { select = true },
         ['<C-e>'] = cmp.mapping { i = cmp.mapping.abort(), c = cmp.mapping.close() },
@@ -30,6 +34,8 @@ return {
         { name = 'nvim_lsp_signature_help' },
         { name = 'nvim_lua' },
         { name = 'buffer' },
+        { name = 'luasnip' },
+        { name = 'ledger' },
         { name = 'path' },
       },
     }

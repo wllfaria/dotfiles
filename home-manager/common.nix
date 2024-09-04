@@ -3,9 +3,9 @@
   imports = [];
 
   nixpkgs = {
-    overlays = [
-      inputs.neovim-nightly-overlay.overlays.default
-    ];
+    # overlays = [
+    #   inputs.neovim-nightly-overlay.overlays.default
+    # ];
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;
@@ -61,10 +61,10 @@
 
   programs.home-manager.enable = true;
 
-  programs.neovim = {
-    enable = true;
-    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
-  };
+  # programs.neovim = {
+  #   enable = true;
+  #   package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+  # };
 
   programs.git = {
     enable = true;

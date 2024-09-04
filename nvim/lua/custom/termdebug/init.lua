@@ -1,5 +1,3 @@
-vim.cmd 'packadd termdebug'
-
 local current_os = vim.loop.os_uname().sysname
 if current_os == 'Linux' then
   vim.g.termdebugger = 'gdb'
@@ -22,9 +20,7 @@ end
 vim.api.nvim_create_user_command('DebugInTab', debug_in_tab, {})
 
 vim.keymap.set('n', '<leader>dt', function() vim.cmd 'DebugInTab' end)
-vim.keymap.set('n', '<leader>dD', function() vim.cmd 'Debug' end)
 vim.keymap.set('n', '<leader>db', function() vim.cmd 'Break' end)
 vim.keymap.set('n', '<leader>do', function() vim.cmd 'Over' end)
 vim.keymap.set('n', '<leader>ds', function() vim.cmd 'Step' end)
 vim.keymap.set('n', '<leader>dS', function() vim.cmd 'Stop' end)
-

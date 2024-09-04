@@ -90,10 +90,11 @@ end
 local file_icons = {
   lua = { hl = '%#FiletypeLua#', icon = ' ' },
   rs = { hl = '%#FiletypeRust#', icon = ' ' },
+  toml = { hl = '%#FiletypeRust#', icon = ' ' },
   js = { hl = '%#FiletypeJs#', icon = '󰌞 ' },
   ts = { hl = '%#FiletypeTs#', icon = '󰛦 ' },
-  javascriptreact = { hl = '%#FiletypeJs#', icon = '󰌞 ' },
-  typescriptreact = { hl = '%#FiletypeTs#', icon = '󰛦 ' },
+  javascriptreact = { hl = '%#FiletypeJs#', icon = ' ' },
+  typescriptreact = { hl = '%#FiletypeTs#', icon = ' ' },
   ml = { hl = '%#FiletypeOcaml#', icon = ' ' },
   mli = { hl = '%#FiletypeOcaml#', icon = ' ' },
   dune = { hl = '%#FiletypeOcaml#', icon = ' ' },
@@ -101,7 +102,7 @@ local file_icons = {
   go = { hl = '%#FiletypeGo#', icon = ' ' },
   dir = { hl = '%#FiletypeDir#', icon = ' ' },
   shell = { hl = '%#FiletypeRust#', icon = ' ' },
-  none = { hl = '%#FileTypeNone#', icon = ' ' },
+  none = { hl = '%#FileTypeNone#', icon = ' ' },
   ledger = { hl = '%#FileTypeLedger#', icon = '  ' },
 }
 

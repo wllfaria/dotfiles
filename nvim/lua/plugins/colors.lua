@@ -2,6 +2,9 @@ local function set_colorscheme()
   vim.o.background = 'dark'
   local current = 'kanagawa-dragon'
   vim.cmd.colorscheme(current)
+  local bools = vim.api.nvim_get_hl(0, { name = 'Boolean' })
+  --- @diagnostic disable-next-line
+  vim.api.nvim_set_hl(0, 'Comment', bools)
 end
 
 return {
@@ -15,6 +18,15 @@ return {
     'rebelot/kanagawa.nvim',
     config = function()
       require('kanagawa').setup {
+        colors = {
+          theme = {
+            all = {
+              ui = {
+                bg_gutter = 'none',
+              },
+            },
+          },
+        },
         overrides = function(colors)
           local theme = colors.theme
           return {

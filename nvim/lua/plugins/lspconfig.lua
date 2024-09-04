@@ -6,7 +6,17 @@ return {
     local neodev = require 'neodev'
 
     neodev.setup {}
-    lspconfig.lua_ls.setup {}
+    lspconfig.lua_ls.setup {
+      settings = {
+        Lua = {
+          workspace = {
+            library = {
+              '~/.local/share/nvim/lazy/plenary.nvim/lua',
+            },
+          },
+        },
+      },
+    }
     lspconfig.gopls.setup {}
     lspconfig.tsserver.setup {}
     lspconfig.clangd.setup {}
