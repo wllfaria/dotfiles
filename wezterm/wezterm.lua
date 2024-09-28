@@ -1,7 +1,7 @@
-local wezterm = require 'wezterm'
+local wezterm = require('wezterm')
 local config = {}
 
-config.font = wezterm.font_with_fallback {
+config.font = wezterm.font_with_fallback({
   {
     family = 'Rec Mono Casual',
     harfbuzz_features = {
@@ -34,7 +34,7 @@ config.font = wezterm.font_with_fallback {
       'ss08=1',
     },
   },
-}
+})
 
 config.font_size = 22.0
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
@@ -75,8 +75,9 @@ local keys = {
 }
 config.keys = keys
 
-config.colors = colors.kanagawa_dragon
+-- config.colors = colors.kanagawa_dragon
+-- config.color_scheme = 'Github Dark'
 -- config.color_scheme = 'Kanagawa Dragon (Gogh)'
--- config.color_scheme = 'rose-pine'
+config.color_scheme = 'rose-pine-moon'
 
 return config

@@ -1,6 +1,6 @@
 local function set_colorscheme()
   vim.o.background = 'dark'
-  local current = 'kanagawa-dragon'
+  local current = 'rose-pine-moon'
   vim.cmd.colorscheme(current)
   local bools = vim.api.nvim_get_hl(0, { name = 'Boolean' })
   --- @diagnostic disable-next-line
@@ -45,11 +45,11 @@ return {
     end,
   },
   {
-    'projekt0n/github-nvim-theme',
+    'savq/melange-nvim',
     lazy = false,
     priority = 1000,
     config = function()
-      require('github-theme').setup {}
+      -- require('melange').setup {}
       set_colorscheme()
     end,
   },

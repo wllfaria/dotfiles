@@ -1,3 +1,0 @@
-return {
-  'togglebyte/togglerust',
-}
