@@ -1,63 +1,63 @@
 local M = {}
 
 local modes = {
-  ['n'] = 'N',
-  ['no'] = 'N',
-  ['nov'] = 'N',
-  ['noV'] = 'N',
-  ['no'] = 'N',
-  ['niI'] = 'N',
-  ['niR'] = 'N',
-  ['niV'] = 'N',
-  ['v'] = 'V',
-  ['vs'] = 'V',
-  ['V'] = 'V',
-  ['Vs'] = 'V',
-  [''] = 'V',
-  ['s'] = 'V',
-  ['s'] = 'V',
-  ['S'] = 'V',
-  [''] = 'V',
-  ['i'] = 'I',
-  ['ic'] = 'I',
-  ['ix'] = 'I',
-  ['R'] = 'R',
-  ['Rc'] = 'R',
-  ['Rv'] = 'R',
-  ['Rx'] = 'R',
-  ['c'] = 'C',
-  ['cv'] = 'C',
-  ['ce'] = 'C',
-  ['r'] = 'Accepts',
-  ['rm'] = 'More',
-  ['r?'] = 'Confirm',
-  ['!'] = 'T',
-  ['t'] = 'T',
-  ['nt'] = 'T',
-  ['null'] = 'none',
+  ["n"] = "N",
+  ["no"] = "N",
+  ["nov"] = "N",
+  ["noV"] = "N",
+  ["no"] = "N",
+  ["niI"] = "N",
+  ["niR"] = "N",
+  ["niV"] = "N",
+  ["v"] = "V",
+  ["vs"] = "V",
+  ["V"] = "V",
+  ["Vs"] = "V",
+  [""] = "V",
+  ["s"] = "V",
+  ["s"] = "V",
+  ["S"] = "V",
+  [""] = "V",
+  ["i"] = "I",
+  ["ic"] = "I",
+  ["ix"] = "I",
+  ["R"] = "R",
+  ["Rc"] = "R",
+  ["Rv"] = "R",
+  ["Rx"] = "R",
+  ["c"] = "C",
+  ["cv"] = "C",
+  ["ce"] = "C",
+  ["r"] = "Accepts",
+  ["rm"] = "More",
+  ["r?"] = "Confirm",
+  ["!"] = "T",
+  ["t"] = "T",
+  ["nt"] = "T",
+  ["null"] = "none",
 }
 
 local separators = {
-  left = '',
-  right = '',
+  left = "",
+  right = "",
 }
 
-local component_separator = ''
+local component_separator = ""
 
 local function get_mode()
   local curr_mode = vim.api.nvim_get_mode().mode
-  local mode = ' ' .. modes[curr_mode] .. ' '
-  local formatted = ''
-  if mode == ' N ' then
-    formatted = '%#StatuslineModeNormal#' .. mode .. '%#StatuslineNormalSeparator#' .. separators.right
-  elseif mode == ' C ' then
-    formatted = '%#StatuslineModeCommand#' .. mode .. '%#StatuslineCommandSeparator#' .. separators.right
-  elseif mode == ' I ' then
-    formatted = '%#StatuslineModeInsert#' .. mode .. '%#StatuslineInsertSeparator#' .. separators.right
-  elseif mode == ' V ' then
-    formatted = '%#StatuslineModeVisual#' .. mode .. '%#StatuslineVisualSeparator#' .. separators.right
+  local mode = " " .. modes[curr_mode] .. " "
+  local formatted = ""
+  if mode == " N " then
+    formatted = "%#StatuslineModeNormal#" .. mode .. "%#StatuslineNormalSeparator#" .. separators.right
+  elseif mode == " C " then
+    formatted = "%#StatuslineModeCommand#" .. mode .. "%#StatuslineCommandSeparator#" .. separators.right
+  elseif mode == " I " then
+    formatted = "%#StatuslineModeInsert#" .. mode .. "%#StatuslineInsertSeparator#" .. separators.right
+  elseif mode == " V " then
+    formatted = "%#StatuslineModeVisual#" .. mode .. "%#StatuslineVisualSeparator#" .. separators.right
   else
-    formatted = '%#StatuslineModeNormal#' .. mode .. '%#StatuslineNormalSeparator#' .. separators.right
+    formatted = "%#StatuslineModeNormal#" .. mode .. "%#StatuslineNormalSeparator#" .. separators.right
   end
 
   return formatted
@@ -70,84 +70,84 @@ local function get_diagnostics()
   local hints = #vim.diagnostic.get(nil, { severity = vim.diagnostic.severity.HINT })
   local infos = #vim.diagnostic.get(nil, { severity = vim.diagnostic.severity.INFO })
 
-  if error > 0 then table.insert(diagnostics, '%#DiagnosticSignError#󰅚  ' .. tostring(error)) end
-  if warns > 0 then table.insert(diagnostics, '%#DiagnosticSignWarn#󰀪  ' .. tostring(warns)) end
-  if infos > 0 then table.insert(diagnostics, '%#DiagnosticSignInfo#󰋽  ' .. tostring(infos)) end
-  if hints > 0 then table.insert(diagnostics, '%#DiagnosticSignHint#󰌶  ' .. tostring(hints)) end
+  if error > 0 then table.insert(diagnostics, "%#DiagnosticSignError#󰅚  " .. tostring(error)) end
+  if warns > 0 then table.insert(diagnostics, "%#DiagnosticSignWarn#󰀪  " .. tostring(warns)) end
+  if infos > 0 then table.insert(diagnostics, "%#DiagnosticSignInfo#󰋽  " .. tostring(infos)) end
+  if hints > 0 then table.insert(diagnostics, "%#DiagnosticSignHint#󰌶  " .. tostring(hints)) end
 
   if #diagnostics == 0 then
-    return ''
+    return ""
   else
-    return table.concat(diagnostics, ' ') .. ' '
+    return table.concat(diagnostics, " ") .. " "
   end
 end
 
 local function get_git_branch()
-  local branch = vim.trim(vim.system({ 'git', 'branch', '--show-current' }):wait().stdout)
-  return '%#StatuslineGitBranch#' .. '  ' .. branch
+  local branch = vim.trim(vim.system({ "git", "branch", "--show-current" }):wait().stdout)
+  return "%#StatuslineGitBranch#" .. "  " .. branch
 end
 
 local file_icons = {
-  lua = { hl = '%#FiletypeLua#', icon = ' ' },
-  rs = { hl = '%#FiletypeRust#', icon = ' ' },
-  toml = { hl = '%#FiletypeRust#', icon = ' ' },
-  js = { hl = '%#FiletypeJs#', icon = '󰌞 ' },
-  ts = { hl = '%#FiletypeTs#', icon = '󰛦 ' },
-  javascriptreact = { hl = '%#FiletypeJs#', icon = ' ' },
-  typescriptreact = { hl = '%#FiletypeTs#', icon = ' ' },
-  ml = { hl = '%#FiletypeOcaml#', icon = ' ' },
-  mli = { hl = '%#FiletypeOcaml#', icon = ' ' },
-  dune = { hl = '%#FiletypeOcaml#', icon = ' ' },
-  c = { hl = '%#FiletypeC#', icon = ' ' },
-  go = { hl = '%#FiletypeGo#', icon = ' ' },
-  dir = { hl = '%#FiletypeDir#', icon = ' ' },
-  shell = { hl = '%#FiletypeRust#', icon = ' ' },
-  none = { hl = '%#FileTypeNone#', icon = ' ' },
-  ledger = { hl = '%#FileTypeLedger#', icon = '  ' },
+  lua = { hl = "%#FiletypeLua#", icon = " " },
+  rs = { hl = "%#FiletypeRust#", icon = " " },
+  toml = { hl = "%#FiletypeRust#", icon = " " },
+  js = { hl = "%#FiletypeJs#", icon = "󰌞 " },
+  ts = { hl = "%#FiletypeTs#", icon = "󰛦 " },
+  javascriptreact = { hl = "%#FiletypeJs#", icon = " " },
+  typescriptreact = { hl = "%#FiletypeTs#", icon = " " },
+  ml = { hl = "%#FiletypeOcaml#", icon = " " },
+  mli = { hl = "%#FiletypeOcaml#", icon = " " },
+  dune = { hl = "%#FiletypeOcaml#", icon = " " },
+  c = { hl = "%#FiletypeC#", icon = " " },
+  go = { hl = "%#FiletypeGo#", icon = " " },
+  dir = { hl = "%#FiletypeDir#", icon = " " },
+  shell = { hl = "%#FiletypeRust#", icon = " " },
+  none = { hl = "%#FileTypeNone#", icon = " " },
+  ledger = { hl = "%#FileTypeLedger#", icon = "  " },
 }
 
 local function get_filename()
-  local file_hl = '%#StatuslineFilename#'
-  local filename = vim.fn.expand '%:t'
-  local path = vim.fn.expand '%:r'
-  local parent = vim.fn.fnamemodify(vim.fn.fnamemodify(path, ':h'), ':t')
-  local extension = vim.fn.expand '%:e'
-  local is_dir = vim.api.nvim_get_option_value('filetype', { buf = 0 }) == 'netrw'
+  local file_hl = "%#StatuslineFilename#"
+  local filename = vim.fn.expand("%:t")
+  local path = vim.fn.expand("%:r")
+  local parent = vim.fn.fnamemodify(vim.fn.fnamemodify(path, ":h"), ":t")
+  local extension = vim.fn.expand("%:e")
+  local is_dir = vim.api.nvim_get_option_value("filetype", { buf = 0 }) == "netrw"
   local icon = file_icons[extension]
-  local file_icon = ''
+  local file_icon = ""
 
-  if filename == '' then return ' ' .. file_icons.dir.hl .. file_icons.dir.icon .. file_hl .. parent .. ' ' end
+  if filename == "" then return " " .. file_icons.dir.hl .. file_icons.dir.icon .. file_hl .. parent .. " " end
 
   if not icon then
-    file_icon = ' ' .. file_icons.none.hl .. file_icons.none.icon
+    file_icon = " " .. file_icons.none.hl .. file_icons.none.icon
   else
-    file_icon = ' ' .. icon.hl .. icon.icon
+    file_icon = " " .. icon.hl .. icon.icon
   end
 
-  if is_dir then file_icon = ' ' .. file_icons.dir.hl .. file_icons.dir.icon end
-  if filename:match 'zsh' then file_icon = ' ' .. file_icons.shell.hl .. file_icons.shell.icon end
+  if is_dir then file_icon = " " .. file_icons.dir.hl .. file_icons.dir.icon end
+  if filename:match("zsh") then file_icon = " " .. file_icons.shell.hl .. file_icons.shell.icon end
 
-  return file_icon .. file_hl .. parent .. '/' .. filename .. ' '
+  return file_icon .. file_hl .. parent .. "/" .. filename .. " "
 end
 
 local function get_cursor()
   local cursor = vim.api.nvim_win_get_cursor(0)
-  local cursor_str = table.concat(cursor, ':')
-  return '%#StatuslineCursor#' .. cursor_str .. ' '
+  local cursor_str = table.concat(cursor, ":")
+  return "%#StatuslineCursor#" .. cursor_str .. " "
 end
 
 local function get_line_percentage()
   local cursor = vim.api.nvim_win_get_cursor(0)
   local line = cursor[1]
   local total_lines = vim.api.nvim_buf_line_count(0)
-  local hl = '%#StatuslineCursorPercent#'
+  local hl = "%#StatuslineCursorPercent#"
   if line == 1 then
-    return hl .. ' TOP  '
+    return hl .. " TOP  "
   elseif line == total_lines then
-    return hl .. ' BOT  '
+    return hl .. " BOT  "
   else
-    local percent = string.format('%d', line / total_lines * 100)
-    return hl .. ' ' .. percent .. '󱉸  '
+    local percent = string.format("%d", line / total_lines * 100)
+    return hl .. " " .. percent .. "󱉸  "
   end
 end
 
@@ -155,9 +155,10 @@ M.left = function()
   local mode = get_mode()
   local separator = component_separator
   local diagnostics = get_diagnostics()
-  local filename = get_filename()
+  -- local filename = get_filename()
+  local filename = " "
   local branch = get_git_branch()
-  local reset = '%#StatuslineReset#'
+  local reset = "%#StatuslineReset#"
 
   local components = {
     mode,

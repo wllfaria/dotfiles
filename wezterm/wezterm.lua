@@ -39,6 +39,8 @@ config.font = wezterm.font_with_fallback({
 config.font_size = 22.0
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 config.enable_tab_bar = false
+-- config.window_background_opacity = 0.8
+-- config.macos_window_background_blur = 80
 
 local colors = {
   kanagawa_wave = {
@@ -78,6 +80,12 @@ config.keys = keys
 -- config.colors = colors.kanagawa_dragon
 -- config.color_scheme = 'Github Dark'
 -- config.color_scheme = 'Kanagawa Dragon (Gogh)'
-config.color_scheme = 'rose-pine-moon'
+-- config.color_scheme = 'rose-pine-moon'
+-- config.color_scheme = 'Gruvbox dark, medium (base16)'
+config.color_scheme = 'Gruber (base16)'
+config.colors = {
+  cursor_bg = '#ffdd33',
+  cursor_fg = '#000000',
+}
 
 return config

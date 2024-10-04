@@ -1,19 +1,21 @@
 vim.opt.confirm = true
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 vim.opt.cursorline = false
-vim.opt.grepprg = 'rg --vimgrep --no-heading'
-vim.opt.guicursor = ''
+vim.opt.grepprg = "rg --vimgrep --no-heading"
+vim.opt.guicursor = ""
 vim.opt.list = true
 --vim.opt.listchars = { tab = '│ ', leadmultispace = '│∙∙∙', trail = '-' }
-vim.opt.listchars = { tab = '  ', leadmultispace = '    ', trail = ' ' }
+vim.opt.listchars = { tab = "  ", leadmultispace = "    ", trail = " " }
 
 vim.opt.number = true
-vim.opt.completeopt = 'menu,menuone,noinsert'
+vim.opt.completeopt = "menu,menuone,noinsert"
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.backup = false
 vim.opt.swapfile = false
+
+vim.opt.showmode = false
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -27,7 +29,7 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = 'no'
+vim.opt.signcolumn = "no"
 
 vim.opt.updatetime = 50
 
@@ -40,7 +42,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 vim.opt.wildmenu = true
-vim.opt.wildmode = 'longest:full,full'
+vim.opt.wildmode = "longest:full,full"
 vim.opt.pumblend = 17
 
 vim.g.netrw_browse_split = 0
@@ -48,4 +50,3 @@ vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
 vim.g.tpipeline_autoembed = 0
-
