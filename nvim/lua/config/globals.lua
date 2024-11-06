@@ -11,7 +11,7 @@ local function reload_module(module_name, starts_with_only)
     matcher = function(pack) return string.find(pack, module_name, 1, true) end
   else
     local module_name_pattern = vim.pesc(module_name)
-    matcher = function(pack) return string.find(pack, '^' .. module_name_pattern) end
+    matcher = function(pack) return string.find(pack, "^" .. module_name_pattern) end
   end
 
   local luacache = (_G.__luacache or {}).cache
@@ -31,4 +31,3 @@ R = function(name)
   RELOAD(name)
   return require(name)
 end
-

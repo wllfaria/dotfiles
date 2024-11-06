@@ -1,0 +1,149 @@
+rm -rf nushell/
+ls
+ls nushell/
+config env
+config nu
+config env --default
+config env --default | nu-highlight | lines
+config env --default | write nushell/env.nu
+config env --default | save nushell/env.nu
+config env --default | save nushell/env.nu -f
+cd nushell/
+v .
+vim .
+nvim .
+config nu --default | save config.nu -f
+nvim .,
+ls | where type == dir
+ls | where type == file
+ll
+ls -l
+ls
+ll
+paru
+$env
+$env | table
+$env | table -e
+cargo --h
+cargo -h
+clear
+cargo intsa
+cargo insta
+nvim config.nu
+clear
+v ~/.config/nushell/config.nu
+nvim ~/.config/nushell/config.nu
+v .
+nu
+nu
+:q
+v .
+nvim .
+v
+scope aliases
+help aliases
+ll
+cd .config/nushell/
+v .
+tmux a
+tmux kill-server
+cd
+v .
+clear
+nvim ~/.config/nushell/config.nu
+$env CARGO_HOME
+$env.CARGO_HOME
+v .
+v ~/.config/nushell/config.nu
+ls .cargo/
+clear
+$env.CARGO_HOME
+$env.CARGO_HOME | table
+v dotfiles/
+cd ala
+cd .config/alacritty/
+nu dotfiles/tmux-sessionizer.nu
+(open ~/code, ~/dotfiles, ~/work | each { |it| ls $it | get name } | where type == "Dir" | fzf)
+fzf
+paru davinci
+cd dotfiles/
+v Templates/
+v rustfmt.toml
+v .
+cd dot
+cd dotfiles/
+source tmux-sessionizer.nu
+ls | get name -i
+ls -i | get name
+ls | get name -i -i true
+ls | flatten
+ls | get name | flatten
+ls | get name | flatten | to text
+source tmux-sessionizer.nu
+v tmux-sessionizer.nu
+source tmux-sessionizer.nu
+v tmux-sessionizer.nu
+source tmux-sessionizer.nu
+tmux
+source tmux-sessionizer.nu
+$env.TMUX
+source tmux-sessionizer.nu
+v tmux-sessionizer.nu
+cd ..
+cd .config/alacritty/
+v .
+cd ..
+cd nushell/
+v config.nu
+proj
+cd dotfiles/nvim/
+v .
+proj
+cd ..
+v tmux-sessionizer.nu
+proj
+tmux kill-server
+proj
+v tmux-sessionizer.nu
+tmux kill-server
+proj
+tmux kill-server
+v tmux-sessionizer.nu
+clear
+proj
+tmux a
+tmux kill-server
+cd dot
+cd dotfiles
+v .
+home-manager --flake flake.nix
+home-manager switch wiru@linux --flake
+home-manager switch wiru@wiru --flake
+home-manager --help
+home-manager switch
+home-manager switch --impure --flake wiru@wiru
+home-manager switch --impure --flake ./flake.nix
+v .
+home-manager switch --impure --flake wiru@linux
+zsh
+tmux .
+tmux
+proj
+tmux
+proj
+fzf
+which fzf
+zsh
+home-manager switch --flake .#wiru@linux --impure
+tmux
+tmux kill-server
+cargo add skia-safe
+cargo r
+ls
+gwenview test.png
+rm test.png
+paru davinci
+paru nvidia-utils
+paru opencl-nvidia
+paru handbrake
+cd dotfiles

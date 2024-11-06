@@ -1,0 +1,18 @@
+[general]
+import = ["./themes/tokyodark.toml"]
+
+[terminal]
+shell = "/usr/bin/nu"
+
+[env]
+term = "xterm-256color"
+
+[window]
+padding = { x = 2, y = 0 }
+blur = false
+opacity = 1.0
+
+[font]
+size = 12.0
+normal = { family="Rec Mono Casual" }
+bold = { family="Rec Mono Casual" }

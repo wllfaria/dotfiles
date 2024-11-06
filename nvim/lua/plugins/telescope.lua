@@ -11,8 +11,8 @@ return {
     local actions = require("telescope.actions")
 
     require("telescope").setup({
-      pickers = { theme = "ivy" },
-      defaults = require("telescope.themes").get_ivy({
+      -- pickers = { theme = "ivy" },
+      defaults = {
         path_display = { truncate = 2 },
         mappings = {
           i = {
@@ -38,7 +38,7 @@ return {
           "%.snap",
           "node_modules/",
         },
-      }),
+      },
     })
     pcall(require("telescope").load_extension, "fzf")
 

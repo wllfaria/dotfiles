@@ -7,9 +7,8 @@ return {
 
     local configs = {
       gopls = {},
-      ts_ls = {},
-      astro = {},
       clangd = {},
+      zls = {},
       ocamllsp = {
         settings = { codelens = { enable = true }, inlayHints = { enable = true } },
         filetypes = { "ocaml", "ocaml.interface", "ocaml.menhir", "ocaml.cram" },
@@ -33,7 +32,7 @@ return {
     }
 
     for server, config in pairs(configs) do
-      local with_capabilities = vim.tbl_deep_extend("force", { capabilities = capabilities }, config)
+      local with_capabilities = vim.tbl_deep_extend("force", config, { capabilities = capabilities })
       lspconfig[server].setup(with_capabilities)
     end
 
