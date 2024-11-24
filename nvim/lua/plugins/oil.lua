@@ -4,6 +4,7 @@ return {
   config = function()
     require("oil").setup({
       columns = {
+        "icons",
         "permissions",
         "size",
         "mtime",

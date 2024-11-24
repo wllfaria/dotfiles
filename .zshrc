@@ -59,6 +59,7 @@ export GPG_TTY=$(tty)
 alias ls="eza --icons=always"
 alias paru="paru --bottomup --skipreview"
 alias v="nvim"
+alias l="ls -l"
 
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
