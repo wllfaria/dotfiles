@@ -1,7 +1,7 @@
 local function set_colorscheme()
   vim.o.background = "dark"
   vim.o.termguicolors = true
-  local current = "tokyodark"
+  local current = "vague"
   vim.cmd.colorscheme(current)
 end
 
@@ -24,9 +24,19 @@ return {
     "tiagovla/tokyodark.nvim",
     lazy = false,
     priority = 1000,
-    enabled = true,
+    enabled = false,
     config = function()
       require("tokyodark").setup({})
+      set_colorscheme()
+    end,
+  },
+  {
+    "vague2k/vague.nvim",
+    lazy = false,
+    priority = 1000,
+    enabled = true,
+    config = function()
+      require("vague").setup({})
       set_colorscheme()
     end,
   },
