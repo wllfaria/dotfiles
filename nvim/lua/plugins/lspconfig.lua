@@ -8,6 +8,7 @@ return {
     local configs = {
       gopls = {},
       clangd = {},
+      bashls = {},
       zls = {},
       ocamllsp = {
         settings = { codelens = { enable = true }, inlayHints = { enable = true } },

@@ -1,4 +1,4 @@
-require("custom.telescope.init")
+require("custom.telescope")
 require("custom.termdebug")
 
 vim.cmd("packadd termdebug")

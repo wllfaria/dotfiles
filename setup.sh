@@ -1,11 +1,11 @@
 #!/bin/bash
 system="$(uname -a)"
 
-function command_exists() {
+command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
-function maybe_install_common() {
+maybe_install_common() {
     # tools
     maybe_install_git
     maybe_install_neovim
@@ -17,7 +17,7 @@ function maybe_install_common() {
     maybe_install_lsps
 }
 
-function maybe_install_paru() {
+maybe_install_paru() {
     if command_exists "paru"; then return; fi
     echo "installing paru"
 
@@ -37,7 +37,7 @@ function maybe_install_paru() {
     sudo rm -R ~/paru
 }
 
-function maybe_install_git() {
+maybe_install_git() {
     if [[ $system == "Mac" ]]; then
         return
     else
@@ -48,7 +48,7 @@ function maybe_install_git() {
     fi
 }
 
-function maybe_install_neovim() {
+maybe_install_neovim() {
     if [[ $system == "Mac" ]]; then
         return
     else
@@ -59,7 +59,7 @@ function maybe_install_neovim() {
     fi
 }
 
-function maybe_install_tmux() {
+maybe_install_tmux() {
     if [[ $system == "Mac" ]]; then
         return
     else
@@ -70,7 +70,7 @@ function maybe_install_tmux() {
     fi
 }
 
-function maybe_install_utils() {
+maybe_install_utils() {
     if [[ $system == "Mac" ]]; then
         return
     else
@@ -105,7 +105,7 @@ function maybe_install_utils() {
     fi
 }
 
-function maybe_install_programming_langs() {
+maybe_install_programming_langs() {
     if ! command_exists "opam"; then
         echo "installing ocaml"
         bash -c "sh <(curl -fsSL https://opam.ocaml.org/install.sh)"
@@ -131,7 +131,7 @@ function maybe_install_programming_langs() {
     fi
 }
 
-function maybe_install_lsps() {
+maybe_install_lsps() {
     if [[ $system == "Mac" ]]; then
         echo "installing rust-analyzer"
         rustup component add rust-analyzer
@@ -157,10 +157,14 @@ function maybe_install_lsps() {
             echo "installing rust-analyzer"
             rustup component add rust-analyzer
         fi
+        if ! command_exists "bash-language-server"; then
+            echo "installing bash lsp"
+            paru -S --noconfirm bash-language-server
+        fi
     fi
 }
 
-function set_common_symlinks() {
+set_common_symlinks() {
     mkdir -p ~/.config
     mkdir -p ~/.local/bin
     rm -f ~/.zshrc
@@ -191,6 +195,16 @@ function set_common_symlinks() {
     ln -sf ~/dotfiles/.zshrc "$zshrc"
 }
 
+maybe_install_linux_programs() {
+    if [[ $system == "Mac" ]]; then
+        return
+    fi
+
+    if ! command_exists "zen-browser"; then
+        paru -S --noconfirm zen-browser-bin
+    fi
+}
+
 case "${system}" in
     Linux*)
         if [[ $system == *"WSL"* ]]; then
@@ -209,6 +223,7 @@ case "${system}" in
     ;;
     Linux)
         maybe_install_common
+        maybe_install_linux_programs
         set_common_symlinks
     ;;
     WSL)
