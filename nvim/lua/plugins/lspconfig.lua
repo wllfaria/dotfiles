@@ -9,6 +9,7 @@ return {
       gopls = {},
       clangd = {},
       bashls = {},
+      clojure_lsp = {},
       zls = {},
       ocamllsp = {
         settings = { codelens = { enable = true }, inlayHints = { enable = true } },

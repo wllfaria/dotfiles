@@ -20,6 +20,7 @@ return {
     conform.setup({
       formatters_by_ft = {
         lua = { "stylua" },
+        clojure = { "cljfmt" },
         typescript = { "prettierd" },
         typescriptreact = { "prettierd" },
         javascript = { "prettierd" },

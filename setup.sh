@@ -102,6 +102,18 @@ maybe_install_utils() {
             echo "installing zoxide"
             paru -S --noconfirm zoxide
         fi
+        if ! command_exists "rlwrap"; then
+            echo "installing rlwrap"
+            paru -S --noconfirm rlwrap
+        fi
+        if ! command_exists "cljfmt"; then
+            echo "installing cljfmt"
+            paru -S --noconfirm cljfmt-bin
+        fi
+        if ! command_exists "just"; then
+            echo "installing just"
+            paru -S --noconfirm just 
+        fi
     fi
 }
 
@@ -128,13 +140,15 @@ maybe_install_programming_langs() {
             echo "installing rust"
             paru -S --noconfirm rustup
         fi
+        if ! command_exists "clojure"; then
+            echo "installing clojure"
+            paru -S --noconfirm clojure
+        fi
     fi
 }
 
 maybe_install_lsps() {
     if [[ $system == "Mac" ]]; then
-        echo "installing rust-analyzer"
-        rustup component add rust-analyzer
         return
     else
         if ! command_exists "gopls"; then
@@ -153,13 +167,17 @@ maybe_install_lsps() {
             echo "installing lua_ls"
             paru -S --noconfirm lua-language-server
         fi
-        if ! command_exists "rustup"; then
+        if ! command_exists "rust-analyzer"; then
             echo "installing rust-analyzer"
             rustup component add rust-analyzer
         fi
         if ! command_exists "bash-language-server"; then
             echo "installing bash lsp"
             paru -S --noconfirm bash-language-server
+        fi
+        if ! command_exists "clojure-lsp"; then
+            echo "installing clojure lsp"
+            paru -S --noconfirm clojure-lsp-bin
         fi
     fi
 }

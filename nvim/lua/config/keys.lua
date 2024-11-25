@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 vim.keymap.set("t", "<esc><esc>", "<C-\\><C-n>")
 vim.keymap.set("t", "<c-j>", "<C-\\><C-n>")
