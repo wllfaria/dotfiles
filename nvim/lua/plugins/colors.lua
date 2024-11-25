@@ -3,6 +3,9 @@ local function set_colorscheme()
   vim.o.termguicolors = true
   local current = "vague"
   vim.cmd.colorscheme(current)
+  local bools = vim.api.nvim_get_hl(0, { name = "Boolean" })
+  --- @diagnostic disable-next-line
+  vim.api.nvim_set_hl(0, "Comment", bools)
 end
 
 return {
@@ -25,10 +28,7 @@ return {
     lazy = false,
     priority = 1000,
     enabled = false,
-    config = function()
-      require("tokyodark").setup({})
-      set_colorscheme()
-    end,
+    config = function() set_colorscheme() end,
   },
   {
     "vague2k/vague.nvim",

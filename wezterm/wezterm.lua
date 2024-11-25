@@ -1,6 +1,8 @@
 local wezterm = require('wezterm')
 local config = {}
 
+-- config.default_prog = { '/opt/homebrew/bin/nu' }
+
 config.font = wezterm.font_with_fallback({
   {
     family = 'Rec Mono Casual',
@@ -75,6 +77,6 @@ local keys = {
 }
 config.keys = keys
 
-config.colors = colors.kanagawa_dragon
+config.colors = require('themes.vague')
 
 return config

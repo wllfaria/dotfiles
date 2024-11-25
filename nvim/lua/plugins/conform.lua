@@ -21,6 +21,8 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         clojure = { "cljfmt" },
+        json = { "prettierd" },
+        svelte = { "deno_fmt" },
         typescript = { "prettierd" },
         typescriptreact = { "prettierd" },
         javascript = { "prettierd" },

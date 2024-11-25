@@ -88,11 +88,6 @@
     };
 
     home.file = {
-        ".config/nushell" = {
-            source = ../nushell;
-            recursive = true;
-        };
-
         ".config/tmux" = {
             source = ../tmux;
             recursive = true;

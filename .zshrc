@@ -52,6 +52,7 @@ setopt hist_find_no_dups
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.spicetify:$PATH"
+export PATH="$HOME/.deno/bin:$PATH"
 export PATH="/opt/homebrew/opt/python@3.9/bin:$PATH"
 export EDITOR="nvim"
 export GPG_TTY=$(tty)

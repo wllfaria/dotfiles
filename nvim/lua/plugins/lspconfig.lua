@@ -11,6 +11,8 @@ return {
       bashls = {},
       clojure_lsp = {},
       zls = {},
+      ts_ls = {},
+      svelte = {},
       ocamllsp = {
         settings = { codelens = { enable = true }, inlayHints = { enable = true } },
         filetypes = { "ocaml", "ocaml.interface", "ocaml.menhir", "ocaml.cram" },
@@ -32,6 +34,9 @@ return {
         },
       },
     }
+
+    local os = require("custom.os")
+    if os.get_system() == os.systems.Mac then configs.eslint = {} end
 
     for server, config in pairs(configs) do
       local with_capabilities = vim.tbl_deep_extend("force", config, { capabilities = capabilities })
