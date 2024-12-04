@@ -70,15 +70,15 @@ local function get_diagnostics()
   local hints = #vim.diagnostic.get(nil, { severity = vim.diagnostic.severity.HINT })
   local infos = #vim.diagnostic.get(nil, { severity = vim.diagnostic.severity.INFO })
 
-  if error > 0 then table.insert(diagnostics, "%#DiagnosticSignError#󰅚  " .. tostring(error)) end
-  if warns > 0 then table.insert(diagnostics, "%#DiagnosticSignWarn#󰀪  " .. tostring(warns)) end
-  if infos > 0 then table.insert(diagnostics, "%#DiagnosticSignInfo#󰋽  " .. tostring(infos)) end
-  if hints > 0 then table.insert(diagnostics, "%#DiagnosticSignHint#󰌶  " .. tostring(hints)) end
+  if error > 0 then table.insert(diagnostics, "%#DiagnosticSignError#  " .. tostring(error)) end
+  if warns > 0 then table.insert(diagnostics, "%#DiagnosticSignWarn#  " .. tostring(warns)) end
+  if infos > 0 then table.insert(diagnostics, "%#DiagnosticSignInfo#  " .. tostring(infos)) end
+  if hints > 0 then table.insert(diagnostics, "%#DiagnosticSignHint#  " .. tostring(hints)) end
 
   if #diagnostics == 0 then
     return ""
   else
-    return table.concat(diagnostics, " ") .. " "
+    return "%#DiagnosticSignError# " .. table.concat(diagnostics, " ") .. " "
   end
 end
 

@@ -1,55 +1,51 @@
-local function run_cargo_check()
-  print("cargo check...")
-  vim.cmd("silent make! check")
-  vim.cmd("redraw!")
-
-  local qflist = vim.fn.getqflist()
+--- @param output string[]
+local function parse_cargo_check_output(output)
+  local qf_items = {}
   local error_count = 0
   local warning_count = 0
 
-  if #qflist > 0 then
-    local collect_err = 0
-    local new_qf_list = {}
+  for idx, line in ipairs(output) do
+    if line:match("^error") then
+      error_count = error_count + 1
+      local prefix = "  -->"
+      local filename_line = output[idx + 1]
 
-    for _, entry in ipairs(qflist) do
-      if entry.type == "W" and not entry.text:find(".*generated%s%d*%swarning") then
-        warning_count = warning_count + 1
-        collect_err = 0
+      local trimmed = filename_line:sub(#prefix + 2):gsub("%s+", "") -- Remove spaces
+      local file, line_num, col_num = trimmed:match("(.+):(%d+):(%d+)")
+
+      if file and line_num and col_num then
+        table.insert(qf_items, {
+          filename = file,
+          lnum = tonumber(line_num),
+          col = tonumber(col_num),
+          text = line,
+          type = "E",
+        })
       end
-
-      if entry.type == "E" then
-        collect_err = 1
-        error_count = error_count + 1
-      end
-
-      if collect_err == 1 then table.insert(new_qf_list, entry) end
+    elseif line:find("^warning") then
+      warning_count = warning_count + 1
     end
-
-    vim.fn.setqflist(new_qf_list)
   end
 
-  if error_count > 0 then
-    if vim.fn.tabpagewinnr(vim.fn.tabpagenr(), "$") > 1 then
-      vim.cmd("botright copen 6")
-    else
-      vim.cmd("copen 6")
-    end
-    vim.cmd("wincmd p")
-    vim.cmd("cfirst")
-  else
-    vim.cmd("cclose")
+  if #qf_items == 0 then vim.cmd("cclose") end
+
+  if #qf_items > 0 then
+    vim.fn.setqflist(qf_items)
+    vim.cmd("copen 6")
   end
 
-  local err_out = "echo 'E: " .. error_count .. "'"
-  if error_count > 0 then err_out = "echohl ToggleRustErr | echo 'E: " .. error_count .. "' | echohl None" end
-
-  local warn_out = " | echon ' | W: " .. warning_count .. "'"
-  if warning_count > 0 then
-    warn_out = "| echon ' | ' | echohl ToggleRustWarn | echon 'W: " .. warning_count .. "' | echohl None"
-  end
-
-  vim.cmd(err_out .. warn_out)
+  local status = "'E: " .. error_count .. " | W: " .. warning_count .. "'"
+  vim.cmd.echo(status)
 end
 
-vim.api.nvim_create_user_command("CheckRust", function() run_cargo_check() end, {})
-vim.keymap.set("n", "<C-X>", function() vim.cmd("CheckRust") end)
+local function run_cargo_check()
+  print("running cargo check...")
+  vim.fn.jobstart({ "cargo", "check", "--workspace" }, {
+    stderr_buffered = true,
+    on_stderr = function(_, data, _)
+      if data then parse_cargo_check_output(data) end
+    end,
+  })
+end
+
+vim.keymap.set("n", "<c-x>", function() run_cargo_check() end)

@@ -1,8 +1,6 @@
 local wezterm = require('wezterm')
 local config = {}
 
--- config.default_prog = { '/opt/homebrew/bin/nu' }
-
 config.font = wezterm.font_with_fallback({
   {
     family = 'Rec Mono Casual',
@@ -38,7 +36,7 @@ config.font = wezterm.font_with_fallback({
   },
 })
 
-config.font_size = 16.0
+config.font_size = 18.0
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 config.enable_tab_bar = false
 
@@ -77,6 +75,6 @@ local keys = {
 }
 config.keys = keys
 
-config.colors = require('themes.vague')
+config.colors = require('themes.tokyodark')
 
 return config

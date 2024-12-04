@@ -1,11 +1,11 @@
 vim.opt.confirm = true
 vim.opt.mouse = "a"
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 vim.opt.grepprg = "rg --vimgrep --no-heading"
--- vim.opt.guicursor = ""
 vim.opt.list = true
---vim.opt.listchars = { tab = '│ ', leadmultispace = '│∙∙∙', trail = '-' }
-vim.opt.listchars = { tab = "  ", leadmultispace = "    ", trail = " " }
+-- vim.opt.guicursor = ""
+-- vim.opt.listchars = { tab = "│ ", leadmultispace = "│   ", trail = "-" }
+-- vim.opt.listchars = { tab = "  ", leadmultispace = "    ", trail = " " }
 
 vim.opt.number = true
 vim.opt.completeopt = "menu,menuone,noinsert"
@@ -29,7 +29,7 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = "no"
+vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50
 

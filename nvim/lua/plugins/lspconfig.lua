@@ -3,7 +3,6 @@ return {
   dependencies = { { "folke/neodev.nvim", opts = {} } },
   config = function()
     local lspconfig = require("lspconfig")
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     local configs = {
       gopls = {},
@@ -39,6 +38,7 @@ return {
     if os.get_system() == os.systems.Mac then configs.eslint = {} end
 
     for server, config in pairs(configs) do
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
       local with_capabilities = vim.tbl_deep_extend("force", config, { capabilities = capabilities })
       lspconfig[server].setup(with_capabilities)
     end

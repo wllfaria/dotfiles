@@ -5,9 +5,23 @@ command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
+paru_install() {
+    echo "installing $1"
+    paru -S --noconfirm $1
+}
+
+brew_install() {
+    echo "installing $1"
+    brew install $1
+}
+
+brew_install_cask() {
+    echo "installing $1"
+    brew install --cask $1
+}
+
 maybe_install_common() {
     # tools
-    maybe_install_git
     maybe_install_neovim
     maybe_install_tmux
     maybe_install_utils
@@ -15,6 +29,11 @@ maybe_install_common() {
     # programming language stuff
     maybe_install_programming_langs
     maybe_install_lsps
+}
+
+maybe_install_homebrew() {
+    if command_exists "brew"; then return; fi
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
 maybe_install_paru() {
@@ -39,6 +58,9 @@ maybe_install_paru() {
 
 maybe_install_git() {
     if [[ $system == "Mac" ]]; then
+        if ! command_exists "git"; then
+            brew_install "git"
+        fi
         return
     else
         if ! command_exists "git"; then
@@ -50,69 +72,141 @@ maybe_install_git() {
 
 maybe_install_neovim() {
     if [[ $system == "Mac" ]]; then
+        if ! command_exists "nvim"; then
+            brew_install "neovim"
+        fi
         return
     else
         if ! command_exists "nvim"; then
-            echo "installing neovim"
-            paru -S --noconfirm neovim
+            paru_install "neovim"
         fi
     fi
 }
 
 maybe_install_tmux() {
     if [[ $system == "Mac" ]]; then
+        if ! command_exists "tmux"; then
+            brew_install "tmux"
+        fi
         return
     else
         if ! command_exists "tmux"; then
-            echo "installing tmux"
-            paru -S --noconfirm tmux
+            paru_install "tmux"
         fi
     fi
 }
 
 maybe_install_utils() {
     if [[ $system == "Mac" ]]; then
+        if ! command_exists "fzf"; then
+            brew_install "fzf"
+        fi
+        if ! command_exists "fd"; then
+            brew_install "fd"
+        fi
+        if ! command_exists "rg"; then
+            brew_install "ripgrep"
+        fi
+        if ! command_exists "stylua"; then
+            brew_install "stylua"
+        fi
+        if ! command_exists "prettierd"; then
+            brew_install "prettierd"
+        fi
+        if ! command_exists "eza"; then
+            brew_install "eza"
+        fi
+        if ! command_exists "zoxide"; then
+            brew_install "zoxide"
+        fi
+        if ! command_exists "rlwrap"; then
+            brew_install "rlwrap"
+        fi
+        if ! command_exists "cljfmt"; then
+            brew_install "cljfmt"
+        fi
+        if ! command_exists "just"; then
+            brew_install "just"
+        fi
+        if ! command_exists "btop"; then
+            brew_install "btop"
+        fi
+        if ! command_exists "zip"; then
+            brew_install "zip"
+        fi
+        if ! command_exists "unzip"; then
+            brew_install "unzip"
+        fi
+        if ! command_exists "gzip"; then
+            brew_install "gzip"
+        fi
+        if ! command_exists "bat"; then
+            brew_install "bat"
+        fi
+        if ! command_exists "jq"; then
+            brew_install "jq"
+        fi
+        if ! command_exists "tokei"; then
+            brew_install "tokei"
+        fi
+        if ! command_exists "tokei"; then
+            brew_install "tokei"
+        fi
         return
     else
         if ! command_exists "fzf"; then
-            echo "installing fzf"
-            paru -S --noconfirm fzf
+            paru_install "fzf"
         fi
         if ! command_exists "fd"; then
-            echo "installing fd"
-            paru -S --noconfirm fd
+            paru_install "fd"
         fi
         if ! command_exists "rg"; then
-            echo "installing ripgrep"
-            paru -S --noconfirm ripgrep
+            paru_install "ripgrep"
         fi
         if ! command_exists "stylua"; then
-            echo "installing stylua"
-            paru -S --noconfirm stylua
+            paru_install "stylua"
         fi
         if ! command_exists "prettierd"; then
-            echo "installing prettierd"
-            paru -S --noconfirm prettierd
+            paru_install "prettierd"
         fi
         if ! command_exists "eza"; then
-            echo "installing eza"
-            paru -S --noconfirm eza
+            paru_install "eza"
         fi
         if ! command_exists "zoxide"; then
-            echo "installing zoxide"
-            paru -S --noconfirm zoxide
+            paru_install "zoxide"
         fi
         if ! command_exists "rlwrap"; then
-            echo "installing rlwrap"
-            paru -S --noconfirm rlwrap
+            paru_install "rlwrap"
         fi
         if ! command_exists "cljfmt"; then
-            echo "installing cljfmt"
-            paru -S --noconfirm cljfmt-bin
+            paru_install "cljfmt-bin"
         fi
         if ! command_exists "just"; then
-            echo "installing just"
-            paru -S --noconfirm just 
+            paru_install "just"
+        fi
+        if ! command_exists "btop"; then
+            paru_install "btop"
+        fi
+        if ! command_exists "zip"; then
+            paru_install "zip"
+        fi
+        if ! command_exists "unzip"; then
+            paru_install "unzip"
+        fi
+        if ! command_exists "gzip"; then
+            paru_install "gzip"
+        fi
+        if ! command_exists "bat"; then
+            paru_install "bat"
+        fi
+        if ! command_exists "jq"; then
+            paru_install "jq"
+        fi
+        if ! command_exists "tokei"; then
+            paru_install "tokei"
+        fi
+        if ! command_exists "tokei"; then
+            paru_install "tokei"
         fi
     fi
 }
@@ -126,58 +220,79 @@ maybe_install_programming_langs() {
     fi
 
     if [[ $system == "Mac" ]]; then
+        if ! command_exists "go"; then
+            brew_install "go"
+        fi
+        if ! command_exists "zig"; then
+            brew_install "zig"
+        fi
+        if ! command_exists "rustup"; then
+            brew_install "rustup"
+        fi
+        if ! command_exists "clojure"; then
+            brew_install "clojure"
+        fi
         return
     else
         if ! command_exists "go"; then
-            echo "installing go"
-            paru -S --noconfirm go
+            paru_install "go"
         fi
         if ! command_exists "zig"; then
-            echo "installing zig"
-            paru -S --noconfirm zig
+            paru_install "zig"
         fi
         if ! command_exists "rustup"; then
-            echo "installing rust"
-            paru -S --noconfirm rustup
+            paru_install "rustup"
         fi
         if ! command_exists "clojure"; then
-            echo "installing clojure"
-            paru -S --noconfirm clojure
+            paru_install "clojure"
         fi
     fi
 }
 
 maybe_install_lsps() {
     if [[ $system == "Mac" ]]; then
-        return
-    else
         if ! command_exists "gopls"; then
-            echo "installing gopls"
-            paru -S --noconfirm gopls
-        fi
-        if ! command_exists "clangd"; then
-            echo "installing clangd"
-            paru -S --noconfirm clangd
+            brew_install "gopls"
         fi
         if ! command_exists "zls"; then
-            echo "installing zls"
-            paru -S --noconfirm zls
+            brew_install "zls"
         fi
         if ! command_exists "lua-language-server"; then
-            echo "installing lua_ls"
-            paru -S --noconfirm lua-language-server
+            brew_install "lua-language-server"
         fi
         if ! command_exists "rust-analyzer"; then
             echo "installing rust-analyzer"
             rustup component add rust-analyzer
         fi
         if ! command_exists "bash-language-server"; then
-            echo "installing bash lsp"
-            paru -S --noconfirm bash-language-server
+            brew_install "bash-language-server"
         fi
         if ! command_exists "clojure-lsp"; then
-            echo "installing clojure lsp"
-            paru -S --noconfirm clojure-lsp-bin
+            brew_install "clojure-lsp"
+        fi
+        return
+    else
+        if ! command_exists "gopls"; then
+            paru_install "gopls"
+        fi
+        if ! command_exists "clangd"; then
+            paru_install "clangd"
+        fi
+        if ! command_exists "zls"; then
+            paru_install "zls"
+        fi
+        if ! command_exists "lua-language-server"; then
+            paru_install "lua-language-server"
+        fi
+        if ! command_exists "rust-analyzer"; then
+            echo "installing rust-analyzer"
+            rustup component add rust-analyzer
+        fi
+        if ! command_exists "bash-language-server"; then
+            paru_install "bash-language-server"
+        fi
+        if ! command_exists "clojure-lsp"; then
+            paru_install "clojure-lsp-bin"
         fi
     fi
 }
@@ -213,13 +328,21 @@ set_common_symlinks() {
     ln -sf ~/dotfiles/.zshrc "$zshrc"
 }
 
+set_macos_symlinks() {
+    wezterm="$HOME/.config/wezterm"
+
+    [ -e "$wezterm" ] && rm -rf "$wezterm"
+
+    ln -sf ~/dotfiles/wezterm "$wezterm"
+}
+
 maybe_install_linux_programs() {
     if [[ $system == "Mac" ]]; then
         return
     fi
 
     if ! command_exists "zen-browser"; then
-        paru -S --noconfirm zen-browser-bin
+        paru_install "zen-browser-bin"
     fi
 }
 
@@ -236,15 +359,22 @@ esac
 
 case "${system}" in
     Mac)
+	maybe_install_homebrew
+    	maybe_install_git
         maybe_install_common
         set_common_symlinks
+        set_macos_symlinks
     ;;
     Linux)
+    	maybe_install_git
+	maybe_install_paru
         maybe_install_common
         maybe_install_linux_programs
         set_common_symlinks
     ;;
     WSL)
+    	maybe_install_git
+	maybe_install_paru
         maybe_install_common
         set_common_symlinks
     ;;

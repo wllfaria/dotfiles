@@ -12,6 +12,9 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
+vim.keymap.set("n", "<left>", function() vim.cmd.tabprevious() end)
+vim.keymap.set("n", "<right>", function() vim.cmd.tabnext() end)
+
 vim.keymap.set("n", "Q", "<nop>")
 
 vim.keymap.set("n", "<C-A-h>", function() vim.cmd("vertical resize +4") end)
