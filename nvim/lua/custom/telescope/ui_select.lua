@@ -1,12 +1,12 @@
-if not pcall(require, 'plenary.strings') then return end
+if not pcall(require, "plenary.strings") then return end
 
-if not pcall(require, 'telescope') then return end
+if not pcall(require, "telescope") then return end
 
-local actions = require 'telescope.actions'
-local actions_state = require 'telescope.actions.state'
-local finders = require 'telescope.finders'
-local pickers = require 'telescope.pickers'
-local themes = require 'telescope.themes'
+local actions = require("telescope.actions")
+local actions_state = require("telescope.actions.state")
+local finders = require("telescope.finders")
+local pickers = require("telescope.pickers")
+local themes = require("telescope.themes")
 
 --- Custom `vim.ui.select()` handler utilizing telescope.
 ---
@@ -22,13 +22,13 @@ vim.ui.select = function(items, opts, callback)
 
   local results = vim
     .iter(ipairs(items))
-    :map(function(idx, item) return string.format('%d: %s', idx, opts.format_item(item)) end)
+    :map(function(idx, item) return string.format("%d: %s", idx, opts.format_item(item)) end)
     :totable()
 
   local picker = pickers.new(themes.get_cursor(), {
-    prompt_title = opts.prompt or 'Select one:',
-    sorter = require('telescope.config').values.generic_sorter {},
-    finder = finders.new_table { results = results },
+    prompt_title = opts.prompt or "Select one:",
+    sorter = require("telescope.config").values.generic_sorter({}),
+    finder = finders.new_table({ results = results }),
     attach_mappings = function(buffer)
       actions.select_default:replace(function()
         local entry = actions_state.get_selected_entry()

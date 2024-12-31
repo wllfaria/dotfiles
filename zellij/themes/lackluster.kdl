@@ -1,0 +1,15 @@
+themes {
+    lackluster {
+        fg "#CCCCCC"
+        bg "#101010"
+        red "#D70000"
+        green "#789978"
+        yellow "#abab77"
+        blue "#7788AA"
+        cyan "#708090"
+        orange "#ffaa88"
+        magenta "#deeeed"
+        black "#101010"
+        white "#DDDDDD"
+    }
+}

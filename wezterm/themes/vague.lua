@@ -6,30 +6,27 @@ return {
   cursor_fg = '#18191a',
   cursor_border = '#8ca0dc',
 
-  selection_fg = '#cdcdcd',
   selection_bg = '#363738',
-
-  scrollbar_thumb = '#18191a',
-  split = '#878787',
+  selection_fg = '#cdcdcd',
 
   ansi = {
-    '#18191a',
-    '#d2788c',
-    '#8faf77',
-    '#e6be8c',
-    '#8ca0dc',
-    '#c7c7d4',
-    '#a1b3b9',
-    '#cdcdcd',
+    '#18191a', -- black
+    '#d2788c', -- red
+    '#8faf77', -- green
+    '#e6be8c', -- yellow
+    '#8ca0dc', -- blue
+    '#c7c7d4', -- purple
+    '#a1b3b9', -- cyan
+    '#cdcdcd', -- white
   },
   brights = {
-    '#878787',
-    '#d2788c',
-    '#8faf77',
-    '#e6be8c',
-    '#8ca0dc',
-    '#c7c7d4',
-    '#a1b3b9',
-    '#cdcdcd',
+    '#878787', -- black
+    '#d2788c', -- red
+    '#8faf77', -- green
+    '#e6be8c', -- yellow
+    '#8ca0dc', -- blue
+    '#c7c7d4', -- purple
+    '#a1b3b9', -- cyan
+    '#cdcdcd', -- white
   },
 }

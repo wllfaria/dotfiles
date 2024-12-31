@@ -75,6 +75,6 @@ local keys = {
 }
 config.keys = keys
 
-config.colors = require('themes.tokyodark')
+config.colors = require('themes.vague')
 
 return config

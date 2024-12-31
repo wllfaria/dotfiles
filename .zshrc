@@ -35,7 +35,7 @@ zstyle ':completion:*' menu no
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^p' history-search-forward
-bindkey -s '^f' "$HOME/.local/bin/tmux-sessionizer\n"
+bindkey -s '^f' "$HOME/.local/bin/zellij-sessionizer\n"
 
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -56,6 +56,7 @@ export PATH="$HOME/.deno/bin:$PATH"
 export PATH="/opt/homebrew/opt/python@3.9/bin:$PATH"
 export EDITOR="nvim"
 export GPG_TTY=$(tty)
+export XDG_CONFIG_HOME="/Users/wiru/.config"
 
 alias ls="eza --icons=always"
 alias paru="paru --bottomup --skipreview"

@@ -1,9 +1,9 @@
 vim.opt.confirm = true
 vim.opt.mouse = "a"
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.grepprg = "rg --vimgrep --no-heading"
 vim.opt.list = true
--- vim.opt.guicursor = ""
+vim.opt.guicursor = ""
 -- vim.opt.listchars = { tab = "│ ", leadmultispace = "│   ", trail = "-" }
 -- vim.opt.listchars = { tab = "  ", leadmultispace = "    ", trail = " " }
 
@@ -50,3 +50,34 @@ vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
 vim.g.tpipeline_autoembed = 0
+
+vim.cmd("set iskeyword-=_")
+
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "",
+      [vim.diagnostic.severity.HINT] = "",
+    },
+    texthl = {
+      [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+      [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+      [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+      [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+    },
+    linehl = {
+      [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+      [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+      [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+      [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+    },
+    numhl = {
+      [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+      [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+      [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+      [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+    },
+  },
+})

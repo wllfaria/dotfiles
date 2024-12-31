@@ -1,12 +1,6 @@
 return {
   "stevearc/oil.nvim",
-  dependencies = { { "echasnovski/mini.icons", opts = {} } },
   config = function()
-    vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
-    vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
-    vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
-    vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
-
     require("oil").setup({
       columns = {
         "permissions",
@@ -33,6 +27,6 @@ return {
       },
       use_default_keymaps = false,
     })
-    vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+    vim.keymap.set("n", "-", "<CMD>Oil<CR>")
   end,
 }

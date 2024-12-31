@@ -15,11 +15,11 @@ local colorscheme_hl = {
   ["Normal"] = get_highlight("Normal"),
   ["Function"] = get_highlight("Function"),
   ["CursorColumn"] = get_highlight("CursorColumn"),
-  ["DiagnosticError"] = get_highlight("DiagnosticError"),
-  ["DiagnosticWarn"] = get_highlight("DiagnosticWarn"),
-  ["DiagnosticInfo"] = get_highlight("DiagnosticInfo"),
-  ["DiagnosticHint"] = get_highlight("DiagnosticHint"),
-  ["DiagnosticOk"] = get_highlight("DiagnosticOk"),
+  ["DiagnosticError"] = get_highlight("DiagnosticSignError"),
+  ["DiagnosticWarn"] = get_highlight("DiagnosticSignWarn"),
+  ["DiagnosticInfo"] = get_highlight("DiagnosticSignInfo"),
+  ["DiagnosticHint"] = get_highlight("DiagnosticSignHint"),
+  ["DiagnosticOk"] = get_highlight("DiagnosticSignOk"),
   ["Define"] = get_highlight("Define"),
 }
 

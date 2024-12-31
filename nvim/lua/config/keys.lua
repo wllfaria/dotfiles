@@ -12,9 +12,6 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
-vim.keymap.set("n", "<left>", function() vim.cmd.tabprevious() end)
-vim.keymap.set("n", "<right>", function() vim.cmd.tabnext() end)
-
 vim.keymap.set("n", "Q", "<nop>")
 
 vim.keymap.set("n", "<C-A-h>", function() vim.cmd("vertical resize +4") end)
@@ -30,14 +27,22 @@ vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
 
-vim.keymap.set("n", "<c-f>", ":silent !tmux neww tmux-sessionizer<cr>")
+vim.keymap.set("n", "<c-f>", function()
+  vim.cmd.tabnew()
+  vim.cmd.terminal()
+  vim.fn.chansend(vim.b.terminal_job_id, "zellij-sessionizer\n")
+end)
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>mx", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>mx", "<cmd>!chmod +x %<CR>")
 
 vim.keymap.set("n", "<leader>tn", function() vim.cmd.tabnext() end)
 vim.keymap.set("n", "<leader>tp", function() vim.cmd.tabprev() end)
 vim.keymap.set("n", "<leader>to", function() vim.cmd.tabnew() end)
 vim.keymap.set("n", "<leader>tc", function() vim.cmd.tabclose() end)
+vim.keymap.set("n", "<right>", function() vim.cmd.tabnext() end)
+vim.keymap.set("n", "<left>", function() vim.cmd.tabprev() end)
+vim.keymap.set("n", "<up>", function() vim.cmd.tabnew() end)
+vim.keymap.set("n", "<down>", function() vim.cmd.tabclose() end)
 
 vim.keymap.set("n", "<leader>co", function() vim.cmd.copen() end)
 vim.keymap.set("n", "<leader>cc", function() vim.cmd.cclose() end)
@@ -49,5 +54,5 @@ vim.keymap.set("n", "<leader>cn", ":set signcolumn=no<CR>")
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
-  command = "silent! lua vim.highlight.on_yank({ timeout = 50 })",
+  command = "silent! lua vim.hl.on_yank({ timeout = 50 })",
 })

@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+paths=(
+    "/Users/wiru/code"
+    "/Users/wiru/work"
+    "/Users/wiru/dotfiles"
+)
+
+paths+=("$@")
+
+if [[ -z $paths ]]; then 
+    echo "No paths were specified, usage: ./zellij-sessionizer path1 path2 etc.."
+    exit 0
+fi
+
+# Use fd if available, or default to find
+if [ -x "$(command -v fd)" ]; then
+    selected_path=$(fd . "${paths[@]}" --min-depth 1 --max-depth 2 --type d | fzf)
+else
+    selected_path=$(find "${paths[@]}" -mindepth 1 -maxdepth 2 -type d | fzf)
+fi
+
+if [[ -z $selected_path ]]; then
+    exit 0
+fi
+
+session_name=$(basename "$selected_path" | tr . _)
+
+if [[ -z $ZELLIJ ]]; then
+  cd $selected_path
+  zellij a $session_name -c
+
+  exit 0
+fi
+
+plugin_url="https://github.com/wllfaria/zellij-switch/releases/download/release/zellij-switch.wasm"
+
+cd $selected_path
+zellij pipe --plugin $plugin_url -- "--session $session_name --cwd $selected_path"

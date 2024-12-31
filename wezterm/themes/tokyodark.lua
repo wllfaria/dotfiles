@@ -9,6 +9,24 @@ return {
   selection_bg = '#11121d',
   selection_fg = '#a0a8cd',
 
-  ansi = { '#06080a', '#ee6d85', '#95c561', '#d7a65f', '#7199ee', '#a485dd', '#38a89d', '#a0a8cd' },
-  brights = { '#212234', '#ee6d85', '#95c561', '#d7a65f', '#7199ee', '#a485dd', '#38a89d', '#a0a8cd' },
+  ansi = {
+    '#06080a', -- black
+    '#ee6d85', -- red
+    '#95c561', -- green
+    '#d7a65f', -- yellow
+    '#7199ee', -- blue
+    '#a485dd', -- purple
+    '#38a89d', -- cyan
+    '#a0a8cd', -- white
+  },
+  brights = {
+    '#212234', -- black
+    '#ee6d85', -- red
+    '#95c561', -- green
+    '#d7a65f', -- yellow
+    '#7199ee', -- blue
+    '#a485dd', -- purple
+    '#38a89d', -- cyan
+    '#a0a8cd', -- white
+  },
 }

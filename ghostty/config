@@ -1,0 +1,13 @@
+font-family = Rec Mono Casual
+font-feature = dlig
+font-feature = liga
+font-feature = calt
+font-feature = ss20
+font-size = 18
+
+theme = lackluster
+
+macos-titlebar-style = hidden
+macos-non-native-fullscreen = true
+window-padding-x = 8
+cursor-style = block

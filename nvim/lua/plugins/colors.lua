@@ -1,15 +1,24 @@
-local function set_colorscheme()
+--- @param current string
+local function set_colorscheme(current)
   vim.o.background = "dark"
   vim.o.termguicolors = true
-  local current = "tokyodark"
   vim.cmd.colorscheme(current)
-  local bools = vim.api.nvim_get_hl(0, { name = "Boolean" })
-  --- @diagnostic disable-next-line
-  vim.api.nvim_set_hl(0, "Comment", bools)
+
+  -- local bools = vim.api.nvim_get_hl(0, { name = "Boolean" })
+  local overrides = {
+    "Comment",
+    "@comment",
+    "@comment.documentation",
+  }
+
+  for _, name in pairs(overrides) do
+    --- @diagnostic disable-next-line
+    vim.api.nvim_set_hl(0, name, { fg = "#4f664f" })
+  end
 end
 
 return {
-  { "thimc/gruber-darker.nvim", enabled = false, config = function() set_colorscheme() end },
+  { "thimc/gruber-darker.nvim", enabled = false, config = function() set_colorscheme("gruber-darker") end },
   {
     "rebelot/kanagawa.nvim",
     priority = 1000,
@@ -20,15 +29,22 @@ return {
         background = { dark = "dragon", light = "lotus" },
         transparent = false,
       })
-      set_colorscheme()
+      set_colorscheme("kanagawa")
     end,
   },
   {
     "tiagovla/tokyodark.nvim",
     lazy = false,
     priority = 1000,
-    enabled = true,
-    config = function() set_colorscheme() end,
+    enabled = false,
+    config = function() set_colorscheme("tokyodark") end,
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    enabled = false,
+    priority = 1000,
+    config = function() set_colorscheme("tokyonight-night") end,
   },
   {
     "vague2k/vague.nvim",
@@ -37,7 +53,15 @@ return {
     enabled = false,
     config = function()
       require("vague").setup({})
-      set_colorscheme()
+      set_colorscheme("vague")
+      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#121314", fg = "#cdcdcd" })
     end,
+  },
+  {
+    "slugbyte/lackluster.nvim",
+    lazy = false,
+    enabled = true,
+    priority = 1000,
+    init = function() set_colorscheme("lackluster-hack") end,
   },
 }

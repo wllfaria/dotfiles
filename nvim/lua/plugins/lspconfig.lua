@@ -5,13 +5,10 @@ return {
     local lspconfig = require("lspconfig")
 
     local configs = {
-      gopls = {},
       clangd = {},
       bashls = {},
-      clojure_lsp = {},
-      zls = {},
+      gopls = {},
       ts_ls = {},
-      svelte = {},
       ocamllsp = {
         settings = { codelens = { enable = true }, inlayHints = { enable = true } },
         filetypes = { "ocaml", "ocaml.interface", "ocaml.menhir", "ocaml.cram" },
@@ -32,6 +29,8 @@ return {
           },
         },
       },
+      luau_lsp = {},
+      pyright = {},
     }
 
     local os = require("custom.os")

@@ -152,6 +152,15 @@ maybe_install_utils() {
         if ! command_exists "tokei"; then
             brew_install "tokei"
         fi
+        if ! command_exists "aerc"; then
+            brew_install "aerc"
+        fi
+        if ! command_exists "luarocks"; then
+            brew_install "luarocks"
+        fi
+        if ! command_exists "luacheck"; then
+            luarocks install luacheck
+        fi
         return
     else
         if ! command_exists "fzf"; then
@@ -207,6 +216,9 @@ maybe_install_utils() {
         fi
         if ! command_exists "tokei"; then
             paru_install "tokei"
+        fi
+        if ! command_exists "aerc"; then
+            paru_install "aerc"
         fi
     fi
 }
@@ -270,6 +282,17 @@ maybe_install_lsps() {
         if ! command_exists "clojure-lsp"; then
             brew_install "clojure-lsp"
         fi
+        if ! command_exists "luau-lsp"; then
+            current=$(pwd)
+            cd /tmp
+            git clone "https://github.com/JohnnyMorganz/luau-lsp" --recursive
+            cd luau-lsp && mkdir build && cd build
+            cmake .. -DCMAKE_BUILD_TYPE=Release
+            cmake --build . --target Luau.LanguageServer.CLI --config Release
+            mkdir -p ~/.local/bin
+            mv ./luau-lsp ~/.local/bin
+            cd $current
+        fi
         return
     else
         if ! command_exists "gopls"; then
@@ -306,26 +329,34 @@ set_common_symlinks() {
     nvim="$HOME/.config/nvim"
     vim="$HOME/.config/vim"
     tmux="$HOME/.config/tmux"
+    zellij="$HOME/.config/zellij"
     loc_git="$HOME/.local/bin/loc-git"
     tmux_sessionizer="$HOME/.local/bin/tmux-sessionizer"
+    zellij_sessionizer="$HOME/.local/bin/zellij-sessionizer"
     vimrc="$HOME/.vimrc"
     zshrc="$HOME/.zshrc"
+    ghostty="$HOME/.config/ghostty"
 
     [ -e "$nvim" ] && rm -rf "$nvim"
     [ -e "$vim" ] && rm -rf "$vim"
     [ -e "$tmux" ] && rm -rf "$tmux"
+    [ -e "$zellij" ] && rm -rf "$zellij"
     [ -e "$loc_git" ] && rm -f "$loc_git"
     [ -e "$tmux_sessionizer" ] && rm -f "$tmux_sessionizer"
     [ -e "$vimrc" ] && rm -f "$vimrc"
     [ -e "$zshrc" ] && rm -f "$zshrc"
+    [ -e "$ghostty" ] && rm -f "$ghostty"
 
     ln -sf ~/dotfiles/nvim "$nvim"
+    ln -sf ~/dotfiles/zellij "$zellij"
     ln -sf ~/dotfiles/vim "$vim"
     ln -sf ~/dotfiles/tmux "$tmux"
     ln -sf ~/dotfiles/loc-git "$loc_git"
     ln -sf ~/dotfiles/tmux-sessionizer "$tmux_sessionizer"
+    ln -sf ~/dotfiles/zellij-sessionizer "$zellij_sessionizer"
     ln -sf ~/dotfiles/.vimrc "$vimrc"
     ln -sf ~/dotfiles/.zshrc "$zshrc"
+    ln -sf ~/dotfiles/ghostty "$ghostty"
 }
 
 set_macos_symlinks() {
@@ -353,29 +384,29 @@ case "${system}" in
         else
             system=Linux
         fi
-    ;;
+        ;;
     Darwin*) system=Mac;;
 esac
 
 case "${system}" in
     Mac)
-	maybe_install_homebrew
-    	maybe_install_git
+        maybe_install_homebrew
+        maybe_install_git
         maybe_install_common
         set_common_symlinks
         set_macos_symlinks
-    ;;
+        ;;
     Linux)
-    	maybe_install_git
-	maybe_install_paru
+        maybe_install_git
+        maybe_install_paru
         maybe_install_common
         maybe_install_linux_programs
         set_common_symlinks
-    ;;
+        ;;
     WSL)
-    	maybe_install_git
-	maybe_install_paru
+        maybe_install_git
+        maybe_install_paru
         maybe_install_common
         set_common_symlinks
-    ;;
+        ;;
 esac
