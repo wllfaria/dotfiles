@@ -97,129 +97,46 @@ maybe_install_tmux() {
 }
 
 maybe_install_utils() {
-    if [[ $system == "Mac" ]]; then
-        if ! command_exists "fzf"; then
-            brew_install "fzf"
+    # Every utility to install
+    # First item is the binary name to check if exists
+    # Second item is the program on AUR
+    # Third item is the program on homebrew
+    #
+    # this is f'ing ugly and hacky and i love it
+    utils=(
+        "fzf" "fzf" "fzf"
+        "fd" "fd" "fd"
+        "rg" "ripgrep" "ripgrep"
+        "stylua" "stylua" "stylua"
+        "prettierd" "prettierd" "prettierd"
+        "eza" "eza" "eza"
+        "zoxide" "zoxide" "zoxide"
+        "rlwrap" "rlwrap" "rlwrap"
+        "just" "just" "just"
+        "btop" "btop" "btop"
+        "zip" "zip" "zip"
+        "unzip" "unzip" "unzip"
+        "gzip" "gzip" "gzip"
+        "bat" "bat" "bat"
+        "jq" "jq" "jq"
+        "tokei" "tokei" "tokei"
+        "aerc" "aerc" "aerc"
+        "luarocks" "luarocks" "luarocks"
+        "zellij" "zellij" "zellij"
+    )
+
+    for ((i=0; i<${#utils[@]}; i+=3)); do
+        if ! command_exists "${utils[i]}"; then
+            if [[ $system == "Mac" ]]; then
+                brew_install "${utils[i + 2]}"
+            else
+                paru_install "${utils[i + 1]}"
+            fi
         fi
-        if ! command_exists "fd"; then
-            brew_install "fd"
-        fi
-        if ! command_exists "rg"; then
-            brew_install "ripgrep"
-        fi
-        if ! command_exists "stylua"; then
-            brew_install "stylua"
-        fi
-        if ! command_exists "prettierd"; then
-            brew_install "prettierd"
-        fi
-        if ! command_exists "eza"; then
-            brew_install "eza"
-        fi
-        if ! command_exists "zoxide"; then
-            brew_install "zoxide"
-        fi
-        if ! command_exists "rlwrap"; then
-            brew_install "rlwrap"
-        fi
-        if ! command_exists "cljfmt"; then
-            brew_install "cljfmt"
-        fi
-        if ! command_exists "just"; then
-            brew_install "just"
-        fi
-        if ! command_exists "btop"; then
-            brew_install "btop"
-        fi
-        if ! command_exists "zip"; then
-            brew_install "zip"
-        fi
-        if ! command_exists "unzip"; then
-            brew_install "unzip"
-        fi
-        if ! command_exists "gzip"; then
-            brew_install "gzip"
-        fi
-        if ! command_exists "bat"; then
-            brew_install "bat"
-        fi
-        if ! command_exists "jq"; then
-            brew_install "jq"
-        fi
-        if ! command_exists "tokei"; then
-            brew_install "tokei"
-        fi
-        if ! command_exists "tokei"; then
-            brew_install "tokei"
-        fi
-        if ! command_exists "aerc"; then
-            brew_install "aerc"
-        fi
-        if ! command_exists "luarocks"; then
-            brew_install "luarocks"
-        fi
-        if ! command_exists "luacheck"; then
-            luarocks install luacheck
-        fi
-        return
-    else
-        if ! command_exists "fzf"; then
-            paru_install "fzf"
-        fi
-        if ! command_exists "fd"; then
-            paru_install "fd"
-        fi
-        if ! command_exists "rg"; then
-            paru_install "ripgrep"
-        fi
-        if ! command_exists "stylua"; then
-            paru_install "stylua"
-        fi
-        if ! command_exists "prettierd"; then
-            paru_install "prettierd"
-        fi
-        if ! command_exists "eza"; then
-            paru_install "eza"
-        fi
-        if ! command_exists "zoxide"; then
-            paru_install "zoxide"
-        fi
-        if ! command_exists "rlwrap"; then
-            paru_install "rlwrap"
-        fi
-        if ! command_exists "cljfmt"; then
-            paru_install "cljfmt-bin"
-        fi
-        if ! command_exists "just"; then
-            paru_install "just"
-        fi
-        if ! command_exists "btop"; then
-            paru_install "btop"
-        fi
-        if ! command_exists "zip"; then
-            paru_install "zip"
-        fi
-        if ! command_exists "unzip"; then
-            paru_install "unzip"
-        fi
-        if ! command_exists "gzip"; then
-            paru_install "gzip"
-        fi
-        if ! command_exists "bat"; then
-            paru_install "bat"
-        fi
-        if ! command_exists "jq"; then
-            paru_install "jq"
-        fi
-        if ! command_exists "tokei"; then
-            paru_install "tokei"
-        fi
-        if ! command_exists "tokei"; then
-            paru_install "tokei"
-        fi
-        if ! command_exists "aerc"; then
-            paru_install "aerc"
-        fi
+    done
+
+    if ! command_exists "luacheck"; then
+        luarocks install luacheck
     fi
 }
 
@@ -231,93 +148,42 @@ maybe_install_programming_langs() {
         opam install ocaml-lsp-server odoc ocamlformat utop
     fi
 
-    if [[ $system == "Mac" ]]; then
-        if ! command_exists "go"; then
-            brew_install "go"
+    utils=(
+        "go" "go" "go"
+        "zig" "zig" "zig"
+        "rustup" "rustup" "rustup"
+    )
+
+    for ((i=0; i<${#utils[@]}; i+=3)); do
+        if ! command_exists "${utils[i]}"; then
+            if [[ $system == "Mac" ]]; then
+                brew_install "${utils[i + 2]}"
+            else
+                paru_install "${utils[i + 1]}"
+            fi
         fi
-        if ! command_exists "zig"; then
-            brew_install "zig"
-        fi
-        if ! command_exists "rustup"; then
-            brew_install "rustup"
-        fi
-        if ! command_exists "clojure"; then
-            brew_install "clojure"
-        fi
-        return
-    else
-        if ! command_exists "go"; then
-            paru_install "go"
-        fi
-        if ! command_exists "zig"; then
-            paru_install "zig"
-        fi
-        if ! command_exists "rustup"; then
-            paru_install "rustup"
-        fi
-        if ! command_exists "clojure"; then
-            paru_install "clojure"
-        fi
-    fi
+    done
 }
 
 maybe_install_lsps() {
-    if [[ $system == "Mac" ]]; then
-        if ! command_exists "gopls"; then
-            brew_install "gopls"
+    utils=(
+        "gopls" "gopls" "gopls"
+        "clangd" "clangd" "clangd"
+        "zls" "zls" "zls"
+        "lua-language-server" "lua-language-server" "lua-language-server"
+        "rust-analyzer" "rust-analyzer" "rust-analyzer"
+        "bash-language-server" "bash-language-server" "bash-language-server"
+    )
+
+    for ((i=0; i<${#utils[@]}; i+=3)); do
+        if ! command_exists "${utils[i]}"; then
+            if [[ $system == "Mac" ]]; then
+                brew_install "${utils[i + 2]}"
+            else
+                paru_install "${utils[i + 1]}"
+            fi
         fi
-        if ! command_exists "zls"; then
-            brew_install "zls"
-        fi
-        if ! command_exists "lua-language-server"; then
-            brew_install "lua-language-server"
-        fi
-        if ! command_exists "rust-analyzer"; then
-            echo "installing rust-analyzer"
-            rustup component add rust-analyzer
-        fi
-        if ! command_exists "bash-language-server"; then
-            brew_install "bash-language-server"
-        fi
-        if ! command_exists "clojure-lsp"; then
-            brew_install "clojure-lsp"
-        fi
-        if ! command_exists "luau-lsp"; then
-            current=$(pwd)
-            cd /tmp
-            git clone "https://github.com/JohnnyMorganz/luau-lsp" --recursive
-            cd luau-lsp && mkdir build && cd build
-            cmake .. -DCMAKE_BUILD_TYPE=Release
-            cmake --build . --target Luau.LanguageServer.CLI --config Release
-            mkdir -p ~/.local/bin
-            mv ./luau-lsp ~/.local/bin
-            cd $current
-        fi
-        return
-    else
-        if ! command_exists "gopls"; then
-            paru_install "gopls"
-        fi
-        if ! command_exists "clangd"; then
-            paru_install "clangd"
-        fi
-        if ! command_exists "zls"; then
-            paru_install "zls"
-        fi
-        if ! command_exists "lua-language-server"; then
-            paru_install "lua-language-server"
-        fi
-        if ! command_exists "rust-analyzer"; then
-            echo "installing rust-analyzer"
-            rustup component add rust-analyzer
-        fi
-        if ! command_exists "bash-language-server"; then
-            paru_install "bash-language-server"
-        fi
-        if ! command_exists "clojure-lsp"; then
-            paru_install "clojure-lsp-bin"
-        fi
-    fi
+    done
 }
 
 set_common_symlinks() {
