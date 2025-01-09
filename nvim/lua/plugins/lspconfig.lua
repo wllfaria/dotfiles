@@ -33,9 +33,6 @@ return {
       pyright = {},
     }
 
-    local os = require("custom.os")
-    if os.get_system() == os.systems.Mac then configs.eslint = {} end
-
     for server, config in pairs(configs) do
       local capabilities = require("blink.cmp").get_lsp_capabilities()
       local with_capabilities = vim.tbl_deep_extend("force", config, { capabilities = capabilities })

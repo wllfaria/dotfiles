@@ -202,6 +202,7 @@ set_common_symlinks() {
     vimrc="$HOME/.vimrc"
     zshrc="$HOME/.zshrc"
     ghostty="$HOME/.config/ghostty"
+    nushell="$HOME/.config/nushell"
 
     [ -e "$nvim" ] && rm -rf "$nvim"
     [ -e "$vim" ] && rm -rf "$vim"
@@ -212,6 +213,7 @@ set_common_symlinks() {
     [ -e "$vimrc" ] && rm -f "$vimrc"
     [ -e "$zshrc" ] && rm -f "$zshrc"
     [ -e "$ghostty" ] && rm -f "$ghostty"
+    [ -e "$nushell" ] && rm -f "$nushell"
 
     ln -sf ~/dotfiles/nvim "$nvim"
     ln -sf ~/dotfiles/zellij "$zellij"
@@ -223,14 +225,21 @@ set_common_symlinks() {
     ln -sf ~/dotfiles/.vimrc "$vimrc"
     ln -sf ~/dotfiles/.zshrc "$zshrc"
     ln -sf ~/dotfiles/ghostty "$ghostty"
+    ln -sf ~/dotfiles/nushell "$nushell"
 }
 
 set_macos_symlinks() {
     wezterm="$HOME/.config/wezterm"
+    aerospace="$HOME/.config/aerospace"
+    sketchybar="$HOME/.config/sketchybar"
 
     [ -e "$wezterm" ] && rm -rf "$wezterm"
+    [ -e "$aerospace" ] && rm -f "$aerospace"
+    [ -e "$sketchybar" ] && rm -f "$sketchybar"
 
     ln -sf ~/dotfiles/wezterm "$wezterm"
+    ln -sf ~/dotfiles/aerospace "$aerospace"
+    ln -sf ~/dotfiles/sketchybar "$sketchybar"
 }
 
 maybe_install_linux_programs() {
@@ -240,6 +249,23 @@ maybe_install_linux_programs() {
 
     if ! command_exists "zen-browser"; then
         paru_install "zen-browser-bin"
+    fi
+}
+
+maybe_install_macos_programs() {
+    if [[ $system == "Mac" ]]; then
+        if ! command_exists "aerospace"; then
+            brew_install "aerospace"
+        fi
+
+        if ! command_exists "sketchybar"; then
+            brew tap FelixKratz/formulae
+            brew_install "sketchybar"
+        fi
+
+        if ! command_exists "nu"; then
+            brew_install "nushell"
+        fi
     fi
 }
 
@@ -260,6 +286,7 @@ case "${system}" in
         maybe_install_git
         maybe_install_common
         set_common_symlinks
+        maybe_install_macos_programs
         set_macos_symlinks
         ;;
     Linux)

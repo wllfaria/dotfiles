@@ -1,4 +1,5 @@
 font-family = Rec Mono Casual
+font-thicken = true
 font-feature = dlig
 font-feature = liga
 font-feature = calt
@@ -7,7 +8,16 @@ font-size = 18
 
 theme = lackluster
 
-macos-titlebar-style = hidden
-macos-non-native-fullscreen = true
+adjust-cell-height = 20%
+window-padding-y = 9
+window-padding-x = 18
+
+macos-titlebar-style = tabs
+macos-titlebar-proxy-icon = hidden
+window-inherit-working-directory = true
 window-padding-x = 8
 cursor-style = block
+
+# custom-shader = shaders/crt.glsl
+
+keybind = ctrl+f=text:nu ~/dotfiles/zellij-sessionizer.nu\r

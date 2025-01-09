@@ -147,3 +147,590 @@ paru nvidia-utils
 paru opencl-nvidia
 paru handbrake
 cd dotfiles
+v .
+nvim .
+config
+config --help
+config env
+ls
+v .
+nvim .
+ls
+ls | capture columns | where name == Kvantum
+ls | columns | where name == Kvantum
+ls | columns | where "name" == Kvantum
+ls | columns | where name == "Kvantum"
+ls | get columns | where name == "Kvantum"
+ls | get name
+ls | get name | flatten
+ls
+v .
+nvim .
+ls ~/.config/ -l
+v
+v .
+nvim .
+config nu
+config env
+config 
+config reset
+v .
+nvim .
+cd nushell
+nvim 
+v .
+cd nushell/
+v .
+nvim .
+v .
+nvim .
+v .
+nvim .
+v .
+cd ..
+./zellij-sessionizer.nu
+echo
+echo "asdsad"
+./zellij-sessionizer.nu
+nu ./zellij-sessionizer.nu
+which fd
+nu ./zellij-sessionizer.nu
+which asdad
+nu ./zellij-sessionizer.nu
+len
+nu ./zellij-sessionizer.nu
+echo $ZELLIJ
+$env.ZELLIJ
+zellij
+$env.ZELLIJ
+$env.ZELLIJ?
+nu ./zellij-sessionizer.nu
+zellij
+keybindings list
+v .
+nvim .
+v .
+nvim .
+clear
+v .
+clear
+v .
+zsh
+v .
+keybindings list | where type == events
+v .
+cd dot
+cd dotfiles
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+"nu ~/dotfiles/zellij-sessionizer.nu"
+nu ~/dotfiles/zellij-sessionizer.nu
+cd ghostty
+cd dotfiles/
+cd ghostty
+v .
+nu ~/dotfiles/zellij-sessionizer.nu
+zellij delete-all-sessions
+zellij kill-all-sessions
+ls
+v .
+cd nu
+cd 
+cd dot
+cd dotfiles/
+cd nushell/
+v .
+cd dot
+nu config reloas
+config
+config reload
+cd dot
+z dot
+zoxide dot
+brew search zoxide
+z
+cd 
+cd
+..
+dotfiles
+v .
+ls
+cd
+v .
+cd
+cd dot
+cd dotfiles
+z
+z dot
+z nushell
+v .
+cd dot
+v .
+cd
+cd dot
+z glyph
+z glyph
+cd ..
+cargo r -- glyph-core/src/highlights.rs
+v .
+cargo r -- glyph-core/src/highlights.rs
+v .
+cd .local glyph
+z local glyph
+v .
+rm glyph.log
+cargo r -- glyph-core/src/highlights.rs
+tail -f glyph.log
+watch glyph.log
+watch glyph.log --help
+open glyph.log
+cat glyph.log
+print glyph.log
+ls
+print glyph.log
+cat glyph.log
+open glyph.log
+watch glyph.log {|| open glyph.log }
+open glyph.log
+open glyph.log | tail
+open glyph.log | last
+open glyph.log | table
+glyph.log | open
+./glyph.log | open
+'./glyph.log' | open
+'glyph.log' | open
+watch glyph.log { open filename | last 10 }
+watch glyph.log { open glyph.log | last 10 }
+watch glyph.log { open glyph.log }
+lines --tail './glyph.log'
+lines --help
+open glyph.log | lines
+open glyph.log | lines | table
+open glyph.log | lines | last
+open glyph.log | lines | last 10
+open glyph.log | lines | tail
+open glyph.log | tail 
+open glyph.log | tail
+open glyph.log | last
+open glyph.log | last 10
+open glyph.log |lines | last 10
+cargo r -- glyph-core/src/highlights.rs
+open glyph.log | lines | last 10
+aerc
+cargo r -- glyph-core/src/highlights.rs
+open glyph.log | lines | last 10
+cargo r -- glyph-core/src/command.rs
+open glyph.log | lines | last 10
+cargo r -- glyph-core/src/command.rs
+open glyph.log | lines | last 10
+v .
+cargo r -- glyph-core/src/command.rs
+cd glyph
+z glyph
+cargo r -- glyph-core/src/command.rs
+z glyph
+z nvim
+v .
+z glyph
+cargo r -- glyph-core/src/command.rs
+open glyph.log | lines | last 10
+cargo r -- glyph-core/src/command.rs
+open glyph.log | lines | last 10
+cargo r -- glyph-core/src/command.rs
+v .
+v glyph.log
+z .local glyph
+v .
+open glyph.log | lines | last 10
+open glyph.log | lines
+cargo r -- glyph-core/src/command.rs
+tokei .rs
+tokei -e .rs
+tokei -h
+tokei -t=rust
+tokei -t=rust,lua
+clear
+nu ~/dotfiles/zellij-sessionizer.nu
+ls
+cd work
+ls
+z work
+ls
+z nu
+v .
+cd work
+nu ~/dotfiles/zellij-sessionizer.nu
+cd work
+ls
+cd sate
+cd satellite
+ls
+ls -l
+ls
+fd . | rg satellite
+v .
+git checkout main
+git checkout .
+git status
+git checkout main
+git pull
+git checkout -b CAD-1668
+git status
+v .
+ls
+fd . satellite
+fd satellite
+cd packages/satellite/
+ls
+cd ..
+cd work
+cd ..
+cd satellite
+cd packages
+z satellite
+ls
+cd ..
+fd . | rg satellite
+git clone git@github.com:nerdwallet/satellite
+nu ~/dotfiles/zellij-sessionizer.nu
+ls
+nu ~/dotfiles/zellij-sessionizer.nu
+cd satellite
+cd work
+z work
+cd satellite/
+nu ~/dotfiles/zellij-sessionizer.nu
+ls
+git checkout -b CAD-1668
+yarn
+nvm use
+pnpm
+pnpm --version
+pnpm install
+v .
+eslint
+npm i -g eslint
+sudo npm i -g eslint
+eslint
+cd nvim
+z nvim
+v .
+v .
+nu ~/dotfiles/zellij-sessionizer.nu
+z nwjs
+v .
+git pull
+pnpm dev
+v .
+yarn dev
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+z dot
+v .
+nu ~/dotfiles/zellij-sessionizer.nu
+zellij pipe --plugin https://github.com/wllfaria/zellij-switch/releases/download/release/zellij-switch.wasm -- --session nwjs-calculator-component --cwd /Users/wiru/work/nwjs-calculator-components/
+zellij pipe --plugin https://github.com/wllfaria/zellij-switch/releases/download/release/zellij-switch.wasm -- --session "nwjs-calculator-component" --cwd /Users/wiru/work/nwjs-calculator-components/
+zellij pipe --plugin https://github.com/wllfaria/zellij-switch/releases/download/release/zellij-switch.wasm -- -s "nwjs-calculator-component" --cwd /Users/wiru/work/nwjs-calculator-components/
+zellij pipe --plugin https://github.com/wllfaria/zellij-switch/releases/download/release/zellij-switch.wasm -- "-s nwjs-calculator-component --cwd /Users/wiru/work/nwjs-calculator-components"
+cd nwjs-calc
+z nwjs-calc
+z dot
+v .
+nu ~/dotfiles/zellij-sessionizer.nu
+z glyph
+nu ~/dotfiles/zellij-sessionizer.nu
+z ayase
+nu ~/dotfiles/zellij-sessionizer.nu
+z nwjs
+cd ..
+cd structured-content-client/
+git status
+v .
+git status
+git commit --allow-empty -m "ci bump"
+git push
+nu ~/dotfiles/zellij-sessionizer.nu
+git status
+git diff
+delta
+brew search delta
+brew install git-delta
+v ~/.gitconfig
+git diff
+git status
+v .
+git status
+git add -A
+git commit --amend
+git push -u origin +SEO-3781
+yarn eslint .
+pnpm eslint .
+pnpm run eslint .
+ls
+cd packages/satellite/
+pnpm eslint .
+v .
+git status
+git add -A
+git commit --amend
+git push -u origin +SEO-3781
+clear
+v .
+clear
+cd work
+z work
+ls
+z code
+ls
+cargo new promor
+cd promor
+v .
+nu ~/dotfiles/zellij-sessionizer.nu
+cd struc
+z struc
+z structured-content
+v .
+git status
+git checkout CAD-1565
+git checkout CAD-1656
+git checkout master
+git branch -D CAD-1656
+git pull
+git checkout -b CAD-1656
+v .
+git status
+yarn
+git status
+git add -A
+git status
+git commit -m "chore: bumping calculator components version CAD-1656"
+git status
+git push -u origin +CAD-1656
+ls
+nu ~/dotfiles/zellij-sessionizer.nu
+cd promor
+z promor
+cargo add scraper
+cargo whatfeatures reqwest
+cargo add reqwest -F rustls-tls
+cargo whatfeatures axum
+cargo add axum
+cargo whatfeatures tokio
+cargo add tokio -F rt,rt-multi-thread,macros
+cargo whatfeatures sqlx
+cargo add sqlx -F postgres,tls-rustls,macros
+brew search postgresql
+brew install postgresql@17
+postgresql
+pg
+brew uninstall postgresql@17
+brew search postgres.app
+v .
+cargo add dotenvy
+cargo whatfeatures anyhow
+cargo add anyhow
+cargo install sqlx
+cargo sqlx -h
+cargo sqlx migrate -h
+cargo sqlx migrate -h add -h
+cargo sqlx migrate add -h
+cargo sqlx migrate add setup -r
+v .
+cargo whatfeatures sqlx
+cargo add sqlx -F chrono
+cargo add serde -F derive
+cargo add serde_json
+cargo add chrono -F serde
+cargo r
+cargo install sqlx-cli
+sqlx database create
+cargo r
+cargo whatfeatures sqlx
+cargo add runtime-tokio
+cargo r
+cargo add sqlx -F runtime-tokio
+cargo r
+cargo add tracing tracing_subscriber
+v .
+sqlx migrate -h
+sqlx migrate revert
+sqlx migrate run
+sqlx migrate revert
+sqlx migrate run
+ls
+ls -l
+ls -la
+ls -a
+cargo clean
+cargo build
+v .
+cargo r
+cargo whatfeatures validate
+cargo add validate
+cargo remove validate
+cargo whatfeatures validator
+cargo add validator -F derive
+cargo whatfeatures axum
+cargo add axum -F macros
+v .
+cargo r
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+git checkout CAD-1669
+git pull
+v .
+git pull origin main
+z nwjs
+yarn dev
+git status
+git add -A
+git rebase --continue
+git add -A
+git rebase --continue
+git add -A
+git rebase --continue
+git add -A
+git rebase --continue
+git add -A
+git rebase --continue
+git add -A
+git rebase --continue
+git push -u origin +CAD-1669
+nu ~/dotfiles/zellij-sessionizer.nu
+tail -f glyph.log
+z .local glyph
+tail -f glyph.log
+tail
+tail -f glyph.log
+z dot
+v .
+cd
+cd dot
+ls
+cd dotfiles/
+ls
+nu ~/dotfiles/zellij-sessionizer.nu
+tail
+nu ~/dotfiles/zellij-sessionizer.nu
+z dot
+ls
+v .
+cd nushell
+zoxide init nushell | save -f ~/.zoxide.nu
+ls
+v .
+zoxide init nushell
+ls
+ls -a
+mv ~/.zoxide.nu .
+ls
+v .
+cd dot
+cd nvim
+cd lol
+yarn eslint .
+v .
+git pull
+git push
+cd struc
+git status
+git checkout master
+git pull
+git branch -D CAD-1669
+git checkout -b CAD-1669
+v .
+yarn
+git status
+git add -A
+git commit -m "chore: bumping calculator components version CAD-1669"
+git push -u origin +CAD-1669
+nu ~/dotfiles/zellij-sessionizer.nu
+cargo add tokionu ~/dotfiles/zellij-sessionizer.nu
+nu ~/dotfiles/zellij-sessionizer.nu
+cd client
+v .
+git checkout main
+git checkout master
+git branch -D CAD-1669
+git checkout -b CAD-1669
+v .
+yarn
+nvm use
+nvm
+cd dot
+v .
+cd .config
+ls -l
+ls -a
+ls -la
+ls -h
+ls -a
+ls .
+ls ..
+ls .. -a
+v ../.nvm
+cd .nvm
+cd ..
+cd .nvm
+l
+ls
+cargo install fnm
+fnm --help
+cd st client
+fnm use
+fnm env
+node --version
+which node
+ls /Users/wiru/.nvm/versions/
+ls /Users/wiru/.nvm/versions/node/
+yarn
+nvm
+fnm
+fnm use 18
+fnm env | lines | split column '"' | first | get Column2
+fnm env --shell bash
+fnm env --shell bash | lines
+fnm env --shell bash | lines | last 5
+fnm env --json
+fnm env --json | from json
+cd str c
+fnm use 18
+ls
+fnm use
+yarn
+fnm use 18
+yarn
+node --version
+which node
+yarn
+fnm use
+which node
+fnm --help
+nfm -h
+fnm -h
+fnm list
+fnm exec yarn install
+git status
+git add -A
+cd dot
+starship -h
+brew search starship
+brew install starship
+starship -h
+mkdir ~/.cache/starship/
+ls
+ls
+clear
+ls
+clear
+v .
+cd
+ls
+ls -a
+rm .zoxide.nu
+ls
+cd dot
+cd gly
+v .
+ls
+git status
