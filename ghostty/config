@@ -6,7 +6,7 @@ font-feature = calt
 font-feature = ss20
 font-size = 18
 
-theme = lackluster
+theme = tokyonight_night
 
 adjust-cell-height = 20%
 window-padding-y = 9

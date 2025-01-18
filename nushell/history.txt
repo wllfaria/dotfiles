@@ -734,3 +734,459 @@ cd gly
 v .
 ls
 git status
+git add -A
+git commit -m "nushell ghostty and idk more things"
+git push
+nu ~/dotfiles/zellij-sessionizer.nu
+git status
+cd sc client
+cd st c
+ls
+git status
+git commit -m "chore: bumping calculator components version CAD-1669"
+git push -u origin +CAD-1669
+fnm exec yarn dedupe
+fnm exec npx yarn deduplicate
+yarn dedupe
+fnm exec yarn dedupe
+fnm exec yarn
+fnm exec npx yarn-deduplicate
+git status
+git add -A
+git commit -m "chore: bumping calculator components version CAD-1669"
+git push
+ls
+nu ~/dotfiles/zellij-sessionizer.nu
+carog r
+ls
+mkdir api_explorer/
+ls
+cd api_explorer/
+just
+v .
+just
+v .
+just
+just --help
+just
+v .
+just list
+v .
+just
+v .
+just l
+just -l
+just
+./main.sh
+./main.sh asdsa
+./main.sh asdsa aiuhdsa asiud hsaiu
+./main.sh asdsa aiuhdsa asdsad
+./main.sh asdsa aiuhdsa
+just
+./main.sh asdsa aiuhdsa
+./main.sh stores asdasd
+cd ..
+v .
+cd ..
+cd promor
+ls
+cd promor
+v .
+cd ..
+mv explorer scripts
+ls
+scripts/api
+scripts/api stores asda
+v .
+scripts/api stores asda
+pwd
+scripts/api stores asda
+scripts/api stores list
+scripts/api stores lista
+scripts/api stoares lista
+scripts/api stores lista
+scripts/api stores list
+scripts/api stores
+cd dot
+v .
+scripts/api stores
+scripts/api
+cargo r
+cargo add futures
+cargo remove futures
+cargo r
+clear
+ls
+sqlx migrate revert
+sqlx migrate run
+sqlx migrate revert
+sqlx migrate run
+sqlx database drop
+sqlx database create
+sqlx migrate run
+sqlx migrate revert
+sqlx migrate run
+sqlx migrate revert
+sqlx migrate run
+sqlx migrate revert
+sqlx migrate run
+sqlx migrate revert
+sqlx migrate run
+sqlx migrate revert
+sqlx migrate run
+sqlx database drop
+sqlx migrate revert
+sqlx database drop
+sqlx migrate revert
+sqlx migrate run
+sqlx migrate revert
+sqlx migrate run
+sqlx migrate revert
+sqlx database drop
+sqlx migrate revert
+sqlx migrate run
+sqlx migrate revert
+sqlx migrate run
+scripts/api
+cargo r
+sqlx migrate revert
+sqlx migrate run
+cargo r
+scripts/api
+sqlx migrate revert
+sqlx migrate run
+scripts/api
+cargo r
+cargo add playwright
+cargo r
+brew search playwright
+sudo npx playwright install
+cargo r
+v Cargo.toml
+cargo add headless_chrome
+cargo r
+sqlx migrate revert
+sqlx migrate rrun
+sqlx migrate run
+v .
+cargo r
+scripts/api
+cargo r
+nu ~/dotfiles/zellij-sessionizer.nu
+ls
+v .
+lazygit
+git remote add origin git@github.com:wllfaria/promor.git<\n>git branch -M main<\n>git push -u origin main
+v .env
+cargo r
+sqlx migrate revert
+ls
+clear
+ls
+ls
+sqlx migrate revert
+sqlx migrate run
+sqlx migrate revert
+sqlx migrate run
+v .
+v /
+sqlx migrate revert
+sqlx migrate run
+v .
+cargo r
+btop
+tokei
+sqlx migrate revert
+sqlx migrate run
+cargo add url
+cargo add url -F serde
+sqlx migrate revert
+sqlx migrate run
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+clear
+ls
+l
+clear
+git pull
+git status
+git diff
+git checkout .
+git pull
+yarn dev
+pnpm run dev
+cd nwjs
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+git commit --allow-empty -m "ci bump"
+git push
+nu ~/dotfiles/zellij-sessionizer.nu
+git checkout -b SEO-3781-t
+git push -u origin SEO-3781-t
+v .
+nu ~/dotfiles/zellij-sessionizer.nu
+sqlx migrate revert && sqlx migrate run
+sqlx migrate revert; sqlx migrate run
+scripts/api
+cargo r
+scripts/api
+cargo r
+scripts/api
+cargo r
+nu ~/dotfiles/zellij-sessionizer.nu
+pnpm run build
+git status
+git add -A
+git commit -m "chore: fixing build issues<\n>"
+git branch -D SEO-3781
+git checkout -b SEO-3781
+git push -u origin +SEO-3781
+nu ~/dotfiles/zellij-sessionizer.nu
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+git checkout master
+git pull
+git branch -D CAD-1669
+git checkout -b CAD-1669
+v .
+yarn
+git status
+git add -A
+git commit -m "chore: bumping calculator components version CAD-1669"
+git push -u origin CAD-1699
+git push -u origin +CAD-1699
+git status
+git push -u origin +CAD-1699
+git status
+git push
+git push --set-upstrea morigin CAD-1669
+git push --set-upstrea morigin CAD-1669 --force
+git checkout master
+git branch -D CAD-1669
+git checkout -b CAD-1669
+v .
+yarn
+git status
+git add -A
+git commit -m "chore: bumping calculator components version CAD-1669"
+git push -u origin +CAD-1699
+git push -u origin +CAD-1699 --verbose
+git push --set-upstrea origin CAD-1669
+git push --set-upstream origin CAD-1669
+git push --set-upstream origin CAD-1669 --force
+nu ~/dotfiles/zellij-sessionizer.nu
+scripts/api
+cargo r
+nu ~/dotfiles/zellij-sessionizer.nu
+git checkout master
+git pull
+git branch -D CAD-1669
+git checkout -b CAD-1669
+v .
+yarn
+fnm use
+yarn
+fnm exec yarn
+fnm exec npx yarn-deduplicate
+git add -A
+git commit -m "chore: bumping calculator components version CAD-1669"
+git push -u origin +CAD-1669
+nu ~/dotfiles/zellij-sessionizer.nu
+git checkout master
+git pull
+nu ~/dotfiles/zellij-sessionizer.nu
+cargo add reqwest -F rustls-tls
+carog r
+cargo r
+brew search dbeaver
+brew install dbeaver-community
+cargo r
+clear
+cargo r
+btop
+sqlx migrate revert; sqlx migrate run
+v .
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+git pull
+v .
+git add -A
+git rebase --continue
+git push -u origin +CAD-1669
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+git status
+git pull
+git branch -D CAD-1669
+git checkout -b CAD-1669
+cd ..
+ls
+mkdir scripts
+cd scripts
+v .
+ls
+cd ..
+cd structured-content/
+pwd
+v .
+../scripts/sc.sh
+v ../scripts/sc.sh
+../scripts/sc.sh
+../scripts/sc.sh 123
+v ../scripts/sc.sh
+../scripts/sc.sh 1.86.1-alpha-00200-1130
+v packages/shared-core/package.json
+v ../scripts/sc.sh
+yarn
+../scripts/sc.sh 1.86.1-alpha-00200-1130
+fnm use
+yarn
+fnm exec yarn
+../scripts/sc.sh 1.86.1-alpha-00200-1130
+ls
+git status
+git add -A
+git commit -m "chore: bumping calculator components version CAD-1669"
+git push -u origin +CAD-1669
+nu ~/dotfiles/zellij-sessionizer.nu
+clear
+git status
+git checkout master
+git pull
+git status
+v .
+v ../scripts/sc.sh
+../scripts/scc.sh 2.556.1-alpha-03959-13780
+v .
+../scripts/scc.sh 2.556.1-alpha-03959-13780
+git status
+v .
+git status 
+git add -A
+git commit -m "chore: bumping calculator components version CAD-1669"
+git status
+git branch
+git checkout -b CAD-1669
+git push -u origin +CAD-1669
+git branch -D CAD-1669
+git checkout -b CAD-1669
+git status
+git push -u origin +CAD-1669
+git status
+git checkout master
+git pull
+git checkout CAD-1669
+git branch -D master
+git checkout master
+git pull
+git branch -D CAD-1669
+../scripts/scc.sh 2.556.1-alpha-03959-13780
+git status
+v .
+git diff
+git status
+git add -A
+git commit -m "chore: bumping calculator components version CAD-1669"
+git push -u origin +CAD-1669
+git statusgit push -u origin +CAD-1669
+git status
+git checkout -b CAD-1669
+git push -u origin +CAD-1669
+nu ~/dotfiles/zellij-sessionizer.nu
+cargo add poise
+cargo r
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+git status
+nu ~/dotfiles/zellij-sessionizer.nu
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+git checkout main
+git pull
+yarn dev
+cargo whatfeatures sqlx
+v .
+cargo whatfeatures bigdecimal
+v Cargo.toml
+cargo whatfeaturs num_traits
+cargo whatfeatures num_traits
+cargo add num_traits
+v .
+clear
+cd promor
+ls ~/work/promor/
+ls
+clear
+ls
+v .
+cargo r
+scripts/api
+cargo r
+v scripts/data/pages/valid.json
+scripts/api
+cargo r
+cd ..
+cargo new nomtest
+cd nomtest
+cargo add nom
+cargo r
+cargo t
+v .
+nu ~/dotfiles/zellij-sessionizer.nu
+../scripts/sc.sh 1.86.1-alpha-00200-1134
+cd structured-content/
+../scripts/sc.sh 1.86.1-alpha-00200-1134
+bash ../scripts/sc.sh 1.86.1-alpha-00200-1134
+bash
+cd ..
+ls
+cd calc
+v .
+git pull
+git pull --set-upstream-to=origin/SEO-3835 SEO-3835
+git branch --set-upstream-to=origin/SEO-3835 SEO-3835
+git pull
+git commit --allow-empty -m "ci bump"
+git push
+nu ~/dotfiles/zellij-sessionizer.nu
+clear
+git checkout master
+git pull
+git checkout -b SEO-3835
+cd client
+cargo r
+nu ~/dotfiles/zellij-sessionizer.nu
+cargo r
+btop
+tokei
+cargo check
+cargo whatfeatures reqwest
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+git status
+cd ..
+cd satellite
+git status
+v .
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+sqlx migrate revert; sqlx migrate run
+just migrate all
+just migrate
+just migrate all
+just migrate
+v .
+scripts/api
+cargo r
+just migrate
+cargo r
+scripts/api
+cd nvim
+v .
+cd zellij
+v .
+cd ghost
+v .
+cd promor
+v .
+cd dot

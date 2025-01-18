@@ -42,7 +42,7 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = false,
-    enabled = false,
+    enabled = true,
     priority = 1000,
     config = function() set_colorscheme("tokyonight-night") end,
   },
@@ -60,7 +60,7 @@ return {
   {
     "slugbyte/lackluster.nvim",
     lazy = false,
-    enabled = true,
+    enabled = false,
     priority = 1000,
     init = function() set_colorscheme("lackluster-hack") end,
   },
