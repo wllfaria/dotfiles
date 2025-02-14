@@ -14,8 +14,9 @@ fi
 
 [[ ! -r /home/wiru/.opam/opam-init/init.zsh ]] || source /home/wiru/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 source "${ZINIT_HOME}/zinit.zsh"
@@ -35,7 +36,7 @@ zstyle ':completion:*' menu no
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^p' history-search-forward
-bindkey -s '^f' "$HOME/.local/bin/zellij-sessionizer\n"
+bindkey -s '^f' "$HOME/.local/bin/tmux-sessionizer\n"
 
 HISTSIZE=5000
 HISTFILE=~/.zsh_history

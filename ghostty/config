@@ -19,5 +19,3 @@ window-padding-x = 8
 cursor-style = block
 
 # custom-shader = shaders/crt.glsl
-
-keybind = ctrl+f=text:nu ~/dotfiles/zellij-sessionizer.nu\r

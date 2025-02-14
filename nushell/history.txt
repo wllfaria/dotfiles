@@ -1190,3 +1190,441 @@ v .
 cd promor
 v .
 cd dot
+v .
+ls
+cd code
+ls
+btop
+cd zellij
+v .
+cd ..
+rm -r sustain
+ls
+cargo new sustain
+cd sustain/
+git status
+cargo add bevy
+cargo r
+v .
+gh repo create sustain --public
+gh
+brew search gh
+brew search github
+brew install gh
+gh repo create sustain --public
+git remote add origin git@github.com:wllfaria/sustain.git<\n>git branch -M main<\n>git push -u origin main
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+git checkout master
+v .
+cd ..
+v .
+git clone git@github.com:NerdWallet/article-client-next.git
+cd article-client-next/
+v .
+git checkout -b SEO-3838
+git status
+git add -A
+git commit -m "fix: fixing popover z-index being too low SEO-3838"
+git push -u origin SEO-3838
+nu ~/dotfiles/zellij-sessionizer.nu
+ls
+git pull
+git checkout CAD-1669
+cd struc
+git checkout CAD-1669
+git checkout master
+git branch -D CAD-1669
+git pull
+git checkout -b CAD-1669
+v .
+ls
+../scripts/sc.sh ^1.88.0
+git status
+git diff
+git add -A
+git commit -m "chore: bumping calculator components version CAD-1669"
+git push -u origin +CAD-1699
+git push +CAD-1699
+git status
+git push
+git push --set-upstream origin CAD-1669 --force
+nu ~/dotfiles/zellij-sessionizer.nu
+cd calc
+git checkout main
+git pull
+v .
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+nu ~/dotfiles/zellij-sessionizer.nu
+clear
+ls
+v .
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+cd ..
+git clone git@github.com:NerdWallet/nwjs-content-seo-components.git
+nu ~/dotfiles/zellij-sessionizer.nu
+git checkout main
+git checkout master
+git pull
+git checkout -b SEO-3838
+v .
+cd nwjs-content-seo
+ls
+git checkout master
+git pull
+git checkout -b SEO-3838
+cd satelli
+v .
+git add -A
+git commit -m "chore: adding seo-frontend as codeowners"
+git push
+nu ~/dotfiles/zellij-sessionizer.nu
+ls
+git pull
+git checkout SEO-3802
+git checkout -b SEO-3802
+yarn
+v .
+nu ~/dotfiles/zellij-sessionizer.nu
+git checkout main
+git checkout master
+git pull
+git checkout main
+git checkout -b SEO-3802
+../scripts/sc.sh 1.90.0-alpha-00209-1176
+git status
+git add -A
+git commit -m "chore: bumping calculator components version SEO-3802"
+git status
+git push -u origin SEO-3802
+git checkout master
+git pull
+git checkout SEO-3802
+git pull origin master
+v .
+yarn
+git status
+git add -A
+git rebase --continue
+git push -u origin +SEO-3802
+nu ~/dotfiles/zellij-sessionizer.nu
+cd scc
+cd client
+git checkout main
+git checkout master
+git pull
+git checkout main
+git pull
+git checkout -b SEO-3802
+../scripts/scc.sh 2.558.1-alpha-04004-13882
+git status
+git add -A
+git commit -m "chore: bumping calculator components version SEO-3802"
+git push -u origin SEO-3802
+nu ~/dotfiles/zellij-sessionizer.nu
+cd article-clie
+v .
+git status
+git add -A
+git commit -m "chore: updating z-index of popover"
+git push
+ls
+l
+ls
+keybindings list | where type == events
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+git status
+git diff
+git add -A
+git commit -m "fix: fixing is_invalid attribute on max error"
+git push -u origin SEO-3802
+nu ~/dotfiles/zellij-sessionizer.nu
+ls
+v .
+git checkout master
+git branch -D SEO-3802
+git pull
+git checkout -b SEO-3802
+../scripts/sc.sh 1.92.0-alpha-00209-1182
+git status
+git add -A
+git commit -m "fix: fixing is_invalid attribute on max error"
+git push -u origin +SEO-3802
+nu ~/dotfiles/zellij-sessionizer.nu
+git checkout main
+git pull
+git branch -D SEO-3802
+git checkout -b SEO-3802
+../scripts/scc.sh 2.560.1-alpha-04004-13906
+git status
+fnm exec npx yarn-deduplicate
+v .
+fnm exec yarn dedupe
+git add -A
+git commit -m "fix: fixing is_invalid attribute on max error"
+git push -u origin +SEO-3802
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+git add -A
+git commit -m "fix: fixing is_invalid attribute on max error"
+git push
+git pull
+git push
+nu ~/dotfiles/zellij-sessionizer.nu
+../scripts/sc.sh 1.92.0-alpha-00209-1183
+git status
+git add -A
+git commit -m "fix: fixing is_invalid attribute on max error"
+git push
+nu ~/dotfiles/zellij-sessionizer.nu
+../scripts/scc.sh 2.560.1-alpha-04004-13908
+git status
+git add -A
+git commit -m "fix: fixing is_invalid attribute on max error"
+git push
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+git pull
+v .
+git status
+git add -A
+git commit -m "chore: getting correct version on package json"
+git push
+nu ~/dotfiles/zellij-sessionizer.nu
+../scripts/sc.sh 1.91.0
+nu ~/dotfiles/zellij-sessionizer.nu
+yarn lint
+git commit --allow-empty -m "ci bump"
+git push
+git pull
+git push
+yarn dev
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+nu ~/dotfiles/zellij-sessionizer.nu
+yarn dev
+yarn test
+v .
+git status
+git stash
+git status
+git checkout main
+git pull
+git checkout -b TEST/segment_analytics_memoized
+git stash pop
+git add -A
+git commit -m "chore: memoizing segment analytics on calculationProvider"
+git push -u origin TEST/segment_analytics_memoized
+git pull
+git commit --allow-empty -m "ci bump"
+git push
+nu ~/dotfiles/zellij-sessionizer.nu
+git checkout main
+git pull
+v .
+git checkout -b test/segment_analytics_memoized
+git add -A
+git commit -m "chore: memoizing segment analytics on calculationProvider"
+git push -u origin test/segment_analytics_memoized
+yarn
+git add -A
+git commit --amend
+git push -u origin +test/segment_analytics_memoized
+ls
+nu ~/dotfiles/zellij-sessionizer.nu
+yarn test
+yarn test --watch
+v .
+nu ~/dotfiles/zellij-sessionizer.nu
+cd search
+ls
+git pull
+v .
+git checkout -b SEO-3879
+git add -A
+git status
+git commit -m "chore: updating environment API_URLs to use internal links SEO-3879"
+git push -u origin SEO-3879
+nu ~/dotfiles/zellij-sessionizer.nu
+git checkout main
+git pull
+clear
+v .
+git pull
+git checkout SEO-3880
+git checkout -b SEO-3880
+yarn add tailwindcss @tailwindcss/postcss postcss
+yarn dev
+yarn add tailwindcss-animate class-variance-authority clsx tailwind-merge lucide-react
+npx shadcn@latest add tooltip
+yarn dlx shadcn@latest add tooltip
+v .
+git status
+git checkout .
+git status
+rm components.json postcss.config.mjs src/index.css src/lib/utility/tailwind.ts tailwind.config.js
+git status
+yarn dev
+yarn add tailwindcss postcss shadcn-ui@latest
+npx tailwindcss init -p
+yarn dlx tailwindcss init -p
+yarn dlx tailwindcss-cli init -p
+yarn add @shadcn/ui<\n>
+v .
+yarn dlx shadcn@latest init
+v .
+yarn dlx shadcn@latest init
+yarn dev
+npm install tailwindcss @tailwindcss/postcss postcss
+yarn add tailwindcss @tailwindcss/postcss postcss
+yarn dev
+yarn add tailwindcss @tailwindcss/postcss postcss
+yarn remove tailwindcss @tailwindcss/postcss postcss
+yarn add tailwindcss @tailwindcss/vite
+yarn add tailwindcss @tailwindcss/postcss postcss
+yarn dev
+npx shadcn@latest init<\n>
+yarn dlx shadcn@latest init
+yarn add tailwindcss-animate class-variance-authority clsx tailwind-merge lucide-react<\n>
+v .
+yarn dlx shadcn@latest init
+yarn dev
+npx shadcn@latest add tooltip
+yarn dlx shadcn@latest add tooltip
+v .
+yarn
+yarn dev
+ls
+ls | get name | flatten
+v .
+cd nvim
+v .
+cd compass
+ls
+clear
+v .
+clear
+nu ~/dotfiles/zellij-sessionizer.nu
+cd ..
+caddy run
+ls
+v .
+caddy run
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+../scripts/scc.sh 2.570.0-alpha-04047-14098
+git checkout main
+git checkout .
+git checkout main
+git pull
+git checkout -b SEO-3914
+../scripts/scc.sh 2.570.0-alpha-04047-14098
+git add -A
+git commit -m "chore: bumping calculator components version SEO-3914"
+git push
+git push -u origin SEO-3914
+nu ~/dotfiles/zellij-sessionizer.nu
+cd glyph
+v .
+v .
+git status
+v .
+git checkout master
+git checkout .
+git checkout master
+git pull
+v .
+git pyll
+git pull
+git pull fix/multiple-bugs-because-of-trk-removal
+git pull
+git pull fix/multiple-bugs-because-of-trk-removal
+git checkout fix/multiple-bugs-because-of-trk-removal
+v .
+nu ~/dotfiles/zellij-sessionizer.nu
+git pull
+git checkout main
+git pull
+git checkout SEO-3914
+git pull
+git pull origin main
+v .
+git add -A
+git rebase --continue
+v .
+git add -A
+git rebase --continue
+git push -u origin +SEO-3914
+v .
+git add -A
+git commit --amend
+git push -u origin +SEO-3914
+nu ~/dotfiles/zellij-sessionizer.nu
+git checkout master
+cd struc
+git pull
+../scripts/sc.sh 1.92.8-alpha-00234-1313
+git status
+git add -A
+git commit -m "chore: bumping calculator components version SEO-3914"
+git push
+nu ~/dotfiles/zellij-sessionizer.nu
+yarn dev
+nu ~/dotfiles/zellij-sessionizer.nu
+git pull
+../scripts/scc.sh 2.570.0-alpha-04047-14107
+git status
+git add -A
+git status
+git commit -m "chore: bumping calculator components version SEO-3914"
+git push
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+git status
+git checkout master
+git pull
+git checkout -b SEO-3925
+nu ~/dotfiles/zellij-sessionizer.nu
+git checkout main
+git pull
+git checkout -b SEO-3916
+yarn dev
+v .
+v.
+nu ~/dotfiles/zellij-sessionizer.nu
+v .
+git status
+git add -A
+git commit -m "chore: removing console log from page"
+git checkout main
+git checkout master
+git pull
+v .
+git checkout -b SEO-3867
+git add -A
+git commit -m "feat: changing registration modal copy SEO-3867"
+git push -u origin SEO-3867
+yarn dev
+v .
+cd ..
+git clone git@github.com:NerdWallet/js-auth-tools
+cd js-auth-tools/
+ls
+git status
+v .
+git status
+git add -A
+git commit -m "feat: changing registration modal copy SEO-3867"
+git push -u origin SEO-3867
+git checkout -b SEO-3867
+git push -u origin SEO-3867
+caddy run
+tmux has-session -t "kura"
+tmux
+tmux kill-server
+v .
+git checkout master
+git pull

@@ -9,6 +9,7 @@ return {
       bashls = {},
       gopls = {},
       ts_ls = {},
+      astro = {},
       ocamllsp = {
         settings = { codelens = { enable = true }, inlayHints = { enable = true } },
         filetypes = { "ocaml", "ocaml.interface", "ocaml.menhir", "ocaml.cram" },

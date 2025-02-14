@@ -27,11 +27,6 @@ vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
 
-vim.keymap.set("n", "<c-f>", function()
-  vim.cmd.tabnew()
-  vim.cmd.terminal()
-  vim.fn.chansend(vim.b.terminal_job_id, "zellij-sessionizer\n")
-end)
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>mx", "<cmd>!chmod +x %<CR>")
 
