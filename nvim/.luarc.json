@@ -1,5 +1,7 @@
 {
   "diagnostics": {
+    "globals": ["vim"],
+    "unusedLocalExclude": ["_*"],
     "disable": ["redefined-local"]
   }
 }
