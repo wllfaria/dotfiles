@@ -1,16 +1,18 @@
-font-family = Rec Mono Casual
+font-family = TX-02
+font-family = RecMonoCasual Nerd Font
+
 font-thicken = true
 font-feature = dlig
 font-feature = liga
 font-feature = calt
 font-feature = ss20
-font-size = 18
+font-size = 16
 
-theme = tokyonight_night
+theme = GruvBoxDark
 
 adjust-cell-height = 20%
-window-padding-y = 9
-window-padding-x = 18
+window-padding-y = 0
+window-padding-x = 0
 
 macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
