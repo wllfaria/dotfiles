@@ -5,16 +5,17 @@ local function set_colorscheme(current)
   vim.o.termguicolors = true
   vim.cmd.colorscheme(current)
 
-  -- local bools = vim.api.nvim_get_hl(0, { name = "Boolean" })
+  local bools = vim.api.nvim_get_hl(0, { name = "Special" })
   local overrides = {
     "Comment",
     "@comment",
     "@comment.documentation",
+    "comment",
   }
 
   for _, name in pairs(overrides) do
     --- @diagnostic disable-next-line
-    vim.api.nvim_set_hl(0, name, { fg = "#4f664f" })
+    vim.api.nvim_set_hl(0, name, bools)
   end
 end
 
@@ -83,9 +84,15 @@ local colorschemes = {
       set_colorscheme("gruvbox")
     end,
   },
+  autumn_night = {
+    dir = "~/code/autumn_night.nvim",
+    priority = 1000,
+    dev = true,
+    config = function() set_colorscheme("autumn_night") end,
+  },
 }
 
-local current = "gruvbox"
+local current = "autumn_night"
 local scheme = colorschemes[current]
 if scheme.noreturn then
   set_colorscheme()

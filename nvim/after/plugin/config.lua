@@ -1,9 +1,17 @@
 ---@alias HighlightTable table<string, vim.api.keyset.highlight>
 
+local function follow_links(group)
+  if not group.link then return group end
+  local new_group = vim.api.nvim_get_hl(0, { name = group.link })
+  return follow_links(new_group)
+end
+
 ---@param highlight string
 ---@return vim.api.keyset.highlight
 local function get_highlight(highlight)
   local group = vim.api.nvim_get_hl(0, { name = highlight })
+  group = follow_links(group)
+
   for key, opt in pairs(group) do
     if type(opt) == "number" then group[key] = string.format("#%06x", opt) end
   end
@@ -25,10 +33,10 @@ local colorscheme_hl = {
 
 --- @type HighlightTable
 local highlights = {
-  ["StatuslineModeNormal"] = { fg = colorscheme_hl["Normal"].bg, bg = colorscheme_hl["Function"].fg },
-  ["StatuslineModeInsert"] = { fg = colorscheme_hl["Function"].fg, bg = colorscheme_hl["CursorColumn"].bg },
-  ["StatusLineModeVisual"] = { fg = colorscheme_hl["Define"].fg, bg = colorscheme_hl["CursorColumn"].bg },
-  ["StatuslineModeCommand"] = { fg = colorscheme_hl["DiagnosticError"].fg, bg = colorscheme_hl["CursorColumn"].bg },
+  ["StatuslineModeNormal"] = { fg = colorscheme_hl["Normal"].bg, bg = colorscheme_hl["DiagnosticInfo"].fg },
+  ["StatuslineModeInsert"] = { fg = colorscheme_hl["Function"].fg, bg = colorscheme_hl["Function"].bg },
+  ["StatusLineModeVisual"] = { fg = colorscheme_hl["Define"].fg, bg = colorscheme_hl["DiagnosticError"].bg },
+  ["StatuslineModeCommand"] = { fg = colorscheme_hl["DiagnosticError"].fg, bg = colorscheme_hl["DiagnosticError"].bg },
   ["DiagnosticSignError"] = { fg = colorscheme_hl["DiagnosticError"].fg, bg = colorscheme_hl["Normal"].bg },
   ["DiagnosticSignWarn"] = { fg = colorscheme_hl["DiagnosticWarn"].fg, bg = colorscheme_hl["Normal"].bg },
   ["DiagnosticSignInfo"] = { fg = colorscheme_hl["DiagnosticInfo"].fg, bg = colorscheme_hl["Normal"].bg },
@@ -42,7 +50,7 @@ local highlights = {
   ["FiletypeC"] = { fg = "#283593", bg = colorscheme_hl["CursorColumn"].bg },
   ["FiletypeGo"] = { fg = "#FFCC80", bg = colorscheme_hl["CursorColumn"].bg },
   ["FiletypeDir"] = { fg = "#FFA000", bg = colorscheme_hl["CursorColumn"].bg },
-  ["FiletypeNone"] = { fg = "#90CAF9", bg = colorscheme_hl["CursorColumn"].bg },
+  ["FiletypeNone"] = { fg = "#90CAF9", bg = colorscheme_hl["Function"].fg },
   ["StatuslineReset"] = { fg = colorscheme_hl["Normal"].bg, bg = colorscheme_hl["Normal"].bg },
   ["StatuslineGitBranch"] = { fg = colorscheme_hl["DiagnosticOk"].fg, bg = colorscheme_hl["CursorColumn"].bg },
   ["StatuslineCursor"] = { fg = colorscheme_hl["Normal"].bg, bg = colorscheme_hl["Function"].fg },

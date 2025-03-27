@@ -9,6 +9,9 @@ return {
       gopls = {},
       ts_ls = {},
       astro = {},
+      superhtml = {},
+      ziggy = {},
+      ziggy_schema = {},
       zls = {
         settings = {
           zls = {

@@ -51,3 +51,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
   command = "silent! lua vim.hl.on_yank({ timeout = 50 })",
 })
+
+vim.keymap.set("n", "-", "<CMD>Ex<CR>")

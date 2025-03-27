@@ -1,6 +1,6 @@
 return {
   "theprimeagen/harpoon",
-  enabled = true,
+  enabled = false,
   event = "VeryLazy",
   branch = "harpoon2",
   dependencies = { "nvim-lua/plenary.nvim" },

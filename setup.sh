@@ -78,7 +78,13 @@ maybe_install_neovim() {
         return
     else
         if ! command_exists "nvim"; then
-            paru_install "neovim"
+            rm -rf ~/neovim
+            git clone https://github.com/neovim/neovim ~/neovim
+            cd ~/neovim
+            mkdir -p ~/.local/bin
+            make CMAKE_BUILD_TYPE=RelWithDebInfo
+            make CMAKE_INSTALL_PREFIX="$HOME/.local" install
+            rm -rf ~/neovim
         fi
     fi
 }
@@ -168,7 +174,7 @@ maybe_install_programming_langs() {
 maybe_install_lsps() {
     utils=(
         "gopls" "gopls" "gopls"
-        "clangd" "clangd" "clangd"
+        "clangd" "clang" "clangd"
         "zls" "zls" "zls"
         "lua-language-server" "lua-language-server" "lua-language-server"
         "rust-analyzer" "rust-analyzer" "rust-analyzer"
@@ -203,6 +209,7 @@ set_common_symlinks() {
     zshrc="$HOME/.zshrc"
     ghostty="$HOME/.config/ghostty"
     nushell="$HOME/.config/nushell"
+    helix="$HOME/.config/helix"
 
     [ -e "$nvim" ] && rm -rf "$nvim"
     [ -e "$vim" ] && rm -rf "$vim"
@@ -214,6 +221,7 @@ set_common_symlinks() {
     [ -e "$zshrc" ] && rm -f "$zshrc"
     [ -e "$ghostty" ] && rm -f "$ghostty"
     [ -e "$nushell" ] && rm -f "$nushell"
+    [ -e "$helix" ] && rm -rf "$helix"
 
     ln -sf ~/dotfiles/nvim "$nvim"
     ln -sf ~/dotfiles/zellij "$zellij"
@@ -226,6 +234,7 @@ set_common_symlinks() {
     ln -sf ~/dotfiles/.zshrc "$zshrc"
     ln -sf ~/dotfiles/ghostty "$ghostty"
     ln -sf ~/dotfiles/nushell "$nushell"
+    ln -sf ~/dotfiles/helix "$helix"
 }
 
 set_macos_symlinks() {

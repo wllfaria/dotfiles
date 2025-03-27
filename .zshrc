@@ -52,17 +52,19 @@ setopt hist_find_no_dups
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.spicetify:$PATH"
 export PATH="$HOME/.deno/bin:$PATH"
+export PATH="/mnt/c/Users/wiru/AppData/Local/Programs/Microsoft VS Code/bin:$PATH"
 export PATH="/opt/homebrew/opt/python@3.9/bin:$PATH"
 export EDITOR="nvim"
 export GPG_TTY=$(tty)
-export XDG_CONFIG_HOME="/Users/wiru/.config"
 
 alias ls="eza --icons=always"
 alias paru="paru --bottomup --skipreview"
 alias v="nvim"
 alias l="ls -l"
+alias hx="helix"
 
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
@@ -73,3 +75,14 @@ zinit cdreplay -q
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/wiru/.cache/lm-studio/bin"
+
+# bun completions
+[ -s "/home/wiru/.bun/_bun" ] && source "/home/wiru/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export ZIG_GLOBAL_CACHE_DIR="$HOME/.zig-cache"
+export DISPLAY=192.168.176.1:0
+
+export MANPAGER="nvim -c 'Man!' -o -"

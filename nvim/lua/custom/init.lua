@@ -15,6 +15,7 @@ function Statusline()
 end
 
 vim.opt.statusline = "%!luaeval('Statusline()')"
+-- vim.opt.statusline = "%{%v:lua.require('custom.statusline').left()%} %= %{%v:lua.require('custom.statusline').right()%}"
 
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
   pattern = "*.aya",
