@@ -1,3 +1,5 @@
+vim.cmd("packadd termdebug")
+
 vim.g.termdebugger = "gdb"
 
 vim.keymap.set("n", "<leader>db", function() vim.cmd("Break") end)

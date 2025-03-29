@@ -19,38 +19,14 @@ return {
     local conform = require("conform")
 
     conform.setup({
-      formatters = {
-        superhtml = {
-          inherit = false,
-          command = "superhtml",
-          stdin = true,
-          args = { "fmt", "--stdin-super" },
-        },
-        ziggy = {
-          inherit = false,
-          command = "ziggy",
-          stdin = true,
-          args = { "fmt", "--stdin" },
-        },
-        ziggy_schema = {
-          inherit = false,
-          command = "ziggy",
-          stdin = true,
-          args = { "fmt", "--stdin-schema" },
-        },
-      },
       formatters_by_ft = {
         lua = { "stylua" },
         json = { "prettierd" },
-        python = { "ruff_format" },
-        svelte = { "deno_fmt" },
+        jsonc = { "prettierd" },
         typescript = { "prettierd" },
         typescriptreact = { "prettierd" },
         javascript = { "prettierd" },
         javascriptreact = { "prettierd" },
-        shtml = { "superhtml" },
-        ziggy = { "ziggy" },
-        ziggy_schema = { "ziggy_schema" },
       },
       format_on_save = function(buffer)
         if vim.g.disable_autoformat or vim.b[buffer].disable_autoformat then return end

@@ -1,7 +1,4 @@
-require("custom.telescope")
 require("custom.termdebug")
-
-vim.cmd("packadd termdebug")
 
 vim.opt.laststatus = 3
 

@@ -59,6 +59,11 @@ export PATH="/mnt/c/Users/wiru/AppData/Local/Programs/Microsoft VS Code/bin:$PAT
 export PATH="/opt/homebrew/opt/python@3.9/bin:$PATH"
 export EDITOR="nvim"
 export GPG_TTY=$(tty)
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export ZIG_GLOBAL_CACHE_DIR="$HOME/.zig-cache"
+export DISPLAY=192.168.176.1:0
+export MANPAGER="nvim -c 'Man!' -o -"
 
 alias ls="eza --icons=always"
 alias paru="paru --bottomup --skipreview"
@@ -73,16 +78,5 @@ zinit cdreplay -q
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/wiru/.cache/lm-studio/bin"
-
-# bun completions
 [ -s "/home/wiru/.bun/_bun" ] && source "/home/wiru/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-export ZIG_GLOBAL_CACHE_DIR="$HOME/.zig-cache"
-export DISPLAY=192.168.176.1:0
-
-export MANPAGER="nvim -c 'Man!' -o -"
