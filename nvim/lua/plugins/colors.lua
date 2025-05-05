@@ -1,26 +1,37 @@
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+--   callback = function()
+--     local bools = vim.api.nvim_get_hl(0, { name = "Boolean" })
+--     local all_hls = vim.api.nvim_get_hl(0, {})
+--
+--     for name, _ in pairs(all_hls) do
+--       if type(name) == "string" and name:match("^@comment") then pcall(vim.api.nvim_set_hl, 0, name, bools) end
+--     end
+--
+--     -- Also apply to standard Comment group
+--     pcall(vim.api.nvim_set_hl, 0, "Comment", bools)
+--   end,
+-- })
+
 --- @param current? string
 local function set_colorscheme(current)
   current = current or "default"
   vim.o.background = "dark"
   vim.o.termguicolors = true
   vim.cmd.colorscheme(current)
-
-  local bools = vim.api.nvim_get_hl(0, { name = "Special" })
-  local overrides = {
-    "Comment",
-    "@comment",
-    "@comment.documentation",
-    "comment",
-  }
-
-  for _, name in pairs(overrides) do
-    --- @diagnostic disable-next-line
-    vim.api.nvim_set_hl(0, name, bools)
-  end
 end
 
 local colorschemes = {
   default = { "default", noreturn = true },
+  github = {
+    "projekt0n/github-nvim-theme",
+    name = "github-theme",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      require("github-theme").setup({})
+      set_colorscheme("github_dark_default")
+    end,
+  },
   kanagawa = {
     "rebelot/kanagawa.nvim",
     priority = 1000,
@@ -29,13 +40,21 @@ local colorschemes = {
         colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
         background = { dark = "dragon", light = "lotus" },
         transparent = false,
+        overrides = function(colors)
+          local theme = colors.theme
+          return {
+            Comment = { fg = theme.ui.float.fg_border },
+            ["@comment"] = { fg = theme.ui.float.fg_border },
+            ["@comment.rust"] = { fg = theme.ui.float.fg_border },
+          }
+        end,
       })
       set_colorscheme("kanagawa")
     end,
   },
 }
 
-local current = "kanagawa"
+local current = "github"
 local scheme = colorschemes[current]
 if scheme.noreturn then
   set_colorscheme()

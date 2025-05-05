@@ -1,6 +1,6 @@
 vim.cmd("packadd termdebug")
 
-vim.g.termdebugger = "gdb"
+vim.g.termdebugger = "rust-gdb"
 
 vim.keymap.set("n", "<leader>db", function() vim.cmd("Break") end)
 vim.keymap.set("n", "<leader>do", function() vim.cmd("Over") end)

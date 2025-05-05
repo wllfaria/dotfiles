@@ -4,7 +4,7 @@ vim.opt.cursorline = false
 vim.opt.grepprg = "rg --vimgrep --no-heading"
 vim.opt.list = true
 vim.opt.guicursor = ""
-vim.opt.colorcolumn = "81"
+vim.opt.colorcolumn = "100"
 
 vim.opt.number = true
 vim.opt.completeopt = "menu,menuone,noinsert"
