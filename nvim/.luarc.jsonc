@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+  "runtime": {
+    "version": "LuaJIT",
+  },
+  "diagnostics": {
+    "globals": ["vim"],
+    "unusedLocalExclude": ["_*"],
+    "disable": ["redefined-local"],
+  },
+  "workspace": {
+    "checkThirdParty": false,
+    "library": [
+      // Runtime and builtin libraries.
+      "$VIMRUNTIME/lua",
+      "${3rd}/luv/library",
+      // Include some plugins for API completion.
+      "$XDG_DATA_HOME/nvim/lazy/blink.cmp/lua",
+      "$XDG_DATA_HOME/nvim/lazy/flash.nvim/lua",
+      "$XDG_DATA_HOME/nvim/lazy/fzf-lua/lua",
+      "$XDG_DATA_HOME/nvim/lazy/lazy.nvim/lua",
+    ],
+  },
+}

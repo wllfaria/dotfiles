@@ -4,7 +4,13 @@ return {
   event = "VeryLazy",
   config = function()
     local fzf_lua = require("fzf-lua")
-    fzf_lua.setup({})
+    fzf_lua.setup({
+      keymap = {
+        fzf = {
+          ["ctrl-q"] = "select-all+accept",
+        },
+      },
+    })
 
     vim.keymap.set("n", "<leader>fpf", fzf_lua.files)
     vim.keymap.set("n", "<leader>fgc", fzf_lua.git_commits)

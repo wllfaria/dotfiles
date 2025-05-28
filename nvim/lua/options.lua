@@ -52,15 +52,15 @@ vim.g.tpipeline_autoembed = 0
 
 -- vim.cmd("set iskeyword-=_")
 
-vim.g.clipboard = {
-  name = "WslClipboard",
-  copy = {
-    ["+"] = "clip.exe",
-    ["*"] = "clip.exe",
-  },
-  paste = {
-    ["+"] = [[powershell.exe -c "Get-Clipboard -Raw | %% { $_.Replace(\"`r\", \"\") }"]],
-    ["*"] = [[powershell.exe -c "Get-Clipboard -Raw | %% { $_.Replace(\"`r\", \"\") }"]],
-  },
-  cache_enabled = false,
-}
+-- vim.g.clipboard = {
+--   name = "WslClipboard",
+--   copy = {
+--     ["+"] = "clip.exe",
+--     ["*"] = "clip.exe",
+--   },
+--   paste = {
+--     ["+"] = [[powershell.exe -c "Get-Clipboard -Raw | %% { $_.Replace(\"`r\", \"\") }"]],
+--     ["*"] = [[powershell.exe -c "Get-Clipboard -Raw | %% { $_.Replace(\"`r\", \"\") }"]],
+--   },
+--   cache_enabled = false,
+-- }

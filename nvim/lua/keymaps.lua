@@ -47,11 +47,6 @@ vim.keymap.set("n", "<leader>[", function() vim.cmd.cprev() end)
 vim.keymap.set("n", "<leader>cy", ":set signcolumn=yes<CR>")
 vim.keymap.set("n", "<leader>cn", ":set signcolumn=no<CR>")
 
-vim.api.nvim_create_autocmd("TextYankPost", {
-  pattern = "*",
-  command = "silent! lua vim.hl.on_yank({ timeout = 50 })",
-})
-
 vim.keymap.set("n", "-", "<CMD>Ex<CR>")
 
 vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end)
@@ -67,8 +62,4 @@ vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end)
 vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end)
 vim.keymap.set("n", "<leader>dr", function() vim.diagnostic.reset() end)
 
-vim.keymap.set(
-  "n",
-  "<leader>i",
-  function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })) end
-)
+vim.keymap.set("n", "<leader>i", function() vim.cmd("ToggleInlayHints") end)

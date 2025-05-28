@@ -14,22 +14,26 @@ return {
         nerd_font_variant = "mono",
       },
       completion = {
-        list = { selection = { preselect = false, auto_insert = true } },
+        list = {
+          selection = { preselect = false, auto_insert = true },
+          max_items = 10,
+        },
         documentation = {
           auto_show = true,
           auto_show_delay_ms = 200,
-          window = {
-            border = "rounded",
-          },
+          window = { border = "rounded" },
         },
         menu = {
           border = "rounded",
           draw = { gap = 2 },
         },
       },
+      snippets = { preset = "luasnip" },
+      cmdline = { enabled = false },
       signature = { enabled = true },
     })
 
     vim.keymap.set("n", "<leader>e", function() enable_completion = not enable_completion end)
+    vim.lsp.config("*", { capabilities = require("blink.cmp").get_lsp_capabilities(nil, true) })
   end,
 }

@@ -8,7 +8,7 @@ font-feature = calt
 font-feature = ss20
 font-size = 16
 
-theme = gruber_darker
+theme = no_clown
 
 adjust-cell-height = 20%
 window-padding-y = 0

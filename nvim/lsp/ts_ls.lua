@@ -1,10 +1,14 @@
-local ok, blink = pcall(require, "blink.cmp")
-if not ok then return {} end
-local capabilities = blink.get_lsp_capabilities()
-
+---@type vim.lsp.Config
 return {
   cmd = { "typescript-language-server", "--stdio" },
-  capabilities = capabilities,
+  init_options = {
+    plugins = {
+      {
+        name = "@astrojs/ts-plugin",
+        location = "/Users/wiru/.nvm/versions/node/v20.5.1/lib/node_modules/@astrojs/ts-plugin/",
+      },
+    },
+  },
   filetypes = {
     "javascript",
     "javascriptreact",
