@@ -3,7 +3,7 @@ local enable_completion = true
 return {
   "saghen/blink.cmp",
   lazy = false,
-  version = "v1.*",
+  build = "cargo build --release",
   enabled = true,
   config = function()
     require("blink.cmp").setup({

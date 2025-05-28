@@ -18,45 +18,16 @@ local function set_colorscheme(current)
   vim.o.background = "dark"
   vim.o.termguicolors = true
   vim.cmd.colorscheme(current)
+
+  -- if current == "default" then vim.api.nvim_set_hl(0, "Normal", { bg = nil }) end
 end
 
 local colorschemes = {
   default = { "default", noreturn = true },
-  github = {
-    "projekt0n/github-nvim-theme",
-    name = "github-theme",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("github-theme").setup({})
-      set_colorscheme("github_dark_default")
-    end,
-  },
-  kanagawa = {
-    "rebelot/kanagawa.nvim",
-    priority = 1000,
-    config = function()
-      require("kanagawa").setup({
-        colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
-        background = { dark = "dragon", light = "lotus" },
-        transparent = false,
-        overrides = function(colors)
-          local theme = colors.theme
-          return {
-            Comment = { fg = theme.ui.float.fg_border },
-            ["@comment"] = { fg = theme.ui.float.fg_border },
-            ["@comment.rust"] = { fg = theme.ui.float.fg_border },
-          }
-        end,
-      })
-      set_colorscheme("kanagawa")
-    end,
-  },
   clown = {
     "aktersnurra/no-clown-fiesta.nvim",
     config = function()
       require("no-clown-fiesta").setup({})
-
       set_colorscheme("no-clown-fiesta")
     end,
   },

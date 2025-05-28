@@ -80,3 +80,7 @@ zinit cdreplay -q
 
 export PATH="$PATH:/Users/wiru/.cache/lm-studio/bin"
 [ -s "/home/wiru/.bun/_bun" ] && source "/home/wiru/.bun/_bun"
+
+# Android
+export ANDROID_HOME=/mnt/c/Users/wiru/AppData/Local/Android/Sdk
+export WSLENV=ANDROID_HOME/p
