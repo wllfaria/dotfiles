@@ -13,6 +13,7 @@ return {
       typescriptreact = { "prettierd" },
       javascript = { "prettierd" },
       javascriptreact = { "prettierd" },
+      sql = { "pg_format" },
     },
     format_on_save = function()
       if not vim.g.autoformat then return nil end

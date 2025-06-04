@@ -51,9 +51,15 @@ end
 vim.opt.statusline = "%!luaeval('Statusline()')"
 -- vim.opt.statusline = "%{%v:lua.require('statusline').left()%} %= %{%v:lua.require('statusline').right()%}"
 
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = "*.aya",
-  callback = function() vim.bo.filetype = "asm" end,
+vim.lsp.enable({
+  "eslint",
+  "lua_ls",
+  "rust_analyzer",
+  "gopls",
+  "ts_ls",
+  "ruff",
+  "basedpyright",
+  "svelte",
 })
 
 vim.diagnostic.config({
