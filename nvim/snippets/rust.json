@@ -24,7 +24,7 @@
   },
   "Make test": {
     "prefix": "ts",
-    "body": ["#[cfg(test)]", "mod tests {", "    use super::*;", "", "$1"],
+    "body": ["#[cfg(test)]", "mod tests {", "    use super::*;", "", "$1", "}"],
     "description": "Make a new test module"
   }
 }

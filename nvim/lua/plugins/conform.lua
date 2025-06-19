@@ -5,6 +5,7 @@ return {
   opts = {
     notify_on_error = false,
     formatters_by_ft = {
+      css = { "prettierd" },
       lua = { "stylua" },
       json = { "prettierd" },
       astro = { "prettierd" },

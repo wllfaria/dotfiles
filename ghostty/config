@@ -1,5 +1,5 @@
-font-family = TX-02
 font-family = RecMonoCasual Nerd Font
+font-family = TX-02
 
 font-thicken = true
 font-feature = dlig
@@ -18,6 +18,10 @@ macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
 window-inherit-working-directory = true
 window-padding-x = 8
+
 cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
 
 # custom-shader = shaders/crt.glsl

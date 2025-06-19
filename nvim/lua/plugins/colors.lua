@@ -31,9 +31,28 @@ local colorschemes = {
       set_colorscheme("no-clown-fiesta")
     end,
   },
+  vague = {
+    "vague2k/vague.nvim",
+    config = function()
+      require("vague").setup({})
+      set_colorscheme("vague")
+    end,
+  },
+  vesper = {
+    "datsfilipe/vesper.nvim",
+    config = function()
+      require("vesper").setup({
+        transparent = false,
+        overrides = {
+          ColorColumn = { link = "TabLine" },
+        },
+      })
+      set_colorscheme("vesper")
+    end,
+  },
 }
 
-local current = "clown"
+local current = "vesper"
 local scheme = colorschemes[current]
 if scheme.noreturn then
   set_colorscheme()

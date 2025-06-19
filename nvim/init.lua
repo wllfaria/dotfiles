@@ -4,6 +4,7 @@ require("options")
 require("commands")
 require("statusline")
 require("termdebug")
+require("hide_env")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -50,17 +51,6 @@ end
 
 vim.opt.statusline = "%!luaeval('Statusline()')"
 -- vim.opt.statusline = "%{%v:lua.require('statusline').left()%} %= %{%v:lua.require('statusline').right()%}"
-
-vim.lsp.enable({
-  "eslint",
-  "lua_ls",
-  "rust_analyzer",
-  "gopls",
-  "ts_ls",
-  "ruff",
-  "basedpyright",
-  "svelte",
-})
 
 vim.diagnostic.config({
   float = { border = "rounded" },

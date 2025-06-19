@@ -84,3 +84,6 @@ export PATH="$PATH:/Users/wiru/.cache/lm-studio/bin"
 # Android
 export ANDROID_HOME=/mnt/c/Users/wiru/AppData/Local/Android/Sdk
 export WSLENV=ANDROID_HOME/p
+
+# moonbit
+export PATH="$HOME/.moon/bin:$PATH"

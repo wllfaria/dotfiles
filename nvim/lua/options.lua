@@ -43,7 +43,6 @@ vim.opt.splitright = true
 vim.opt.wildmenu = true
 vim.opt.wildmode = "longest:full,full"
 vim.opt.pumblend = 17
-
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25

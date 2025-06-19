@@ -202,6 +202,7 @@ set_common_symlinks() {
     tmux="$HOME/.config/tmux"
     loc_git="$HOME/.local/bin/loc-git"
     tmux_sessionizer="$HOME/.local/bin/tmux-sessionizer"
+    tmux_sessionizer_fish="$HOME/.local/bin/tmux-sessionizer.fish"
     vimrc="$HOME/.vimrc"
     zshrc="$HOME/.zshrc"
     ghostty="$HOME/.config/ghostty"
@@ -214,6 +215,7 @@ set_common_symlinks() {
     [ -e "$tmux" ] && rm -rf "$tmux"
     [ -e "$loc_git" ] && rm -f "$loc_git"
     [ -e "$tmux_sessionizer" ] && rm -f "$tmux_sessionizer"
+    [ -e "$tmux_sessionizer_fish" ] && rm -f "$tmux_sessionizer_fish"
     [ -e "$vimrc" ] && rm -f "$vimrc"
     [ -e "$zshrc" ] && rm -f "$zshrc"
     [ -e "$ghostty" ] && rm -f "$ghostty"
@@ -226,6 +228,7 @@ set_common_symlinks() {
     ln -sf ~/dotfiles/tmux "$tmux"
     ln -sf ~/dotfiles/loc-git "$loc_git"
     ln -sf ~/dotfiles/tmux-sessionizer "$tmux_sessionizer"
+    ln -sf ~/dotfiles/tmux-sessionizer.fish "$tmux_sessionizer_fish"
     ln -sf ~/dotfiles/.vimrc "$vimrc"
     ln -sf ~/dotfiles/.zshrc "$zshrc"
     ln -sf ~/dotfiles/ghostty "$ghostty"
@@ -237,15 +240,12 @@ set_common_symlinks() {
 set_macos_symlinks() {
     wezterm="$HOME/.config/wezterm"
     aerospace="$HOME/.config/aerospace"
-    sketchybar="$HOME/.config/sketchybar"
 
     [ -e "$wezterm" ] && rm -rf "$wezterm"
     [ -e "$aerospace" ] && rm -f "$aerospace"
-    [ -e "$sketchybar" ] && rm -f "$sketchybar"
 
     ln -sf ~/dotfiles/wezterm "$wezterm"
     ln -sf ~/dotfiles/aerospace "$aerospace"
-    ln -sf ~/dotfiles/sketchybar "$sketchybar"
 }
 
 maybe_install_linux_programs() {
@@ -262,11 +262,6 @@ maybe_install_macos_programs() {
     if [[ $system == "Mac" ]]; then
         if ! command_exists "aerospace"; then
             brew_install "aerospace"
-        fi
-
-        if ! command_exists "sketchybar"; then
-            brew tap FelixKratz/formulae
-            brew_install "sketchybar"
         fi
 
         if ! command_exists "nu"; then
