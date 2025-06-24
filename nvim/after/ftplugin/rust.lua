@@ -98,7 +98,7 @@ local function find_tests_in_module(node, buffer)
   return test_functions
 end
 
-local function simple_test()
+local function fold_tests()
   local buffer = vim.api.nvim_get_current_buf()
   local parser = vim.treesitter.get_parser(buffer, "rust")
   if not parser then return end
@@ -125,4 +125,5 @@ local function simple_test()
   end
 end
 
-simple_test()
+vim.api.nvim_create_user_command("RustFoldTests", fold_tests, { desc = "Folds all tests in a rust file" })
+vim.keymap.set("n", "<leader>ft", ":RustFoldTests<CR>", { desc = "Folds all tests in a rust file" })

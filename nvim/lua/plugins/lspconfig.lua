@@ -12,6 +12,8 @@ return {
       "ruff",
       "basedpyright",
       "svelte",
+      "zls",
+      "clangd",
     })
   end,
 }

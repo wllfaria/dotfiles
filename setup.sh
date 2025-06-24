@@ -71,21 +71,14 @@ maybe_install_git() {
 }
 
 maybe_install_neovim() {
-    if [[ $system == "Mac" ]]; then
-        if ! command_exists "nvim"; then
-            brew_install "neovim"
-        fi
-        return
-    else
-        if ! command_exists "nvim"; then
-            rm -rf ~/neovim
-            git clone https://github.com/neovim/neovim ~/neovim
-            cd ~/neovim
-            mkdir -p ~/.local/bin
-            make CMAKE_BUILD_TYPE=RelWithDebInfo
-            make CMAKE_INSTALL_PREFIX="$HOME/.local" install
-            rm -rf ~/neovim
-        fi
+    if ! command -v "nvim" >/dev/null 2>&1; then
+        rm -rf ~/neovim
+        git clone https://github.com/neovim/neovim ~/neovim
+        cd ~/neovim
+        mkdir -p ~/.local/bin
+        make CMAKE_BUILD_TYPE=RelWithDebInfo
+        make CMAKE_INSTALL_PREFIX="$HOME/.local" install
+        rm -rf ~/neovim
     fi
 }
 

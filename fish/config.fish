@@ -27,3 +27,8 @@ zoxide init fish | source
 fzf --fish | source
 
 bind \cf '~/.local/bin/tmux-sessionizer.fish'
+
+# ZVM
+set -gx ZVM_INSTALL "$HOME/.zvm/self"
+set -gx PATH $PATH "$HOME/.zvm/bin"
+set -gx PATH $PATH "$ZVM_INSTALL/"
