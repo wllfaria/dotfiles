@@ -16,3 +16,9 @@ vim.filetype.add({
     end,
   },
 })
+
+vim.filetype.add({
+  pattern = {
+    ["*.aml"] = "aml",
+  },
+})

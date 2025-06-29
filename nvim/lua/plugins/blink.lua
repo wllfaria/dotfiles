@@ -28,7 +28,6 @@ return {
           draw = { gap = 2 },
         },
       },
-      snippets = { preset = "luasnip" },
       cmdline = { enabled = false },
       signature = { enabled = true },
     })

@@ -50,9 +50,23 @@ local colorschemes = {
       set_colorscheme("vesper")
     end,
   },
+  evergarden = {
+    "everviolet/nvim",
+    name = "evergarden",
+    priority = 1000,
+    config = function()
+      require("evergarden").setup({
+        theme = {
+          variant = "winter",
+          accent = "green",
+        },
+      })
+      set_colorscheme("evergarden")
+    end,
+  },
 }
 
-local current = "vesper"
+local current = "evergarden"
 local scheme = colorschemes[current]
 if scheme.noreturn then
   set_colorscheme()

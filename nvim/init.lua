@@ -53,8 +53,27 @@ vim.opt.statusline = "%!luaeval('Statusline()')"
 -- vim.opt.statusline = "%{%v:lua.require('statusline').left()%} %= %{%v:lua.require('statusline').right()%}"
 
 vim.diagnostic.config({
-  float = { border = "rounded" },
+  ---@diagnostic disable-next-line: assign-type-mismatch
+  float = { border = { " " } },
   virtual_text = true,
+})
+
+vim.lsp.enable({
+  "astro",
+  "eslint",
+  "lua_ls",
+  "rust_analyzer",
+  "gopls",
+  "tailwind",
+  "ts_ls",
+  "ruff",
+  "basedpyright",
+  "svelte",
+  "zls",
+  "clangd",
+  "roc_ls",
+  "jsonls",
+  "aml_ls",
 })
 
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
@@ -62,6 +81,6 @@ local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 ---@diagnostic disable: duplicate-set-field
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts = opts or {}
-  opts.border = opts.border or "rounded"
+  opts.border = opts.border or { " " }
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end

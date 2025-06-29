@@ -1,24 +1,25 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  lazy = true,
-  event = "BufRead",
   version = false,
+  branch = "master",
   build = ":TSUpdate",
-  opts = {
-    auto_install = true,
-    ensure_installed = {
-      "lua",
-      "typescript",
-      "javascript",
-      "rust",
-      "markdown",
-      "vimdoc",
-      "markdown_inline",
-      "ocaml",
-      "json",
-    },
-    sync_install = false,
-    highlight = { enable = true },
-    indent = { enable = true },
-  },
+  config = function()
+    require("nvim-treesitter.configs").setup({
+      auto_install = true,
+      ensure_installed = {
+        "lua",
+        "typescript",
+        "javascript",
+        "rust",
+        "markdown",
+        "vimdoc",
+        "markdown_inline",
+        "ocaml",
+        "json",
+      },
+      sync_install = false,
+      highlight = { enable = true },
+      indent = { enable = true },
+    })
+  end,
 }
