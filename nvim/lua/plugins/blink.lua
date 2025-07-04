@@ -2,7 +2,6 @@ local enable_completion = true
 
 return {
   "saghen/blink.cmp",
-  lazy = false,
   build = "cargo build --release",
   enabled = true,
   config = function()
@@ -24,7 +23,7 @@ return {
           window = { border = "rounded" },
         },
         menu = {
-          border = "rounded",
+          border = { " " },
           draw = { gap = 2 },
         },
       },

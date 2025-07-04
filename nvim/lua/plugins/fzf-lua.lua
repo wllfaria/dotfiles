@@ -1,26 +1,7 @@
 return {
   "ibhagwan/fzf-lua",
-  lazy = true,
-  event = "VeryLazy",
-  keys = {
-    { "<leader>fpf", "<cmd>FzfLua files<cr>" },
-    { "<leader>fgc", "<cmd>FzfLua git_commits<cr>" },
-    { "<leader>fgb", "<cmd>FzfLua git_branches<cr>" },
-    { "<leader>fr", "<cmd>FzfLua resume<cr>" },
-    { "<leader>fc", "<cmd>FzfLua commands<cr>" },
-    { "<leader>fo", "<cmd>FzfLua nvim_options<cr>" },
-    { "<leader>fht", "<cmd>FzfLua help_tags<cr>" },
-    { "<leader>fk", "<cmd>FzfLua keymaps<cr>" },
-    { "<leader>fhi", "<cmd>FzfLua highlights<cr>" },
-    { "<leader>fa", "<cmd>FzfLua autocmds<cr>" },
-    { "<leader>ff", "<cmd>FzfLua lgrep_curbuf<cr>" },
-    { "<leader>fs", "<cmd>FzfLua lsp_document_symbols<cr>" },
-    { "<leader>fb", "<cmd>FzfLua buffers<cr>" },
-    { "<leader>fd", function() require("fzf-lua").diagnostics_workspace({ sort = 1 }) end },
-    { "<leader>fgg", "<cmd>FzfLua git_files<cr>" },
-    { "<leader>flg", "<cmd>FzfLua live_grep<cr>" },
-  },
-  opts = {
+  config = function()
+    require("fzf-lua").setup({
     keymap = {
       fzf = { ["ctrl-q"] = "select-all+accept" },
     },
@@ -40,8 +21,8 @@ return {
         },
       },
     },
-  },
-  init = function()
+  })
+
     ---@diagnostic disable-next-line: duplicate-set-field
     vim.ui.select = function(items, opts, on_choice)
       local ui_select = require("fzf-lua.providers.ui_select")
@@ -67,5 +48,22 @@ return {
 
       if #items > 0 then return vim.ui.select(items, opts, on_choice) end
     end
+
+    vim.keymap.set("n", "<leader>fpf", "<cmd>FzfLua files<cr>" )
+    vim.keymap.set("n", "<leader>fgc", "<cmd>FzfLua git_commits<cr>" )
+    vim.keymap.set("n", "<leader>fgb", "<cmd>FzfLua git_branches<cr>" )
+    vim.keymap.set("n", "<leader>fr", "<cmd>FzfLua resume<cr>" )
+    vim.keymap.set("n", "<leader>fc", "<cmd>FzfLua commands<cr>" )
+    vim.keymap.set("n", "<leader>fo", "<cmd>FzfLua nvim_options<cr>" )
+    vim.keymap.set("n", "<leader>fht", "<cmd>FzfLua help_tags<cr>" )
+    vim.keymap.set("n", "<leader>fk", "<cmd>FzfLua keymaps<cr>" )
+    vim.keymap.set("n", "<leader>fhi", "<cmd>FzfLua highlights<cr>" )
+    vim.keymap.set("n", "<leader>fa", "<cmd>FzfLua autocmds<cr>" )
+    vim.keymap.set("n", "<leader>ff", "<cmd>FzfLua lgrep_curbuf<cr>" )
+    vim.keymap.set("n", "<leader>fs", "<cmd>FzfLua lsp_document_symbols<cr>" )
+    vim.keymap.set("n", "<leader>fb", "<cmd>FzfLua buffers<cr>" )
+    vim.keymap.set("n", "<leader>fd", function() require("fzf-lua").diagnostics_workspace({ sort = 1 }) end )
+    vim.keymap.set("n", "<leader>fgg", "<cmd>FzfLua git_files<cr>" )
+    vim.keymap.set("n", "<leader>flg", "<cmd>FzfLua live_grep<cr>" )
   end,
 }

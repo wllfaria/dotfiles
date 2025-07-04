@@ -52,8 +52,6 @@ local colorschemes = {
   },
   evergarden = {
     "everviolet/nvim",
-    name = "evergarden",
-    priority = 1000,
     config = function()
       require("evergarden").setup({
         theme = {
@@ -66,7 +64,7 @@ local colorschemes = {
   },
 }
 
-local current = "evergarden"
+local current = "vague"
 local scheme = colorschemes[current]
 if scheme.noreturn then
   set_colorscheme()
