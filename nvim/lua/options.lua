@@ -1,6 +1,6 @@
 vim.opt.confirm = true
-vim.opt.mouse = "a"
-vim.opt.cursorline = false
+vim.opt.mouse = ""
+vim.opt.cursorline = true
 vim.opt.grepprg = "rg --vimgrep --no-heading"
 vim.opt.list = false
 vim.opt.guicursor = ""
@@ -28,7 +28,7 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = "no"
+vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50
 
@@ -46,20 +46,4 @@ vim.opt.pumblend = 17
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
-
 vim.g.tpipeline_autoembed = 0
-
--- vim.cmd("set iskeyword-=_")
-
--- vim.g.clipboard = {
---   name = "WslClipboard",
---   copy = {
---     ["+"] = "clip.exe",
---     ["*"] = "clip.exe",
---   },
---   paste = {
---     ["+"] = [[powershell.exe -c "Get-Clipboard -Raw | %% { $_.Replace(\"`r\", \"\") }"]],
---     ["*"] = [[powershell.exe -c "Get-Clipboard -Raw | %% { $_.Replace(\"`r\", \"\") }"]],
---   },
---   cache_enabled = false,
--- }

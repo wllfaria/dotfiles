@@ -15,11 +15,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 --- @param current? string
 local function set_colorscheme(current)
   current = current or "default"
-  vim.o.background = "dark"
   vim.o.termguicolors = true
   vim.cmd.colorscheme(current)
-
-  -- if current == "default" then vim.api.nvim_set_hl(0, "Normal", { bg = nil }) end
 end
 
 local colorschemes = {
@@ -50,23 +47,35 @@ local colorschemes = {
       set_colorscheme("vesper")
     end,
   },
-  evergarden = {
-    "everviolet/nvim",
-    name = "evergarden",
+  gruber_darker = {
+    "blazkowolf/gruber-darker.nvim",
+    config = function()
+      -- require("gruber-darker").setup({})
+      set_colorscheme("gruber-darker")
+    end,
+  },
+  zenbones = {
+    "zenbones-theme/zenbones.nvim",
+    dependencies = "rktjmp/lush.nvim",
+    lazy = false,
     priority = 1000,
     config = function()
-      require("evergarden").setup({
-        theme = {
-          variant = "winter",
-          accent = "green",
-        },
-      })
-      set_colorscheme("evergarden")
+      vim.o.background = "light"
+      set_colorscheme("rosebones")
+    end,
+  },
+  tokyonight = {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("tokyonight").setup({})
+      set_colorscheme("tokyonight-night")
     end,
   },
 }
 
-local current = "evergarden"
+local current = "vague"
 local scheme = colorschemes[current]
 if scheme.noreturn then
   set_colorscheme()

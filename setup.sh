@@ -76,6 +76,7 @@ maybe_install_neovim() {
         git clone https://github.com/neovim/neovim ~/neovim
         cd ~/neovim
         mkdir -p ~/.local/bin
+        git checkout stable
         make CMAKE_BUILD_TYPE=RelWithDebInfo
         make CMAKE_INSTALL_PREFIX="$HOME/.local" install
         rm -rf ~/neovim
