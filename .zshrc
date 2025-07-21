@@ -70,6 +70,7 @@ alias paru="paru --bottomup --skipreview"
 alias v="nvim"
 alias l="ls -l"
 alias hx="helix"
+# alias cat="bat -p"
 
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
@@ -87,3 +88,5 @@ export WSLENV=ANDROID_HOME/p
 
 # moonbit
 export PATH="$HOME/.moon/bin:$PATH"
+
+alias claude="/home/wiru/.claude/local/claude"

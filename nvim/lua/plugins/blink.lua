@@ -1,4 +1,4 @@
-local enable_completion = true
+local enable_completion = false
 
 return {
   "saghen/blink.cmp",
@@ -7,7 +7,9 @@ return {
   enabled = true,
   config = function()
     require("blink.cmp").setup({
-      enabled = function() return enable_completion end,
+      enabled = function()
+        return enable_completion
+      end,
       keymap = { preset = "default" },
       appearance = {
         use_nvim_cmp_as_default = true,
@@ -32,7 +34,9 @@ return {
       signature = { enabled = true },
     })
 
-    vim.keymap.set("n", "<leader>e", function() enable_completion = not enable_completion end)
+    vim.keymap.set("n", "<leader>e", function()
+      enable_completion = not enable_completion
+    end)
     vim.lsp.config("*", { capabilities = require("blink.cmp").get_lsp_capabilities(nil, true) })
   end,
 }

@@ -17,7 +17,9 @@ return {
       sql = { "pg_format" },
     },
     format_on_save = function()
-      if not vim.g.autoformat then return nil end
+      if not vim.g.autoformat then
+        return nil
+      end
       return { timeout_ms = 3000, lsp_format = "fallback" }
     end,
   },
