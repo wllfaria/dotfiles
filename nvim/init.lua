@@ -41,6 +41,7 @@ vim.diagnostic.config({
   ---@diagnostic disable-next-line: assign-type-mismatch
   float = { border = "rounded" },
   virtual_text = false,
+  underline = false,
 })
 
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview

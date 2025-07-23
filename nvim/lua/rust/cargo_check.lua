@@ -12,6 +12,7 @@ local function run_cargo_check()
   --
   -- I don't care about warnings, so I'm going to open the window only on errors.
   vim.cmd("silent! make check")
+  vim.cmd("redraw!")
 
   local total_warnings = 0
   local total_errors = 0
@@ -49,7 +50,12 @@ local function run_cargo_check()
   vim.fn.setqflist(errors_only, "r")
 
   if total_errors > 0 then
-    vim.cmd("copen 6")
+    if vim.fn.tabpagewinnr(vim.fn.tabpagenr(), "$") > 1 then
+      vim.cmd("botright copen 6")
+    else
+      vim.cmd("copen 6")
+    end
+    vim.cmd("wincmd p")
   else
     vim.cmd("cclose")
   end
