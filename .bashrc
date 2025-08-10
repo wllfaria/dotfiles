@@ -28,18 +28,6 @@ alias v="nvim"
 alias l="ls -l"
 alias cd="z"
 
-if command -v zoxide &>/dev/null; then
-  eval "$(zoxide init bash)"
-fi
-
-if command -v fzf &>/dev/null; then
-  [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-fi
-
-if [ -s "/home/wiru/.bun/_bun" ]; then
-  source "/home/wiru/.bun/_bun"
-fi
-
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 alias claude="$HOME/.claude/local/claude"
@@ -63,3 +51,15 @@ prompt() {
 }
 
 PROMPT_COMMAND=prompt
+
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init bash)"
+fi
+
+if command -v fzf &>/dev/null; then
+  [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+fi
+
+if [ -s "/home/wiru/.bun/_bun" ]; then
+  source "/home/wiru/.bun/_bun"
+fi
