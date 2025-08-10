@@ -1,22 +1,3 @@
-case $- in
-  *i*) ;;
-    *) return;;
-esac
-
-export OSH='/home/wiru/.oh-my-bash'
-
-OSH_THEME="font"
-
-OMB_USE_SUDO=true
-
-completions=(git ssh)
-
-aliases=(general)
-
-plugins=(git bashmarks)
-
-source "$OSH"/oh-my-bash.sh
-
 if [[ -r "$HOME/.opam/opam-init/init.sh" ]]; then
   source "$HOME/.opam/opam-init/init.sh" > /dev/null 2>&1
 fi
@@ -38,7 +19,6 @@ export MANPAGER="nvim -c 'Man!' -o -"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
-export PATH="$HOME/.spicetify:$PATH"
 export PATH="$HOME/.deno/bin:$PATH"
 export PATH="$HOME/.bun/bin:$PATH"
 
@@ -63,3 +43,23 @@ fi
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 alias claude="$HOME/.claude/local/claude"
+
+prompt() {
+    local green="\[\e[32m\]"
+    local yellow="\[\e[33m\]"
+    local magenta="\[\e[35m\]"
+    local reset="\[\e[0m\]"
+
+    PS1="${green}@\u${reset} "
+    PS1="${PS1}${yellow}\W${reset} "
+
+    if ! git_loc="$(type -p "$git_command_name")" || [ -z "$git_loc" ]; then
+		if [ -d .git ] || git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+			PS1="${PS1}${green}in $(git symbolic-ref --short HEAD)${reset} "
+		fi
+	fi
+
+    PS1="${PS1}${magenta}~>${reset} "
+}
+
+PROMPT_COMMAND=prompt
