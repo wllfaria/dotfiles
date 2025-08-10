@@ -78,16 +78,6 @@ vim.keymap.set("n", "<leader>[", function()
   vim.cmd.cprev()
 end)
 
-vim.keymap.set("n", "-", function()
-  local ok, _ = pcall(require, "oil")
-
-  if ok then
-    vim.cmd("Oil")
-  else
-    vim.cmd("Ex")
-  end
-end)
-
 vim.keymap.set("n", "K", function()
   vim.lsp.buf.hover()
 end)
@@ -97,8 +87,7 @@ vim.keymap.set("n", "gd", function()
 end)
 
 vim.keymap.set("n", "<leader>vca", function()
-  require("tiny-code-action").code_action()
-  --   vim.lsp.buf.code_action()
+  vim.lsp.buf.code_action()
 end)
 
 vim.keymap.set("n", "<leader>vd", function()
@@ -123,8 +112,4 @@ end)
 
 vim.keymap.set("n", "<leader>dr", function()
   vim.diagnostic.reset()
-end)
-
-vim.keymap.set("n", "<leader>i", function()
-  vim.cmd("ToggleInlayHints")
 end)

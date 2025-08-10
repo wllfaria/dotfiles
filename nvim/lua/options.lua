@@ -1,20 +1,20 @@
 vim.opt.confirm = true
 vim.opt.mouse = ""
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.grepprg = "rg --vimgrep --no-heading"
 vim.opt.list = false
 vim.opt.guicursor = ""
-vim.opt.colorcolumn = "100"
+vim.opt.colorcolumn = "0"
 
-vim.opt.number = true
+vim.opt.number = false
+vim.opt.relativenumber = false
 vim.opt.completeopt = "menu,menuone,noinsert"
-vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.backup = false
 vim.opt.swapfile = false
 
-vim.opt.showmode = false
+vim.opt.showmode = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -28,7 +28,7 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "no"
 
 vim.opt.updatetime = 50
 

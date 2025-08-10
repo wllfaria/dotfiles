@@ -1,12 +1,11 @@
 local mapping = {
+  c = { "clangd" },
   lua = { "lua_ls" },
   rust = { "rust_analyzer" },
   javascript = { "ts_ls", "eslint" },
   typescript = { "ts_ls", "eslint" },
-  typescriptreact = { "ts_ls", "tailwind", "eslint" },
-  javascriptreact = { "ts_ls", "tailwind", "eslint" },
-  json = { "jsonls" },
-  jsonc = { "jsonls" },
+  typescriptreact = { "ts_ls", "eslint" },
+  javascriptreact = { "ts_ls", "eslint" },
 }
 
 local augroup = vim.api.nvim_create_augroup("lsp", { clear = true })

@@ -11,14 +11,13 @@
   "workspace": {
     "checkThirdParty": false,
     "library": [
-      // Runtime and builtin libraries.
       "$VIMRUNTIME/lua",
       "${3rd}/luv/library",
-      // Include some plugins for API completion.
-      "$XDG_DATA_HOME/nvim/lazy/blink.cmp/lua",
-      "$XDG_DATA_HOME/nvim/lazy/flash.nvim/lua",
-      "$XDG_DATA_HOME/nvim/lazy/fzf-lua/lua",
-      "$XDG_DATA_HOME/nvim/lazy/lazy.nvim/lua",
+
+      "$HOME/.local/share/nvim/site/pack/core/core/opt/blink.cmp/lua",
+      "$HOME/.local/share/nvim/site/pack/core/core/opt/conform.nvim/lua",
+      "$HOME/.local/share/nvim/site/pack/core/core/opt/oil.nvim/lua",
+      "$HOME/.local/share/nvim/site/pack/core/core/opt/fzf-lua/lua",
     ],
   },
 }

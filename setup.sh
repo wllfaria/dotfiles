@@ -72,14 +72,16 @@ maybe_install_git() {
 
 maybe_install_neovim() {
     if ! command -v "nvim" >/dev/null 2>&1; then
+        local pwd=$(pwd)
         rm -rf ~/neovim
         git clone https://github.com/neovim/neovim ~/neovim
         cd ~/neovim
         mkdir -p ~/.local/bin
-        git checkout stable
+        # git checkout stable
         make CMAKE_BUILD_TYPE=RelWithDebInfo
         make CMAKE_INSTALL_PREFIX="$HOME/.local" install
         rm -rf ~/neovim
+        cd $pwd
     fi
 }
 
@@ -135,7 +137,7 @@ maybe_install_utils() {
     done
 
     if ! command_exists "luacheck"; then
-        luarocks install luacheck
+        sudo luarocks install luacheck
     fi
 }
 
@@ -199,6 +201,7 @@ set_common_symlinks() {
     tmux_sessionizer_fish="$HOME/.local/bin/tmux-sessionizer.fish"
     vimrc="$HOME/.vimrc"
     zshrc="$HOME/.zshrc"
+    bashrc="$HOME/.bashrc"
     ghostty="$HOME/.config/ghostty"
     gitui="$HOME/.config/gitui"
     fish="$HOME/.config/fish"
@@ -212,6 +215,7 @@ set_common_symlinks() {
     [ -e "$tmux_sessionizer_fish" ] && rm -f "$tmux_sessionizer_fish"
     [ -e "$vimrc" ] && rm -f "$vimrc"
     [ -e "$zshrc" ] && rm -f "$zshrc"
+    [ -e "$bashrc" ] && rm -f "$bashrc"
     [ -e "$ghostty" ] && rm -f "$ghostty"
     [ -e "$gitui" ] && rm -rf "$gitui"
     [ -e "$fish" ] && rm -rf "$fish"
@@ -225,6 +229,7 @@ set_common_symlinks() {
     ln -sf ~/dotfiles/tmux-sessionizer.fish "$tmux_sessionizer_fish"
     ln -sf ~/dotfiles/.vimrc "$vimrc"
     ln -sf ~/dotfiles/.zshrc "$zshrc"
+    ln -sf ~/dotfiles/.bashrc "$bashrc"
     ln -sf ~/dotfiles/ghostty "$ghostty"
     ln -sf ~/dotfiles/gitui "$gitui"
     ln -sf ~/dotfiles/fish "$fish"

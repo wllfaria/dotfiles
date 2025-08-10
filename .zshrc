@@ -62,7 +62,6 @@ export GPG_TTY=$(tty)
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export ZIG_GLOBAL_CACHE_DIR="$HOME/.zig-cache"
-export DISPLAY=192.168.176.1:0
 export MANPAGER="nvim -c 'Man!' -o -"
 
 alias ls="eza --icons=always"
@@ -70,7 +69,6 @@ alias paru="paru --bottomup --skipreview"
 alias v="nvim"
 alias l="ls -l"
 alias hx="helix"
-# alias cat="bat -p"
 
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
@@ -88,5 +86,7 @@ export WSLENV=ANDROID_HOME/p
 
 # moonbit
 export PATH="$HOME/.moon/bin:$PATH"
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 alias claude="/home/wiru/.claude/local/claude"
