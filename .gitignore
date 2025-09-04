@@ -2,3 +2,8 @@
 tmux/plugins
 *.so
 *.un~
+emacs/eln-cache
+emacs/elpa
+emacs/etc
+emacs/tmp
+emacs/var
