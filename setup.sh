@@ -193,6 +193,7 @@ set_common_symlinks() {
     rm -f ~/.vimrc
 
     nvim="$HOME/.config/nvim"
+    nvim="$HOME/.config/emacs"
     vim="$HOME/.config/vim"
     tmux="$HOME/.config/tmux"
     loc_git="$HOME/.local/bin/loc-git"
@@ -207,6 +208,7 @@ set_common_symlinks() {
     btop="$HOME/.config/btop"
 
     [ -e "$nvim" ] && rm -rf "$nvim"
+    [ -e "$emacs" ] && rm -rf "$emacs"
     [ -e "$vim" ] && rm -rf "$vim"
     [ -e "$tmux" ] && rm -rf "$tmux"
     [ -e "$loc_git" ] && rm -f "$loc_git"
@@ -221,6 +223,7 @@ set_common_symlinks() {
     [ -e "$btop" ] && rm -rf "$btop"
 
     ln -sf ~/dotfiles/nvim "$nvim"
+    ln -sf ~/dotfiles/emacs "$emacs"
     ln -sf ~/dotfiles/vim "$vim"
     ln -sf ~/dotfiles/tmux "$tmux"
     ln -sf ~/dotfiles/loc-git "$loc_git"
