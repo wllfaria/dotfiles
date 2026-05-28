@@ -1,9 +1,5 @@
 # Vague for Ghostty
-# -------------------
-# Theme Author: vague2k <ilovedrawing056@gmail.com>
-# Ported by:	skewb1k <skewb1kunix@gmail.com>
-# License:  	MIT License
-# Upstream: 	https://github.com/vague2k/vague.nvim/blob/main/extras/ghostty/vague
+# Upstream: https://github.com/vague-theme/vague-ghostty/blob/main/vague
 
 palette = 0=#252530
 palette = 1=#d8647e
@@ -21,9 +17,10 @@ palette = 12=#8ba9c1
 palette = 13=#c9b1ca
 palette = 14=#bebeda
 palette = 15=#d7d7d7
-
 background = #141415
 foreground = #cdcdcd
-cursor-color = #cdcdcd
+cursor-color = cell-foreground
+cursor-text = cell-background
 selection-background = #252530
 selection-foreground = #cdcdcd
+split-divider-color = #878787

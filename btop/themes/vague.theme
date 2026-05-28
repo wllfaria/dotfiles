@@ -1,0 +1,57 @@
+# vague btop theme
+# https://github.com/aristocratos/btop
+
+theme[main_bg]="#141415"
+theme[main_fg]="#cdcdcd"
+theme[title]="#cdcdcd"
+theme[hi_fg]="#f3be7c"
+theme[selected_bg]="#252530"
+theme[selected_fg]="#c3c3d5"
+theme[inactive_fg]="#606079"
+theme[graph_text]="#878787"
+theme[meter_bg]="#252530"
+theme[proc_misc]="#606079"
+
+# Box outlines
+theme[cpu_box]="#606079"
+theme[mem_box]="#606079"
+theme[net_box]="#606079"
+theme[proc_box]="#606079"
+theme[div_line]="#606079"
+
+# Temperature
+theme[temp_start]="#7e98e8"
+theme[temp_mid]="#f3be7c"
+theme[temp_end]="#d8647e"
+
+# CPU
+theme[cpu_start]="#7fa563"
+theme[cpu_mid]="#7fa563"
+theme[cpu_end]="#7fa563"
+
+# Memory/Disk bars
+theme[free_start]="#606079"
+theme[free_mid]="#7fa563"
+theme[free_end]="#7fa563"
+theme[cached_start]="#7e98e8"
+theme[cached_mid]="#7e98e8"
+theme[cached_end]="#7e98e8"
+theme[available_start]="#f3be7c"
+theme[available_mid]="#f3be7c"
+theme[available_end]="#f3be7c"
+theme[used_start]="#d8647e"
+theme[used_mid]="#d8647e"
+theme[used_end]="#d8647e"
+
+# Network
+theme[upload_start]="#bb9dbd"
+theme[upload_mid]="#bb9dbd"
+theme[upload_end]="#bb9dbd"
+theme[download_start]="#6e94b2"
+theme[download_mid]="#6e94b2"
+theme[download_end]="#6e94b2"
+
+# Process list
+theme[process_start]="#aeaed1"
+theme[process_mid]="#aeaed1"
+theme[process_end]="#aeaed1"

@@ -1,4 +1,4 @@
-font-family = JetBrainsMono Nerd Font
+# font-family = JetBrainsMono Nerd Font
 font-family = TX-02
 
 font-thicken = true
@@ -22,6 +22,3 @@ window-padding-x = 8
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
-
-
-# custom-shader = shaders/crt.glsl
